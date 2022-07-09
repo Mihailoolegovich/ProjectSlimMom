@@ -1,0 +1,52 @@
+body {
+  color: $primary-color;
+  background: $background-color;
+  font-family: $font-family-Montserrat;
+}
+//    Style none
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+//    Container
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+  min-width: 320px;
+  @media screen and (min-width: 480px) {
+    & {
+      width: 480px;
+      // margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    & {
+      width: 768px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    & {
+      width: 1200px;
+    }
+  }
+}
