@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/ProjectSlimMom/static/css/main.badd870e.css",
-    "main.js": "/ProjectSlimMom/static/js/main.67ed8dd9.js",
-    "index.html": "/ProjectSlimMom/index.html",
-    "main.badd870e.css.map": "/ProjectSlimMom/static/css/main.badd870e.css.map",
-    "main.67ed8dd9.js.map": "/ProjectSlimMom/static/js/main.67ed8dd9.js.map"
+    "main.css": "/Weightbusters/static/css/main.badd870e.css",
+    "main.js": "/Weightbusters/static/js/main.67ed8dd9.js",
+    "index.html": "/Weightbusters/index.html",
+    "main.badd870e.css.map": "/Weightbusters/static/css/main.badd870e.css.map",
+    "main.67ed8dd9.js.map": "/Weightbusters/static/js/main.67ed8dd9.js.map"
   },
   "entrypoints": [
     "static/css/main.badd870e.css",
