@@ -2,7 +2,7 @@
   "name": "Weightbusters",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Mihailoolegovich.github.io/Weightbusters/",
+  // "homepage": "https://Mihailoolegovich.github.io/Weightbusters/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@tanstack/react-table": "^8.2.2",
