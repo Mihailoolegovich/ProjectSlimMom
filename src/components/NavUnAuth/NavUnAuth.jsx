@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import routes from '../../routes';
-import styles from './NavNotAuth.module.scss';
+import styles from './NavUnAuth.module.scss';
 
 export default function NavNotAuth() {
   const navLinks = useMemo(() => routes.filter(route => route.isLogBar), []);
