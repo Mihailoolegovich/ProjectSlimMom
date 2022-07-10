@@ -9,10 +9,11 @@
     transition: $cubic;
 
     & a:first-child {
-        margin-right: 14px;
+        margin-right: 16px;
     }
 
     @include for-size(desktop) {
+        
         border-left: 2px solid $light-gray;
         height: 32px;
         @include flexbox;

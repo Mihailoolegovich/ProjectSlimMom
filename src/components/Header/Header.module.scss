@@ -22,7 +22,7 @@
 
     @include for-size(desktop) {
         justify-content: start;
-        padding: 79px 129px 20px 90px;
+        padding: 75px 132px 20px 75px;
 
         &:after {
             content: '';
@@ -35,7 +35,7 @@
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 300;
+    z-index: 200;
 
     @include for-size(tablet) {}
 

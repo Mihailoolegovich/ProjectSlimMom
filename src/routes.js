@@ -45,7 +45,7 @@ const routes = [
   {
     exact: false,
     path: '/login',
-    label: 'Login',
+    label: 'Sign In',
     component: LoginPage,
     isProtected: false,
     isLogBar: true,

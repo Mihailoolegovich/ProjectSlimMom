@@ -15,7 +15,7 @@ export default function NavNotAuth() {
         <NavLink
           key={uuidv4()}
           to={link.path}
-          exact
+          exact="true"
           className={styles.enter}
           activeClassName={styles.activeEnter}
         >
