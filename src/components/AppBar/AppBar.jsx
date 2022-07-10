@@ -1,23 +1,14 @@
 // import { useSelector } from 'react-redux';
 import { NavLink, Outlet } from 'react-router-dom';
-
+import Logo from '../Logo';
 const AppBar = () => {
   //   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   return (
     <>
       <header>
+        <Logo />
         <nav>
           <div>
-            <NavLink to="/">
-              <img
-                src={require('../../icons/logoMobile.png')}
-                alt="logo"
-                style={{
-                  width: '47px',
-                  height: '44px',
-                }}
-              />
-            </NavLink>
             {/* {isLoggedIn ? */}
             <>
               <NavLink to="/login">Sign in</NavLink>
@@ -31,7 +22,6 @@ const AppBar = () => {
 
             {/* } */}
           </div>
-         
         </nav>
       </header>
       <Outlet />
