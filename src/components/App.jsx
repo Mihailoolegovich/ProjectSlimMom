@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import AppBar from './AppBar/AppBar';
+import Header from './Header';
 
 import {
   LoginPage,
@@ -12,7 +13,7 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<AppBar />}>
+        <Route path="/" element={<Header />}>
           <Route index element={<HomePage />} />
 
           {/* {isLoggedIn ? ( */}
