@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './sass/main.css';
+import './sass/main.scss';
 import { Provider } from 'react-redux';
 import store from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';

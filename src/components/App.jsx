@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import AppBar from './AppBar/AppBar';
 import Header from './Header';
 
 import {
@@ -12,24 +11,14 @@ import {
 export const App = () => {
   return (
     <div>
+      <Header />
       <Routes>
-        <Route path="/" element={<Header />}>
-          <Route index element={<HomePage />} />
-
-          {/* {isLoggedIn ? ( */}
-          <>
-            <Route path="login" element={<LoginPage />} />
-            <Route path="registration" element={<RegistrationPage />} />
-          </>
-          {/* ) : ( */}
-
-          <>
-            <Route path="diary" element={<DiaryPage />} />
-            <Route path="calculator" element={<CalculatorPage />} />
-          </>
-          {/* )} */}
-          <Route path="*" element={<HomePage />} />
-        </Route>
+        {/* <Route path="/" element={<HomePage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="registration" element={<RegistrationPage />} />
+        <Route path="diary" element={<DiaryPage />} />
+        <Route path="calculator" element={<CalculatorPage />} />
+        <Route path="*" element={<HomePage />} /> */}
       </Routes>
     </div>
   );
