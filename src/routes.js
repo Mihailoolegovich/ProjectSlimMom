@@ -1,0 +1,68 @@
+import { lazy } from 'react';
+const HomePage = lazy(() => import('./pages/HomePage'));
+const LoginPage = lazy(() =>
+  import('./pages/LoginPage' /*webpackChunkName: "login-page" */)
+);
+const RegisterPage = lazy(() =>
+  import('./pages/RegisterPage' /*webpackChunkName: "registration-page" */)
+);
+const DiaryPage = lazy(() =>
+  import('./pages/DiaryPage' /*webpackChunkName: "diary-page" */)
+);
+
+const CalculatorPage = lazy(() =>
+  import('./pages/CalculatorPage' /*webpackChunkName: "calculator-page" */)
+);
+// const Page404 = lazy(() =>
+//   import('./pages/Page404' /*webpackChunkName: "404-page" */)
+// );
+
+const routes = [
+  {
+    exact: true,
+    path: '/',
+    component: HomePage,
+    isProtected: false,
+    redirectTo:
+      localStorage.getItem('user') !== null ? '/diary' : '/calculator',
+  },
+  {
+    path: '/diary',
+    component: DiaryPage,
+    label: 'Diary',
+    isProtected: true,
+    isNav: true,
+    redirectTo: '/login',
+  },
+  {
+    path: '/calculator',
+    component: CalculatorPage,
+    label: 'Calculator',
+    isProtected: true,
+    isNav: true,
+    redirectTo: '/login',
+  },
+  {
+    exact: false,
+    path: '/login',
+    label: 'Sign In',
+    component: LoginPage,
+    isProtected: false,
+    isLogBar: true,
+    redirectTo: '/diary',
+  },
+  {
+    exact: false,
+    path: '/register',
+    label: 'Registration',
+    component: RegisterPage,
+    isProtected: false,
+    isLogBar: true,
+    redirectTo: '/diary',
+  },
+  //   {
+  //     component: Page404,
+  //     isProtected: null,
+  //   },
+];
+export default routes;
