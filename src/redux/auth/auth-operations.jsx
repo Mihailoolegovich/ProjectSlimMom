@@ -13,7 +13,7 @@ const token = {
   },
 };
 
-const register = credentials => async dispatch => {
+export const register = credentials => async dispatch => {
   dispatch(authSlice.actions.registerRequest());
 
   try {
@@ -27,7 +27,7 @@ const register = credentials => async dispatch => {
   }
 };
 
-const logIn = credentials => async dispatch => {
+export const logIn = credentials => async dispatch => {
   dispatch(authSlice.actions.loginRequest());
 
   try {
@@ -41,7 +41,7 @@ const logIn = credentials => async dispatch => {
   }
 };
 
-const logOut = () => async dispatch => {
+export const logOut = () => async dispatch => {
   dispatch(authSlice.actions.logoutRequest());
 
   try {
@@ -56,4 +56,4 @@ const logOut = () => async dispatch => {
   }
 };
 
-export default { register, logIn, logOut };
+// export default { register, logIn, logOut };

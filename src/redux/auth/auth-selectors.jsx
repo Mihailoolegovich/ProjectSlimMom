@@ -1,9 +1,9 @@
-const getLoggedOn = state => state.auth.isLoggedOn;
+export const getLoggedOn = state => state.auth.isLoggedOn;
 
-const getUserName = state => state.auth.user.login;
+export const getUserName = state => state.auth.user.login;
 
-const getUserToken = state => state.auth.token;
+export const getUserToken = state => state.auth.token;
 
-const getLoading = state => state.auth.isLoading;
+export const getLoading = state => state.auth.isLoading;
 
-export default { getLoggedOn, getUserName, getUserToken, getLoading };
+// export default { getLoggedOn, getUserName, getUserToken, getLoading };
