@@ -26,7 +26,6 @@ export default function Header() {
         <Nav>
           <NavNotAuth />
         </Nav>
-        <Logo />
         <Nav>
           {' '}
           <NavAuth />{' '}

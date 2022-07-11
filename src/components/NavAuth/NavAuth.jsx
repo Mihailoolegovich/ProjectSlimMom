@@ -42,9 +42,9 @@ export default function NavAuth() {
           <NavLink
             key={uuidv4()}
             to={link.path}
-            exact={true}
+            exact="true"
             className={styles.enter}
-            activeClassName={styles.activeEnter}
+            activeclassname={styles.activeEnter}
           >
             {link.label}
           </NavLink>
