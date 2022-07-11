@@ -12,6 +12,7 @@ import {
 export const App = () => {
   return (
     <div>
+      
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<HomePage />} />
@@ -22,6 +23,7 @@ export const App = () => {
             <Route path="registration" element={<RegistrationPage />} />
           </>
           {/* ) : ( */}
+
 
           <>
             <Route path="diary" element={<DiaryPage />} />

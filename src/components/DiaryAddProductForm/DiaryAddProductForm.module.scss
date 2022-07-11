@@ -1,1 +1,60 @@
-@import "../../sass/base/variables"
+@import "../../sass/base/variables";
+@import "../../sass/base/BaseStyles.scss";
+
+
+
+.diaryForm{
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+width: 503px;
+background-color: $primary-bg-color;
+margin: 0 0 60px 0;
+
+};
+
+.diaryInput{
+    position: relative;
+    padding: 0 0 20px 0;
+    color: $secondary-text-color;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+    outline: none;
+    text-align: right;
+    background-color: $primary-bg-color;
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    &::placeholder{color: $secondary-text-color;}
+
+    &:first-child{
+        margin-right: 48px;
+        text-align: left;
+        width: 240px;
+    }
+    &:last-of-type{
+        width: 107px;
+        margin-right: 60px
+    }
+};
+
+
+
+.diaryButton{
+    height: 48px;
+     width: 48px;
+     background-image: url(../../icons/addBtnIcon.png);
+     background-repeat: no-repeat;
+     background-position: 15px 14px;
+    background-color: $accent-color;
+    color: $accent-text-color;
+    display: block;
+    @include font(700, 14px, 1.21);
+    border: 2px solid transparent;
+    cursor: pointer;
+  
+    border-radius: 50%;
+    transition: $cubic;
+
+    &:hover {
+        border: 2px solid $accent-color;
+        box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    }
+}
