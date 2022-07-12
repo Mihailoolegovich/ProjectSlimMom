@@ -3,6 +3,9 @@ import apiService from '../../services/service-api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { authSlice } from '.';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+
+axios.defaults.baseURL = 'https://health-base-api.herokuapp.com';
 
 const token = {
   set(token) {
@@ -13,19 +16,16 @@ const token = {
   },
 };
 
-const register = credentials => async dispatch => {
-  dispatch(authSlice.actions.registerRequest());
-
+const register = createAsyncThunk('auth/register', async credentials => {
   try {
-    const { data } = await apiService.registerUser(credentials);
-    token.set(data.user.token);
-    dispatch(authSlice.actions.registerSuccess(data));
+    const { data } = await axios.post('/auth/signup', credentials);
+    token.set(data.token);
+    console.log(data);
+    return data;
   } catch (error) {
-    const err = error?.response?.data?.message || error?.response?.data?.status;
-    toast.error(err);
-    dispatch(authSlice.actions.registerError(err));
+    console.log(error.message);
   }
-};
+});
 
 const logIn = credentials => async dispatch => {
   dispatch(authSlice.actions.loginRequest());
@@ -56,4 +56,9 @@ const logOut = () => async dispatch => {
   }
 };
 
-export default { register, logIn, logOut };
+const authOperations = {
+  register,
+  logIn,
+  logOut,
+};
+export default authOperations;
