@@ -14,12 +14,12 @@ export const App = () => {
       <Header />
       <Routes>
         <Route path="register" element={<RegistrationPage />} />
-        {/* <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="registration" element={<RegistrationPage />} />
         <Route path="diary" element={<DiaryPage />} />
         <Route path="calculator" element={<CalculatorPage />} />
-        <Route path="*" element={<HomePage />} /> */}
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </div>
   );
