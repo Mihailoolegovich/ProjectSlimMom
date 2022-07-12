@@ -1,68 +1,101 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import authOperations from '../redux/auth/auth-operations';
+import { Link } from 'react-router-dom';
+
+const s = {
+  label: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: 10,
+  },
+  input: {
+    display: 'block',
+    // alignItems: 'center',
+    height: 30,
+    width: 200,
+    borderRadius: 5,
+    marginBottom: 15,
+    marginTop: 10,
+    // marginRight: 'auto',
+    // marginLeft: 'auto',
+    border: 'none',
+  },
+  title: {
+    marginBottom: 20,
+    marginTop: 150,
+  },
+  button: {
+    fontWeight: 'bold',
+    borderRadius: 5,
+    marginTop: 5,
+    marginBottom: 10,
+    height: 35,
+    width: 130,
+    backgroundColor: 'rgb(216, 174, 245)',
+    border: 'none',
+    cursor: 'pointer',
+  },
+};
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [checked, setChecked] = useState(false);
 
-  useEffect(() => {
-    const passInput = document.getElementById('loginPass');
-    checked ? (passInput.type = 'text') : (passInput.type = 'password');
-  }, [checked]);
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
+  };
 
-  function handleChange(e) {
-    const { name, value } = e.currentTarget;
-
-    name === 'email' && setEmail(value);
-    name === 'password' && setPassword(value);
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
-    const data = { email, password };
-    console.log('data on Login', data);
-  }
+    dispatch(authOperations.logIn({ email, password }));
+    setEmail('');
+    setPassword('');
+  };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div>
+      <h2 style={s.title}>SIGN IN</h2>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <label style={s.label}>
           Email
           <input
-            onChange={handleChange}
+            style={s.input}
             type="email"
             name="email"
             value={email}
+            onChange={handleChange}
             required
           />
         </label>
-        <label>
+
+        <label style={s.label}>
           Password
           <input
-            onChange={handleChange}
+            style={s.input}
             type="password"
             name="password"
-            minLength="7"
             value={password}
-            id="loginPass"
+            onChange={handleChange}
+            minLength={6}
             required
           />
         </label>
-        <div>
-          <label>
-            <input
-              style={{ margin: '10px' }}
-              type="checkbox"
-              checked={checked}
-              onChange={e => setChecked(e.target.checked)}
-            />
-          </label>
-          <p> Show Password</p>
-        </div>
-        <button type="submit" name="button">
+        <button type="submit" style={s.button}>
           Login
         </button>
+        <button ><Link to="/register">Register</Link>
+          
+        </button>
       </form>
-    </>
+    </div>
   );
 }
