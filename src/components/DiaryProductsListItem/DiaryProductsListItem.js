@@ -1,17 +1,24 @@
-import { useDispatch } from "react-redux"
-import { deleteProduct } from "redux/products/products-operations"
+import { useDispatch } from 'react-redux';
+import EllipsisText from 'react-ellipsis-text/lib/components/EllipsisText';
+import { deleteProduct } from 'redux/products/products-operations';
+import s from './DiaryProductsListItem.module.scss';
 
 const DiaryProductsListItem = ({ id, title, weight, calories }) => {
-    const dispath = useDispatch()
+  const dispath = useDispatch();
 
-    return (
-        <li>
-            <span>{title}</span>
-            <span>{weight} g</span>
-            <span>{ calories} kcal</span>
-            <button onClick={()=> dispath(deleteProduct(id))}>delete</button>
-        </li>
-    )
-}
+  return (
+    <li className={s.listItem}>
+      <span className={s.listItem_el}>
+        <EllipsisText text={title} length={20} />
+      </span>
+      <span className={s.listItem_el}>{weight} g</span>
+      <span className={s.listItem_el}>{calories} kcal</span>
+      <button
+        className={s.listItem_btn}
+        onClick={() => dispath(deleteProduct(id))}
+      ></button>
+    </li>
+  );
+};
 
-export default DiaryProductsListItem
+export default DiaryProductsListItem;

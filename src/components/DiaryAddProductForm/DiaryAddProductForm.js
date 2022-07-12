@@ -1,32 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './DiaryAddProductForm.module.scss';
-
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
+import useDebounce from 'hooks/useDebounce';
+import DiaryDataList from './DiaryDataList';
+import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
 const DiaryAddProductForm = () => {
   const [product, setProduct] = useState('');
-  const [grams, setGrams] = useState('');
+  const [weight, setWeight] = useState('');
+  const [datalistVisible, setDataListVisible] = useState(true);
+
+  const products = useSelector(ProductsSelectors.getProducts);
+  const isLoaded = useSelector(ProductsSelectors.isLoaded);
+  const dispatch = useDispatch();
+
+  const search = useDebounce(product, 500);
 
   const resetForm = () => {
     setProduct('');
-    setGrams('');
+    setWeight('');
   };
 
+  useEffect(() => {
+    if (search) {
+      dispatch(fetchProducts(search));
+    }
+  }, [search, dispatch]);
+
   const handleChange = e => {
-    const { name, value } = e.currentTarget;
+    const { name, value } = e.target;
     name === 'product' && setProduct(value);
-    name === 'grams' && setGrams(value);
+    name === 'product' && setDataListVisible(true);
+    name === 'weight' && setWeight(value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const data = { product, grams };
-    console.log('Product:', data);
+    const data = { product, weight };
+    dispatch(addProduct(data));
     resetForm();
+  };
+
+  const handleClick = e => {
+    setProduct(e.currentTarget.textContent);
+    setDataListVisible(false);
   };
 
   return (
@@ -34,14 +51,34 @@ const DiaryAddProductForm = () => {
       <input
         className={s.diaryInput}
         onChange={handleChange}
-        type="number"
+        type="text"
+        placeholder="Enter product name"
+        name="product"
+        value={product}
+        autoComplete="off"
+        autoSave="off"
+        maxLength={250}
+        required
+      />
+
+      <input
+        className={s.diaryInput}
+        onInput={handleChange}
+        type="tel"
         placeholder="Grams"
-        name="grams"
-        value={grams}
+        name="weight"
+        pattern="[0-9]+"
+        value={weight}
+        maxLength={4}
+        autoComplete="off"
+        autoSave="off"
         required
       />
 
       <button className={s.diaryButton} type="submit"></button>
+      {isLoaded && datalistVisible && (
+        <DiaryDataList productList={products} handleClick={handleClick} />
+      )}
     </form>
   );
 };

@@ -7,10 +7,17 @@ import {
 
 const productsSlice = createSlice({
   name: 'products',
-  initialState: [],
+  initialState: {
+    productsList: [],
+    isLoaded: false,
+  },
   extraReducers: {
     [fetchProducts.fulfilled]: (state, { payload }) => {
-      return (state = [...payload]);
+      state.isLoaded = true
+      state.productsList = [...payload];
+    },
+    [fetchProducts.pending]: (state) => {
+     state.isLoaded= false;
     },
     [addProduct.fulfilled]: (state, { payload }) => {
       return (state = [...state, payload]);

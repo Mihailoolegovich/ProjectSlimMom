@@ -4,16 +4,23 @@
 
 
 .diaryForm{
+    
 display: grid;
+position: relative;
 grid-template-columns: repeat(3, 1fr);
-width: 503px;
 background-color: $primary-bg-color;
-margin: 0 0 60px 0;
+   
+@include for-size(tablet){
+    width: 503px;
+    margin: 0 0 60px 0;
+}
+    @include for-size(desktop){
+    width: 503px;
+    margin: 0 0 60px 0;}
 
 };
 
 .diaryInput{
-    position: relative;
     padding: 0 0 20px 0;
     color: $secondary-text-color;
     border: none;
@@ -28,10 +35,22 @@ margin: 0 0 60px 0;
         margin-right: 48px;
         text-align: left;
         width: 240px;
+        @include for-size(tablet){
+            margin-right: 22px;
+        }
+        @include for-size(desktop){
+            margin-right: 48px;
+        }
     }
     &:last-of-type{
         width: 107px;
-        margin-right: 60px
+        margin-right: 60px;
+         @include for-size(tablet){
+            margin-right: 87px;
+        }
+        @include for-size(desktop){
+            margin-right: 60px;
+        }
     }
 };
 
@@ -42,7 +61,8 @@ margin: 0 0 60px 0;
      width: 48px;
      background-image: url(../../icons/addBtnIcon.png);
      background-repeat: no-repeat;
-     background-position: 15px 14px;
+     background-position: 15px 15px;
+     background-size: 13.5px 13.5px;
     background-color: $accent-color;
     color: $accent-text-color;
     display: block;
@@ -56,5 +76,49 @@ margin: 0 0 60px 0;
     &:hover {
         border: 2px solid $accent-color;
         box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    }
+}
+
+
+.dataContainer{
+    position: absolute;
+    top: 48px;
+    width: 240px;
+    background-color: $primary-bg-color;
+    max-height: 150px;
+    overflow-y: scroll;
+    z-index: 100;
+    &::-webkit-scrollbar{
+    width: 6px;
+	background-color: $secondary-bg-color;}
+    &::-webkit-scrollbar-track{
+	background-color: $secondary-bg-color;}
+    &::-webkit-scrollbar-thumb {
+  background: $decorative-color;
+  width: 6px;
+  height: 40px;
+}
+}
+
+.active{display:block}
+
+
+.dataList{
+width: 100%;
+}
+
+.dataListItem{
+    color: $secondary-text-color;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+    outline: none;
+    padding: 10px 0 10px 0;
+    text-align: left;
+    background-color: $secondary-bg-color;
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    transition: $cubic;
+    &:hover,
+    &:focus{
+        background-color: $primary-bg-color;
     }
 }
