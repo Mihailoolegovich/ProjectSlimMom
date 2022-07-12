@@ -8,7 +8,7 @@ const initialUserState = {
   isLoading: false,
 };
 
-export const { actions, reducer } = createSlice({
+const { actions, reducer } = createSlice({
   name: 'auth',
   initialState: initialUserState,
   reducers: {
@@ -70,4 +70,4 @@ export const { actions, reducer } = createSlice({
 });
 
 // eslint-disable-next-line
-// export default { actions, reducer };
+export default { actions, reducer };

@@ -6,4 +6,4 @@ const getUserToken = state => state.auth.token;
 
 const getLoading = state => state.auth.isLoading;
 
-export { getLoggedOn, getUserName, getUserToken, getLoading };
+export default { getLoggedOn, getUserName, getUserToken, getLoading };
