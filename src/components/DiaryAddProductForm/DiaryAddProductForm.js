@@ -8,7 +8,7 @@ import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 const DiaryAddProductForm = () => {
   const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
-  const [datalistVisible, setDataListVisible] = useState(true);
+  const [datalistVisible, setDataListVisible] = useState(false);
 
   const products = useSelector(ProductsSelectors.getProducts);
   const isLoaded = useSelector(ProductsSelectors.isLoaded);

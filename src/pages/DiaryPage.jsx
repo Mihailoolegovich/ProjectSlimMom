@@ -2,8 +2,16 @@ import DiaryAddProductForm from '../components/DiaryAddProductForm/DiaryAddProdu
 import DiaryProductsList from "../components/DiaryProductsList/DiaryProductsList";
 
 export default function DiaryPage() {
-  return <>
-    <DiaryAddProductForm />
-    <DiaryProductsList />
-  </>;
+  return (
+    <div  style={{
+      width: '60%',
+      marginTop: '150px',
+      padding: "16px",
+      paddingBottom: "56px"
+              
+            }}>
+      <DiaryAddProductForm />
+      <DiaryProductsList />
+    </div>)
+   
 }
