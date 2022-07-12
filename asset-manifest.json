@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Weightbusters/static/css/main.75eaa145.css",
-    "main.js": "/Weightbusters/static/js/main.006206d2.js",
+    "main.js": "/Weightbusters/static/js/main.f8d858b8.js",
     "static/media/Verdana.eot": "/Weightbusters/static/media/Verdana.f8a6ae8c52c671827641.eot",
     "static/media/Verdana-Bold.eot": "/Weightbusters/static/media/Verdana-Bold.bd701c1820d5b086f868.eot",
     "static/media/Verdana.ttf": "/Weightbusters/static/media/Verdana.75b1747643e006badf6e.ttf",
@@ -23,10 +23,10 @@
     "index.html": "/Weightbusters/index.html",
     "static/media/arrowBack.svg": "/Weightbusters/static/media/arrowBack.822317d3ab5586ebb7046962fd75a06b.svg",
     "main.75eaa145.css.map": "/Weightbusters/static/css/main.75eaa145.css.map",
-    "main.006206d2.js.map": "/Weightbusters/static/js/main.006206d2.js.map"
+    "main.f8d858b8.js.map": "/Weightbusters/static/js/main.f8d858b8.js.map"
   },
   "entrypoints": [
     "static/css/main.75eaa145.css",
-    "static/js/main.006206d2.js"
+    "static/js/main.f8d858b8.js"
   ]
 }
