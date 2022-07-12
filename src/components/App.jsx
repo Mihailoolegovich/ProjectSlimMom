@@ -10,7 +10,7 @@ import {
 } from 'pages';
 export const App = () => {
   return (
-    <div>
+    <div className="main-container">
       <Header />
       <Routes>
         {/* <Route path="/" element={<HomePage />} />
