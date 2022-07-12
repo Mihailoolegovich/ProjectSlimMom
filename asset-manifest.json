@@ -1,13 +1,32 @@
 {
   "files": {
-    "main.css": "/Weightbusters/static/css/main.badd870e.css",
-    "main.js": "/Weightbusters/static/js/main.67ed8dd9.js",
+    "main.css": "/Weightbusters/static/css/main.75eaa145.css",
+    "main.js": "/Weightbusters/static/js/main.006206d2.js",
+    "static/media/Verdana.eot": "/Weightbusters/static/media/Verdana.f8a6ae8c52c671827641.eot",
+    "static/media/Verdana-Bold.eot": "/Weightbusters/static/media/Verdana-Bold.bd701c1820d5b086f868.eot",
+    "static/media/Verdana.ttf": "/Weightbusters/static/media/Verdana.75b1747643e006badf6e.ttf",
+    "static/media/Verdana-Bold.ttf": "/Weightbusters/static/media/Verdana-Bold.16bef52960b636c89386.ttf",
+    "static/media/Verdana.woff": "/Weightbusters/static/media/Verdana.514b5101c1da90d973fb.woff",
+    "static/media/Verdana.woff2": "/Weightbusters/static/media/Verdana.5c16a83844fe89193e13.woff2",
+    "static/media/Verdana-Bold.woff": "/Weightbusters/static/media/Verdana-Bold.9adb22889a3011bc59fb.woff",
+    "static/media/logo-pic.svg": "/Weightbusters/static/media/logo-pic.4fc7d78428ab2662a33189af4f54d76d.svg",
+    "static/media/Verdana-Bold.woff2": "/Weightbusters/static/media/Verdana-Bold.1d8bc5f9be9f4d1d0cc0.woff2",
+    "static/media/GothamPro-Light.eot": "/Weightbusters/static/media/GothamPro-Light.56916222e0ca73585653.eot",
+    "static/media/GothamPro-Bold.eot": "/Weightbusters/static/media/GothamPro-Bold.eefda20950e42428d5db.eot",
+    "static/media/GothamPro-Bold.ttf": "/Weightbusters/static/media/GothamPro-Bold.eb4c39e5900eb7912e7c.ttf",
+    "static/media/GothamPro-Light.ttf": "/Weightbusters/static/media/GothamPro-Light.818ed9310965871a741b.ttf",
+    "static/media/GothamPro-Bold.woff": "/Weightbusters/static/media/GothamPro-Bold.e8ddda7220a05cf00f1c.woff",
+    "static/media/GothamPro-Light.woff": "/Weightbusters/static/media/GothamPro-Light.1c262bae1f403fe781a2.woff",
+    "static/media/GothamPro-Bold.woff2": "/Weightbusters/static/media/GothamPro-Bold.b9c5d1404c9e2ed632e3.woff2",
+    "static/media/GothamPro-Light.woff2": "/Weightbusters/static/media/GothamPro-Light.a2a52b37266bc749d00c.woff2",
+    "static/media/logo-text.svg": "/Weightbusters/static/media/logo-text.5e489effcb88a9599d62c92b21edb426.svg",
     "index.html": "/Weightbusters/index.html",
-    "main.badd870e.css.map": "/Weightbusters/static/css/main.badd870e.css.map",
-    "main.67ed8dd9.js.map": "/Weightbusters/static/js/main.67ed8dd9.js.map"
+    "static/media/arrowBack.svg": "/Weightbusters/static/media/arrowBack.822317d3ab5586ebb7046962fd75a06b.svg",
+    "main.75eaa145.css.map": "/Weightbusters/static/css/main.75eaa145.css.map",
+    "main.006206d2.js.map": "/Weightbusters/static/js/main.006206d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.badd870e.css",
-    "static/js/main.67ed8dd9.js"
+    "static/css/main.75eaa145.css",
+    "static/js/main.006206d2.js"
   ]
 }
