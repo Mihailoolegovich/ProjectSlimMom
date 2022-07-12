@@ -13,6 +13,7 @@ export const App = () => {
     <div>
       <Header />
       <Routes>
+        <Route path="register" element={<RegistrationPage />} />
         {/* <Route path="/" element={<HomePage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="registration" element={<RegistrationPage />} />
