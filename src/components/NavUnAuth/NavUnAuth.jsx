@@ -17,7 +17,7 @@ export default function NavNotAuth() {
           to={link.path}
           exact="true"
           className={styles.enter}
-          //activeClassName={styles.activeEnter}
+          activeclassname={styles.activeEnter}
         >
           {link.label}
         </NavLink>

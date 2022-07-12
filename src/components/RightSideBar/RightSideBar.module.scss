@@ -1,0 +1,97 @@
+@import '../../sass/base/BaseStyles.scss';
+
+.container {
+  // box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  margin: 0 auto;
+  padding: 40px 15px 84px;
+  background-color: $secondary-bg-color;
+  @include for-size(tablet) {
+    width: 656px;
+    flex-direction: row;
+    padding: 80px 80px 80px 32px;
+    background-image: url('../../images/bgTablet_Sidebar.png');
+    background-repeat: no-repeat;
+    background-position: 400px;
+  }
+  @include for-size(desktop) {
+    width: 288px;
+    padding: 292px 123px 166px 106px;
+    flex-direction: column;
+    background-image: url('../../images/bgDesctop_Sidebar.png');
+    background-repeat: no-repeat;
+    background-position: 12px 36px;
+  }
+}
+
+.summaryForDate {
+  display: flex;
+  flex-direction: column;
+  width: 285px;
+  @include for-size(tablet) {
+    width: 288px;
+  }
+
+  @include for-size(desktop) {
+    margin-bottom: 60px;
+    width: 288px;
+  }
+}
+
+.foodNotRecommend {
+  display: flex;
+  flex-direction: column;
+  @include for-size(tablet) {
+    width: 288px;
+    margin-left: 80px;
+    }
+  @include for-size(desktop) {
+    margin: 0 auto;
+  }
+}
+
+.title {
+  display: flex;
+  margin-bottom: 20px;
+  height: 20px;
+  @include font(700, 14px, 17px, $primary-font, 0.04em);
+  font-style: normal;
+  color: $primary-text-color;
+
+  @include for-size(tablet) {
+    margin-bottom: 40px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  @include for-size(tablet) {
+    height: 112px;
+    margin-bottom: 0;
+    justify-content: space-between;
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.text {
+  display: flex;
+  @include font(400, 14px, 17px, $primary-font, 0.04em);
+  font-style: normal;
+  color: $secondary-text-color;
+}
+
+.foodNotRecommend .text {
+  &:last-child {
+      margin-top: 20px;
+    }
+}
