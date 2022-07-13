@@ -13,5 +13,5 @@ export default function DiaryPage() {
       <DiaryAddProductForm />
       <DiaryProductsList />
     </div>)
-   
+ 
 }
