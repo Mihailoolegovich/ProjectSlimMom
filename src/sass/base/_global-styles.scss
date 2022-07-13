@@ -1,8 +1,27 @@
+@import './BaseStyles.scss';
 body {
   color: $primary-text-color;
   background: $primary-bg-color;
   font-family: $primary-font;
-  margin:0;
+  margin: 0;
+  @include for-size(tablet) {
+    // width: 656px;
+    // flex-direction: row;
+    // padding: 80px 80px 80px 32px;
+    background-image: url('../../images/bgTablet_Home.png');
+    background-repeat: no-repeat;
+    background-position: right 19pc;
+    background-size: 56.8pc;
+  }
+  @include for-size(desktop) {
+    // width: 288px;
+    // padding: 292px 123px 166px 106px;
+    // flex-direction: column;
+    background-image: url('../../images/bgDesctop.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 70pc;
+  }
 }
 //    Style none
 ul,

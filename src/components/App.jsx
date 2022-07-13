@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
-
+import styles from './App.module.scss';
 import {
   LoginPage,
   HomePage,
@@ -10,7 +10,7 @@ import {
 } from 'pages';
 export const App = () => {
   return (
-    <div className="main-container">
+    <div className={styles.mainContainer}>
       <Header />
       <Routes>
         <Route path="register" element={<RegistrationPage />} />

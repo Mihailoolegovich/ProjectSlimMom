@@ -1,2 +1,6 @@
-@import "../sass/base/BaseStyles.scss";
+@import '../sass/base/BaseStyles.scss';
 
+.mainContainer {
+  position: fixed;
+  width: 100%;
+}
