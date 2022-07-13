@@ -13,11 +13,11 @@ export const App = () => {
     <div>
       <Header />
       <Routes>
-        <Route path="register" element={<RegistrationPage />} />
+        <Route path="auth/signup" element={<RegistrationPage />} />
         <Route path="diary" element={<DiaryPage />} />
-        {/* <Route path="/" element={<HomePage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="registration" element={<RegistrationPage />} />
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="auth/login" element={<LoginPage />} />
+        {/* <Route path="registration" element={<RegistrationPage />} />
         <Route path="diary" element={<DiaryPage />} />
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="*" element={<HomePage />} /> */}

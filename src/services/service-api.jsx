@@ -1,25 +1,17 @@
 import axios from 'axios';
-axios.defaults.baseURL = ``;
+axios.defaults.baseURL = `https://weightbusters-api.herokuapp.com`;
 
 const apiService = {
-  getCurrentUser() {
-    return axios.get(`/users/current`);
-  },
-
-  getnotAllowedProducts(bloodGroup) {
-    return axios.get(`/products/recommendation?bloodGroup=${bloodGroup}`);
-  },
-
   logInUser(credentials) {
-    return axios.post(`/users/login`, credentials);
+    return axios.post(`/auth/login`, credentials);
   },
 
   registerUser(credentials) {
-    return axios.post(`/users/registration`, credentials);
+    return axios.post(`/auth/registration`, credentials);
   },
 
   logOutUser() {
-    return axios.post(`/users/logout`);
+    return axios.post(`/auth/logout`);
   },
 };
 
