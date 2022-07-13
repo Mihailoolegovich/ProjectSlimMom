@@ -1,6 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
-
+// import styles from './App.module.scss';
 import {
   LoginPage,
   HomePage,
@@ -10,8 +10,20 @@ import {
 } from 'pages';
 
 export const App = () => {
+  const { pathname } = useLocation();
+
+  function adaptiveClassName(loc) {
+    const className = {
+      '/auth/login': 'mainContainer localIdent',
+      '/auth/signup': 'mainContainer localIdent',
+      '/diary': 'mainContainer localRest',
+      '/calculator': 'mainContainer localRest',
+    };
+    return className[loc] ?? 'mainContainer';
+  }
+
   return (
-    <div>
+    <section className={adaptiveClassName(pathname)}>
       <Header />
       <Routes>
         <Route path="auth/login" element={<LoginPage />} />
@@ -23,6 +35,6 @@ export const App = () => {
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="*" element={<HomePage />} /> */}
       </Routes>
-    </div>
+    </section>
   );
 };
