@@ -32,7 +32,7 @@ const routes = [
     label: 'Diary',
     isProtected: true,
     isNav: true,
-    redirectTo: '/login',
+    redirectTo: '/auth/login',
   },
   {
     path: '/calculator',
@@ -40,11 +40,11 @@ const routes = [
     label: 'Calculator',
     isProtected: true,
     isNav: true,
-    redirectTo: '/login',
+    redirectTo: '/auth/login',
   },
   {
     exact: false,
-    path: '/login',
+    path: '/auth/login',
     label: 'Sign In',
     component: LoginPage,
     isProtected: false,
@@ -53,7 +53,7 @@ const routes = [
   },
   {
     exact: false,
-    path: '/register',
+    path: '/auth/signup',
     label: 'Registration',
     component: RegisterPage,
     isProtected: false,
