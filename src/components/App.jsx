@@ -10,27 +10,20 @@ import {
 } from 'pages';
 
 export const App = () => {
-  let location = useLocation();
-  let mainClassName = '';
+  const { pathname } = useLocation();
 
-  switch (location.pathname) {
-    case '/login':
-      mainClassName = 'mainContainer localIdent';
-      break;
-    case '/register':
-      mainClassName = 'mainContainer localIdent';
-      break;
-    case '/diary':
-      mainClassName = 'mainContainer localRest';
-      break;
-    case '/calculator':
-      mainClassName = 'mainContainer localRest';
-      break;
-    default:
-      mainClassName = 'mainContainer';
+  function adaptiveClassName(loc) {
+    const className = {
+      '/auth/login': 'mainContainer localIdent',
+      '/auth/signup': 'mainContainer localIdent',
+      '/diary': 'mainContainer localRest',
+      '/calculator': 'mainContainer localRest',
+    };
+    return className[loc] ?? 'mainContainer';
   }
+
   return (
-    <div className={mainClassName}>
+    <section className={adaptiveClassName(pathname)}>
       <Header />
       <Routes>
         <Route path="auth/login" element={<LoginPage />} />
@@ -42,6 +35,6 @@ export const App = () => {
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="*" element={<HomePage />} /> */}
       </Routes>
-    </div>
+    </section>
   );
 };
