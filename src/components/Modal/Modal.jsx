@@ -9,7 +9,7 @@ const Modal = ({ children }) => {
   const dispatch = useDispatch();
 
   const onClose = useCallback(() => {
-    dispatch(//**Import data from Form**//.modalClose());
+    dispatch(); //**Import data from Form**//.modalClose()
   }, [dispatch]);
 
   const handleKeyDown = useCallback(
@@ -18,7 +18,7 @@ const Modal = ({ children }) => {
         return onClose && onClose();
       }
     },
-    [onClose],
+    [onClose]
   );
 
   useEffect(() => {
@@ -47,11 +47,11 @@ const Modal = ({ children }) => {
           type="button"
           className={styles.closeBtn}
           onClick={handleClickOnCloseBtn}
-          ></button>
+        ></button>
         {children}
       </div>
     </div>,
-    document.getElementById('modal-root'),
+    document.getElementById('modal-root')
   );
 };
 

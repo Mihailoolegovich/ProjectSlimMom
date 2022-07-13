@@ -9,14 +9,13 @@ import {
   CalculatorPage,
 } from 'pages';
 
-
 export const App = () => {
   return (
     <div>
       <Header />
       <Routes>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegistrationPage />} />
+        <Route path="auth/login" element={<LoginPage />} />
+        <Route path="auth/signup" element={<RegistrationPage />} />
         <Route path="diary" element={<DiaryPage />} />
         {/* <Route path="/" element={<HomePage />} />
         <Route path="registration" element={<RegistrationPage />} />
