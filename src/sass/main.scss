@@ -1,4 +1,7 @@
 @import "./base/BaseStyles.scss";
 @import "./base/global-styles";
 @import "./components/header";
+@import "../../src/components/DiaryAddProductForm/DiaryAddProductForm.module.scss";
+@import '../../src/components/DiaryProductsList/DiaryProductsList.module.scss';
+@import "../../src/components/DiaryProductsListItem/DiaryProductsListItem.module.scss"
 
