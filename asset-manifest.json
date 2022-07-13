@@ -1,7 +1,10 @@
 {
   "files": {
-    "main.css": "/Weightbusters/static/css/main.af8110ae.css",
-    "main.js": "/Weightbusters/static/js/main.bb0eeac6.js",
+    "main.css": "/Weightbusters/static/css/main.ccad99c6.css",
+    "main.js": "/Weightbusters/static/js/main.290c92a0.js",
+    "static/media/bgDesctop.png": "/Weightbusters/static/media/bgDesctop.331c39b81c84b10b847d.png",
+    "static/media/bgTablet_Log.png": "/Weightbusters/static/media/bgTablet_Log.2dea5912e59cb3b1299a.png",
+    "static/media/bgTablet_Home.png": "/Weightbusters/static/media/bgTablet_Home.14535b38e688d928dd13.png",
     "static/media/Verdana.eot": "/Weightbusters/static/media/Verdana.f8a6ae8c52c671827641.eot",
     "static/media/Verdana-Bold.eot": "/Weightbusters/static/media/Verdana-Bold.bd701c1820d5b086f868.eot",
     "static/media/Verdana.ttf": "/Weightbusters/static/media/Verdana.75b1747643e006badf6e.ttf",
@@ -21,13 +24,12 @@
     "static/media/GothamPro-Light.woff2": "/Weightbusters/static/media/GothamPro-Light.a2a52b37266bc749d00c.woff2",
     "static/media/logo-text.svg": "/Weightbusters/static/media/logo-text.5e489effcb88a9599d62c92b21edb426.svg",
     "index.html": "/Weightbusters/index.html",
-    "static/media/logoCalendar.svg": "/Weightbusters/static/media/logoCalendar.26f85a29609df01bfb1a2c054e438d53.svg",
     "static/media/arrowBack.svg": "/Weightbusters/static/media/arrowBack.822317d3ab5586ebb7046962fd75a06b.svg",
-    "main.af8110ae.css.map": "/Weightbusters/static/css/main.af8110ae.css.map",
-    "main.bb0eeac6.js.map": "/Weightbusters/static/js/main.bb0eeac6.js.map"
+    "main.ccad99c6.css.map": "/Weightbusters/static/css/main.ccad99c6.css.map",
+    "main.290c92a0.js.map": "/Weightbusters/static/js/main.290c92a0.js.map"
   },
   "entrypoints": [
-    "static/css/main.af8110ae.css",
-    "static/js/main.bb0eeac6.js"
+    "static/css/main.ccad99c6.css",
+    "static/js/main.290c92a0.js"
   ]
 }
