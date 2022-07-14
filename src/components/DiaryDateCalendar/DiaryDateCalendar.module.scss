@@ -4,16 +4,18 @@
   display: flexbox;
   flex-direction: row;
   justify-content: center;
-  text-align: center;
   width: auto;
   height: auto;
   margin-top: 160px;
-  margin-left: 20px;
+  margin-bottom: 32px;
   background-color: transparent;
 
   @include for-size(mobile) {
-    margin-top: 180px;
     align-items: center;
+    margin-top: 180px;
+  }
+  @include for-size(desktop) {
+    margin-top: 283px;
   }
 }
 
