@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useMemo } from 'react';
-
 import { v4 as uuidv4 } from 'uuid';
-
 import styles from './BurgerMenu.module.scss';
 import routes from '../../routes';
 
@@ -21,9 +19,9 @@ const BurgerMenu = ({ isActive, onCloseBurger }) => {
         <NavLink
           key={uuidv4()}
           to={link.path}
-          exact
+          exact="true"
           className={styles.link}
-          activeClassName={styles.activeLink}
+          activeclassname={styles.activeLink}
           onClick={onCloseBurger}
         >
           {link.label}

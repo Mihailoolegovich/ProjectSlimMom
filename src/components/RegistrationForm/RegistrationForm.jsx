@@ -41,7 +41,8 @@ export default function RegistrationForm() {
         }}
       >
         <Form>
-          <div className={s.imageContainer}>
+          {/* <div className={s.imageContainer}> */}
+          <div>
             <div
               className={s.formContainer}
               // style={{
@@ -91,7 +92,7 @@ export default function RegistrationForm() {
                   Register
                 </button>
 
-                <Link to="/login" className={s.button}>
+                <Link to="/auth/login" className={s.button}>
                   Login
                 </Link>
               </div>
