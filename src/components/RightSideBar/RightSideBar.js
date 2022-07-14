@@ -79,6 +79,7 @@ const RightSideBar = () => {
   console.log('Consumed:', consumed);
 
   // 2. отримуємо денну норму споживання калорій
+  // відповідь по запиту на /daily-calorie-intakes/private
   const dailyRate = resBodyCalories.data.user.dailyCalorieIntake;
   // console.log('Rate data:', rateData);
 
@@ -111,6 +112,7 @@ const RightSideBar = () => {
   ];
 
   // 5. Отримуємо нерекомендовані для споживання продукти
+  // відповідь по запиту на /daily-calorie-intakes/private
   const foodNotRecommend =
     resBodyCalories.data.user.notRecommendedProducts.join(', ');
   function capitalizeFirstLetter(data) {
