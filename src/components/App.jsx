@@ -1,5 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
+import PublicRoute from './PublicRoute';
+
+
 import {
   LoginPage,
   HomePage,
@@ -25,8 +28,17 @@ export const App = () => {
     <section className={adaptiveClassName(pathname)}>
       <Header />
       <Routes>
-        <Route path="auth/login" element={<LoginPage />} />
-        <Route path="auth/signup" element={<RegistrationPage />} />
+
+         <Route path="auth/login" element={<LoginPage />} />
+        <Route
+          path="auth/signup"
+          element={
+            <PublicRoute exact path="/auth/signup" restricted>
+              <RegistrationPage />
+            </PublicRoute>
+          }
+        />
+
         <Route path="diary" element={<DiaryPage />} />
         {/* <Route path="/" element={<HomePage />} />
         <Route path="calculator" element={<CalculatorPage />} />
