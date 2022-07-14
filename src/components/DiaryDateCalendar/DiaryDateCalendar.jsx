@@ -2,12 +2,11 @@ import React, { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import CalendarContent from './CalendarContent';
 import styles from './DiaryDateCalendar.module.scss';
-import { uk, enUS, ru } from 'date-fns/esm/locale';
+import { uk } from 'date-fns/esm/locale';
 import { ReactComponent as LogoCalendar } from '../../icons/logoCalendar.svg';
 
 const DiaryDateCalendar = () => {
-  let selectedLang = uk; //
-  const lang = !selectedLang ? enUS : selectedLang;
+
   const [startDate, setStartDate] = useState(new Date());
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -34,7 +33,7 @@ const DiaryDateCalendar = () => {
           setStartDate(newDate);
           // console.log('запрос за данными по выбранной дате' + newDate );
         }}
-        locale={lang}
+        locale={uk}
         dateFormat="dd.MM.yyyy"
         calendarContainer={CalendarContent}
         todayButton="Сьогодні"
