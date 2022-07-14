@@ -1,0 +1,92 @@
+@import '../../sass/base/BaseStyles.scss';
+@import '../../sass/base/variables';
+
+.caption {
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+   color: $primary-button-color;
+text-transform: uppercase;
+// margin-top: 40px;
+margin-bottom: 20px;
+text-align: center;
+@include for-size(tablet) {
+    // margin-top: 160px;
+    text-align: left;
+}
+}
+
+.button{
+ @include orangeBtn;
+  &:not(:last-child){
+    margin-bottom: 20px;
+    @include for-size(tablet) {
+    &:not(:last-child) {
+            margin-right: 32px;
+        }
+    }
+}
+}
+.input {
+    padding: 40px 0 20px 0;
+    width: 100%;
+        color: $secondary-text-color;
+        border: none;
+        border-bottom: 1px solid $light-gray;
+        outline: none;
+        text-align: left;
+        background-color: $primary-bg-color;
+        @include font(700, 14px, 17px, 'Verdana', 0.04em);
+        @include for-size(tablet) {
+            width: 240px;
+        }
+    
+        &::placeholder {
+            color: $secondary-text-color;
+            // margin-bottom: 20px;
+           
+        }
+}
+
+.wrapper {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include for-size(tablet) {
+        flex-direction: row;
+        align-items: baseline;
+       
+        }
+}
+.imageContainer{
+@include for-size(tablet) {
+        min-height: 1024px;
+      
+        background-image: url(../../images/bgTablet_Log.png);
+        background-size: cover;
+    }
+        @include for-size(desktop) {
+            min-height: 1024px; 
+            min-width: 1200px;
+    
+            background-image: url(../../images/bgDesctop.png);
+            background-size: cover;
+        }
+}
+.formContainer{
+ padding: 40px 20px 0;
+@include for-size(tablet) {
+    padding: 160px 0 0 32px;
+}
+ @include for-size(desktop) {
+    padding: 160px 0 0 16px;
+ }
+// min-height: 100%;
+   
+}
+.error {
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    color: $accent-color
+}
+.link{
+   color: $primary-bg-color;
+}
