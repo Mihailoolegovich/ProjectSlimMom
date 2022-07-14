@@ -96,7 +96,7 @@ export default function LoginForm() {
           Login
         </button>
         <button>
-          <Link to="/register">Register</Link>
+          <Link to="/auth/signup">Register</Link>
         </button>
       </form>
     </div>

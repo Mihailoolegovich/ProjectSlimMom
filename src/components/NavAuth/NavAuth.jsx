@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { authSelectors, authOperations } from '../../redux/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useMemo, useState, useEffect } from 'react';
+import BurgerMenu from '../BurgerMenu';
+import BurgerBtn from '../BurgerButton';
 // import { modalAddProduct, actions } from '../../redux/products';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -31,9 +33,9 @@ export default function NavAuth() {
   //     dispatch(actions.modalAddProductSuccess());
   //   };
 
-  //   const handleCloseBurger = () => {
-  //     setMenuActive(false);
-  //   };
+  const handleCloseBurger = () => {
+    setMenuActive(false);
+  };
 
   return (
     <div className={styles.NavAuthWrapper}>
@@ -50,28 +52,31 @@ export default function NavAuth() {
           </NavLink>
         ))}
       </div>
+      <BurgerMenu isActive={menuActive} onCloseBurger={handleCloseBurger} />
+
+      <BurgerBtn active={menuActive} setActive={setMenuActive} />
 
       <div className={styles.userWrapper}>
         {
           //   isModalAddProducts ?
-          <button
-            className={styles.closeModal}
-            //   onClick={handelCloseModal}
-          >
-            <svg
-              width="12"
-              height="7"
-              viewBox="0 0 15 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14 1.5V4.5H2M2 4.5L5.5 1M2 4.5L5.5 8"
-                stroke="black"
-                strokeWidth="2"
-              />
-            </svg>
-          </button>
+          // <button
+          //   className={styles.closeModal}
+          //   //   onClick={handelCloseModal}
+          // >
+          //   <svg
+          //     width="12"
+          //     height="7"
+          //     viewBox="0 0 15 9"
+          //     fill="none"
+          //     xmlns="http://www.w3.org/2000/svg"
+          //   >
+          //     <path
+          //       d="M14 1.5V4.5H2M2 4.5L5.5 1M2 4.5L5.5 8"
+          //       stroke="black"
+          //       strokeWidth="2"
+          //     />
+          //   </svg>
+          // </button>
           //  : null
         }
 

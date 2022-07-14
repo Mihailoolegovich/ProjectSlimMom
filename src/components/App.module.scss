@@ -1,0 +1,44 @@
+@import '../sass/base/BaseStyles.scss';
+
+.mainContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  padding: 20px;
+  @include for-size(tablet) {
+    background-image: url('../images/bgTablet_Home.png');
+    background-position: right 40px bottom 64px;
+    background-size: 56.8pc;
+    padding: 32px 20px;
+  }
+  @include for-size(desktop) {
+    background-image: url('../images/bgDesctop.png');
+    background-repeat: no-repeat;
+    background-position: right 31px bottom 135px;
+    background-size: 70pc;
+    padding: 80px 16px 56px;
+  }
+}
+
+.localIdent {
+  @include for-size(tablet) {
+    background-image: url('../images/bgTablet_Log.png');
+    background-position: right 40px bottom 64px;
+    background-size: 44.6pc;
+  }
+  @include for-size(desktop) {
+    background-image: url('../images/bgDesctop.png');
+    background-position: right 31px bottom 135px;
+    background-size: 70pc;
+  }
+}
+
+.localRest {
+  @include for-size(tablet) {
+    background-image: none;
+  }
+  @include for-size(desktop) {
+    background-image: none;
+  }
+}

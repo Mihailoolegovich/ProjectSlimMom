@@ -1,8 +1,10 @@
+@import './BaseStyles.scss';
+
 body {
-  color: $primary-color;
-  background: $background-color;
-  font-family: $font-family-Montserrat;
-  margin:0;
+  color: $primary-text-color;
+  background: $primary-bg-color;
+  font-family: $primary-font;
+  margin: 0;
 }
 //    Style none
 ul,
@@ -26,28 +28,4 @@ a {
 img {
   display: block;
   width: 100%;
-}
-
-//    Container
-.container {
-  padding: 0 15px;
-  margin: 0 auto;
-  min-width: 320px;
-  @media screen and (min-width: 480px) {
-    & {
-      width: 480px;
-      // margin: 0 auto;
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    & {
-      width: 768px;
-    }
-  }
-  @media screen and (min-width: 1200px) {
-    & {
-      width: 1200px;
-    }
-  }
 }
