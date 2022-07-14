@@ -6,6 +6,7 @@ import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
 import bgCalendar from '../images/bgCalendar.png';
+import RightSideBar from 'components/RightSideBar';
 
 const theme = createTheme({
   breakpoints: {
@@ -69,7 +70,7 @@ export default function DiaryPage() {
               <DiaryProductsList />
             </Item1>
           </Grid>
-          <Grid item mobile={12} tablet={12} desktop={5}>
+          {/* <Grid item mobile={12} tablet={12} desktop={5}>
             <Item2>
               <div // для проверки позиционирования
                 style={{
@@ -98,7 +99,8 @@ export default function DiaryPage() {
                 Food not recommended
               </div>
             </Item2>
-          </Grid>
+          </Grid> */}
+          <RightSideBar />
         </Grid>
       </ThemeProvider>
     </>
