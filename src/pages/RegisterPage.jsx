@@ -89,7 +89,7 @@ export default function RegistrationPage() {
               </div>
             </div>
             <button type="submit">Register</button>
-            <Link to="/login">Login</Link>
+            <Link to="/auth/login">Login</Link>
           </div>
         </Form>
       </Formik>

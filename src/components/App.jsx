@@ -1,6 +1,5 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
-// import styles from './App.module.scss';
 import {
   LoginPage,
   HomePage,
@@ -30,8 +29,6 @@ export const App = () => {
         <Route path="auth/signup" element={<RegistrationPage />} />
         <Route path="diary" element={<DiaryPage />} />
         {/* <Route path="/" element={<HomePage />} />
-        <Route path="registration" element={<RegistrationPage />} />
-        <Route path="diary" element={<DiaryPage />} />
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="*" element={<HomePage />} /> */}
       </Routes>
