@@ -16,6 +16,7 @@ text-align: center;
 
 .button{
  @include orangeBtn;
+ text-align: center;
   &:not(:last-child){
     margin-bottom: 20px;
     @include for-size(tablet) {
@@ -65,8 +66,7 @@ text-align: center;
         background-size: cover;
     }
         @include for-size(desktop) {
-            min-height: 1024px; 
-            min-width: 1200px;
+            // min-height: 1024px; 
     
             background-image: url(../../images/bgDesctop.png);
             background-size: cover;
@@ -87,6 +87,4 @@ text-align: center;
     @include font(700, 14px, 17px, 'Verdana', 0.04em);
     color: $accent-color
 }
-.link{
-   color: $primary-bg-color;
-}
+

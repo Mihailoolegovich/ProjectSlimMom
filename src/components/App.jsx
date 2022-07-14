@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
+import PublicRoute from './PublicRoute';
 
 import {
   LoginPage,
@@ -15,7 +16,14 @@ export const App = () => {
       <Header />
       <Routes>
         <Route path="login" element={<LoginPage />} />
-        <Route path="register" element={<RegistrationPage />} />
+        <Route
+          path="register"
+          element={
+            <PublicRoute exact path="/register" restricted>
+              <RegistrationPage />
+            </PublicRoute>
+          }
+        />
         <Route path="diary" element={<DiaryPage />} />
         {/* <Route path="/" element={<HomePage />} />
         <Route path="registration" element={<RegistrationPage />} />

@@ -11,12 +11,14 @@ import s from './RegisterForm.module.scss';
 export default function RegistrationForm() {
   const validationSchema = Yup.object({
     name: Yup.string()
-      .min(1, 'Too short')
-      .max(20, 'Too Long!')
+      .min(3, 'Too short')
+      .max(30, 'Too Long!')
       .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
+    email: Yup.string()
+      .email('Invalid email.  Must contain .com, .net, .ua')
+      .required('Required'),
     password: Yup.string()
-      .min(4, 'Must be at least 4 symbols!')
+      .min(6, 'Must be at least 6 symbols!')
       .max(20, 'Too Long!')
       .required('Required'),
   });
@@ -88,11 +90,10 @@ export default function RegistrationForm() {
                 <button type="submit" className={s.button}>
                   Register
                 </button>
-                <button className={s.button}>
-                  <Link to="/login" className={s.link}>
-                    Login
-                  </Link>
-                </button>
+
+                <Link to="/login" className={s.button}>
+                  Login
+                </Link>
               </div>
             </div>
           </div>
