@@ -53,6 +53,7 @@ const Item2 = styled('div')(({ theme }) => ({
     backgroundImage: `url("${bgCalendar}")`,
     height: '100vh',
     width: 'auto',
+    backgroundPosition: '100% 100%',
   },
 }));
 
