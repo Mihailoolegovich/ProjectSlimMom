@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import { authSelectors, authOperations } from '../../redux/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useMemo, useState, useEffect } from 'react';
+import BurgerMenu from '../BurgerMenu';
+import BurgerBtn from '../BurgerButton';
 // import { modalAddProduct, actions } from '../../redux/products';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -31,9 +33,9 @@ export default function NavAuth() {
   //     dispatch(actions.modalAddProductSuccess());
   //   };
 
-  //   const handleCloseBurger = () => {
-  //     setMenuActive(false);
-  //   };
+  const handleCloseBurger = () => {
+    setMenuActive(false);
+  };
 
   return (
     <div className={styles.NavAuthWrapper}>
@@ -50,6 +52,9 @@ export default function NavAuth() {
           </NavLink>
         ))}
       </div>
+      <BurgerMenu isActive={menuActive} onCloseBurger={handleCloseBurger} />
+
+      <BurgerBtn active={menuActive} setActive={setMenuActive} />
 
       <div className={styles.userWrapper}>
         {
