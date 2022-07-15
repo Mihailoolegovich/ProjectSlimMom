@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './DiaryAddProductForm.module.scss';
 import useDebounce from 'hooks/useDebounce';
 import DiaryDataList from './DiaryDataList';
+import DiaryFormButton from './DiaryFormButton';
 import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ date = '2022-07-13' }) => {
   const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
   const [datalistVisible, setDataListVisible] = useState(false);
@@ -23,20 +24,27 @@ const DiaryAddProductForm = () => {
 
   useEffect(() => {
     if (search) {
-      dispatch(fetchProducts(search));
+      dispatch(fetchProducts(search.toString()));
     }
   }, [search, dispatch]);
 
   const handleChange = e => {
     const { name, value } = e.target;
-    name === 'product' && setProduct(value);
+    name === 'product' && setProduct(value.trim());
     name === 'product' && setDataListVisible(true);
-    name === 'weight' && setWeight(value);
+    name === 'weight' && setWeight(value.trim());
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const data = { product, weight };
+    const data = {
+      date,
+      item: {
+        weight,
+        name: product,
+      },
+    };
+
     dispatch(addProduct(data));
     resetForm();
   };
@@ -64,9 +72,11 @@ const DiaryAddProductForm = () => {
       <input
         className={s.diaryInput}
         onInput={handleChange}
-        type="tel"
+        type="number"
         placeholder="Grams"
         name="weight"
+        min={0}
+        step="10"
         pattern="[0-9]+"
         value={weight}
         maxLength={4}
@@ -74,8 +84,11 @@ const DiaryAddProductForm = () => {
         autoSave="off"
         required
       />
-
-      <button className={s.diaryButton} type="submit"></button>
+      <DiaryFormButton
+        class_name={s.diaryButton}
+        type={'submit'}
+        title={'Add'}
+      />
       {isLoaded && datalistVisible && (
         <DiaryDataList productList={products} handleClick={handleClick} />
       )}

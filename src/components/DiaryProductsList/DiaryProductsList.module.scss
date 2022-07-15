@@ -4,17 +4,24 @@
 
 .productList_container{
     position: relative;
+    width: 300px;
+    margin: auto;
+    @include for-size(tablet){
+        margin: 0;
+        max-width: 624px;
+    }
     
 }
 
 .productList{
 display: flex;
 flex-direction: column;
-width: 620px;
-margin: 0;
+width: 300px;
+margin: auto;
 background-color: $primary-bg-color;
 color: $primary-text-color;
 max-height: 300px;
+padding-bottom: 40px;
  @include font(400, 14px, 17px, 'Verdana', 0.04em);
   
     overflow-y: scroll;
@@ -26,15 +33,13 @@ max-height: 300px;
     &::-webkit-scrollbar-thumb {
   background: $decorative-color;
 }
-@include for-size(mobile){
-    width: 300px;
-}
+
 @include for-size(tablet){
-    width: 604px;
+    width: 610px;
     
 }
     @include for-size(desktop){
-    width: 620px;
+    width: 623px;
    }
 }
 
@@ -43,17 +48,18 @@ max-height: 300px;
 .productList_downboard{
     position: absolute;
     bottom: 0;
-    width:614px;
-    height:40px;
+    width: 274px;
+    height:44px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, $primary-bg-color 42.19%);
 @include for-size(mobile){
-    width: 294px;
+    width: 274px;
 }
 @include for-size(tablet){
-    width: 598px;
+    width: 603px;
+    height: 52px;
     
 }
     @include for-size(desktop){
-    width: 614px;
+    width: 618px;
    }
 }
