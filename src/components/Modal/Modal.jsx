@@ -49,3 +49,5 @@ const Modal = ({ onClose, children }) => {
     document.getElementById("modal-root")
   );
 };
+
+export default Modal;
