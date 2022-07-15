@@ -30,6 +30,7 @@ export default function RegistrationForm() {
   };
 
   const renderError = message => <p className={s.error}>{message}</p>;
+
   return (
     <>
       <Formik

@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { authSelectors, authOperations } from '../../redux/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useMemo, useState, useEffect } from 'react';
+
 import BurgerMenu from '../BurgerMenu';
 import BurgerBtn from '../BurgerButton';
 // import { modalAddProduct, actions } from '../../redux/products';
@@ -15,8 +16,8 @@ export default function NavAuth() {
   const [menuActive, setMenuActive] = useState(false);
 
   const dispatch = useDispatch();
-  //   const name = useSelector(authSelectors.getUserName);
-  const name = 'Ivan Testov';
+  const email = useSelector(authSelectors.getUserEmail);
+  // const name = 'Ivan Testov';
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
 
@@ -80,7 +81,7 @@ export default function NavAuth() {
           //  : null
         }
 
-        <p className={styles.userName}>{name}</p>
+        <p className={styles.userName}>{email}</p>
         <button onClick={onLogOut} className={styles.logout}>
           Sign out
         </button>
