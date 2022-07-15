@@ -27,7 +27,7 @@ export const App = () => {
     <section className={adaptiveClassName(pathname)}>
       <Header />
       <Routes>
-        <Route path="auth/login" element={<LoginPage />} />
+        <Route path="auth/login" element={<PublicRoute path="/auth/login" restricted><LoginPage /></PublicRoute>} />
         <Route
           path="auth/signup"
           element={
