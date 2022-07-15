@@ -47,6 +47,7 @@ const Modal = ({ onClose, children }) => {
       </div>
     </div>,
     document.getElementById("modal-root")
+
   );
 };
 
