@@ -3,6 +3,8 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import authOperations from '../../redux/auth/auth-operations';
+import { useNavigate } from 'react-router-dom';
+
 import { Link } from 'react-router-dom';
 
 const s = {
@@ -42,7 +44,7 @@ const s = {
 
 export default function LoginForm() {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const LoginSchema = Yup.object({
     email: Yup.string().email('Invalid email').required('Email is required'),
     password: Yup.string()
@@ -59,7 +61,7 @@ export default function LoginForm() {
     validationSchema: LoginSchema,
     onSubmit: ({ email, password }) => {
       dispatch(authOperations.logIn({ email, password }));
-      // alert(JSON.stringify(values, null, 2));
+      navigate('/diary'); //added useNavigate
     },
   });
   return (
