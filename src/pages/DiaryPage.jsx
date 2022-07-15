@@ -19,7 +19,7 @@ const theme = createTheme({
 });
 
 const Item1 = styled('div')(({ theme }) => ({
-  backgroundColor: '#F0F1F3',
+  backgroundColor: '#ffffff',
   display: 'flex',
   justifyContent: 'left',
   flexDirection: 'column',

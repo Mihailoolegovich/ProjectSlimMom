@@ -22,7 +22,7 @@ const DiaryProductsList = () => {
           ))}
         </ul>
       ) : (
-        <div></div>
+        <p></p>
       )}
 
       <div className={s.productList_downboard}></div>

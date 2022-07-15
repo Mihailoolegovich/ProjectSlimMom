@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 /*
 const TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2YwYzg1NWEyZTc2YjFhN2Q4ZDI1ZiIsImlhdCI6MTY1NzgzMjQ1OSwiZXhwIjoxNjU3ODM2MDU5fQ._ZSUYpGFtNpDPsmXYImZUfK8zWOulT3tBG3JCaPUzTk';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2YwYzg1NWEyZTc2YjFhN2Q4ZDI1ZiIsImlhdCI6MTY1Nzg5MzU1OSwiZXhwIjoxNjU3ODk3MTU5fQ.wEokYMHoajdeNVL3120LqtGfHfUgbb9gN85XaCYHGlA';
 
-axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;
-*/
+axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;*/
+
 export const getCurrentDay = createAsyncThunk(
   'products/getCurrentDay',
   async (date, { rejectWithValue }) => {
@@ -23,9 +23,13 @@ export const fetchProducts = createAsyncThunk(
   async (value, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/products?query=${value}`);
+      if (data.message) {
+        console.log(data.message);
+        return [];
+      }
       return data;
     } catch (error) {
-      return rejectWithValue(error);
+      console.log(rejectWithValue);
     }
   }
 );

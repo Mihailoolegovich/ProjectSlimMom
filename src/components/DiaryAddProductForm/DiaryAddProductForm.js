@@ -23,7 +23,7 @@ const DiaryAddProductForm = ({ date = '2022-07-13' }) => {
   };
 
   useEffect(() => {
-    if (search) {
+    if (search !== '') {
       dispatch(fetchProducts(search.toString()));
     }
   }, [search, dispatch]);
@@ -84,6 +84,7 @@ const DiaryAddProductForm = ({ date = '2022-07-13' }) => {
         autoSave="off"
         required
       />
+
       <DiaryFormButton
         class_name={s.diaryButton}
         type={'submit'}

@@ -18,6 +18,7 @@ const productsSlice = createSlice({
       state.consumedProd = payload;
     },
     [fetchProducts.fulfilled]: (state, { payload }) => {
+      console.log(payload)
       state.isLoaded = true
       state.productsList = [...payload];
     },

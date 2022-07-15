@@ -1,7 +1,6 @@
 @import '../../sass/base/BaseStyles.scss';
 
 
-
 .diaryForm{ 
 display: flex;
 flex-direction: column;
@@ -9,17 +8,20 @@ position: relative;
 width: 100%;
 margin: 80px 0 60px 0;
 align-items: center;
-background-color: $primary-bg-color;
+background-color: transparent;
 
 @include for-size(tablet){
     width: 503px;
     margin: 0 0 60px 0;
     flex-direction: row;
     justify-items: flex-start;
+    align-items: flex-end;
+    padding-left: 69px;
 }
     @include for-size(desktop){
     width: 503px;
     margin: 0 0 60px 0;
+     padding-left: 75px;
   }
 }
 
@@ -32,6 +34,7 @@ background-color: $primary-bg-color;
     border-bottom: 1px solid $light-gray;
     outline: none;
     text-align: left;
+    background-color: inherit;
     @include font(700, 14px, 17px, 'Verdana', 0.04em);
     &::placeholder{color: $secondary-text-color;}
 
@@ -111,103 +114,15 @@ background-color: $primary-bg-color;
 }
 
 
-.dataContainer{
-    position: absolute;
-    top: 28px;
-    width: 100%;
-    background-color: $primary-bg-color;
-    max-height: 200px;
-    overflow-y: scroll;
-    z-index: 100;
-    &::-webkit-scrollbar{
-    width: 6px;
-	background-color: $secondary-bg-color;}
-    &::-webkit-scrollbar-track{
-	background-color: $secondary-bg-color;}
-    &::-webkit-scrollbar-thumb {
-  background: $decorative-color;
-  width: 6px;
-  height: 40px;
-}
-
-@include for-size(tablet){
-    top: 48px;
-    width: 240px;
-    max-height: 150px;
-         
-        }
-@include for-size(desktop){
-    top: 48px;
-    width: 240px;
-    max-height: 150px;
-        }
-}
-
-.active{display:block}
-
-
-.dataList{
-width: 100%;
-}
-
-.dataListItem{
-    color: $secondary-text-color;
-    border: none;
-    border-bottom: 1px solid $light-gray;
-    outline: none;
-    padding: 10px 0 10px 0;
-    text-align: left;
-    width: 240px;
-    @include for-size(tablet) {
-      margin-right: 22px;
-    }
-    @include for-size(desktop) {
-      margin-right: 48px;
-    }
-  
-  &:last-of-type {
-    width: 107px;
-    margin-right: 60px;
-    @include for-size(tablet) {
-      margin-right: 87px;
-    }
-    @include for-size(desktop) {
-      margin-right: 60px;
-    }
-  }
-}
-
-.diaryButton {
-  height: 48px;
-  width: 48px;
-  background-image: url(../../icons/addBtnIcon.png);
-  background-repeat: no-repeat;
-  background-position: 15px 15px;
-  background-size: 13.5px 13.5px;
-  background-color: $accent-color;
-  color: $accent-text-color;
-  display: block;
-  @include font(700, 14px, 1.21);
-  border: 2px solid transparent;
-  cursor: pointer;
-
-  border-radius: 50%;
-  transition: $cubic;
-
-  &:hover {
-    border: 2px solid $accent-color;
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  }
-}
-
 .dataContainer {
   position: absolute;
-  top: 48px;
-  width: 240px;
-  background-color: $primary-bg-color;
+  top: 30px;
+  width: 280px;
+  background-color: transparent;
   max-height: 150px;
   overflow-y: scroll;
   z-index: 100;
+  overflow-block: hidden;
   &::-webkit-scrollbar {
     width: 6px;
     background-color: $secondary-bg-color;
@@ -219,6 +134,11 @@ width: 100%;
     background: $decorative-color;
     width: 6px;
     height: 40px;
+  }
+  @include for-size(tablet){
+    top: 50px;
+  width: 240px;
+
   }
 }
 
@@ -242,6 +162,6 @@ width: 100%;
   transition: $cubic;
   &:hover,
   &:focus {
-    background-color: $primary-bg-color;
+    background-color: transparent;
   }
 }
