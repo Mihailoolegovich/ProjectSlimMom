@@ -8,8 +8,15 @@ const getLoading = state => state.auth.isLoading;
 
 const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
 
-export default { getLoggedOn, getUserName, getUserToken, getLoading, getIsFetchingCurrent };
+const authSelectors = {
+  getLoggedOn,
+  getUserName,
+  getUserToken,
+  getLoading,
+  getIsFetchingCurrent,
+};
 
+export default authSelectors;
 // const getIsLoggedIn = state => state.auth.isLoggedIn;
 
 // const getUsername = state => state.auth.user.name;

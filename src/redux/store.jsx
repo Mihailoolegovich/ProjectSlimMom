@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import userSlice from './user/userSlice';
+import { authSlice } from './auth';
 import productsSlice from './products/productsSlice';
 import storage from 'redux-persist/lib/storage';
 import {
@@ -22,6 +23,7 @@ const userPersistConfig = {
 
 export const store = configureStore({
   reducer: {
+    auth: authSlice,
     user: persistReducer(userPersistConfig, userSlice),
     products: productsSlice,
   },

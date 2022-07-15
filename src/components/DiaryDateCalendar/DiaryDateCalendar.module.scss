@@ -1,0 +1,47 @@
+@import '../../sass/base/BaseStyles.scss';
+
+.datepicker {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  margin-top: 160px;
+  margin-bottom: 32px;
+  background-color: transparent;
+
+  @include for-size(mobile) {
+    align-items: center;
+    margin-top: 180px;
+  }
+  @include for-size(desktop) {
+    margin-top: 283px;
+  }
+}
+
+.btn {
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  width: 156px;
+  height: 20px;
+  padding: 0;
+  color: #212121;
+  text-align: center;
+  align-items: center;
+  display: inline-flex;
+  justify-content: space-between;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  @include for-size(mobile) {
+    font-size: 34px;
+    line-height: 41px;
+    width: 260px;
+    height: 38px;
+  }
+}

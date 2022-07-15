@@ -1,5 +1,4 @@
-@import "../../sass/base/variables";
-@import "../../sass/base/BaseStyles.scss";
+@import '../../sass/base/BaseStyles.scss';
 
 .listItem{
    display: flex;
@@ -13,9 +12,8 @@
 @include for-size(desktop){
     
      padding-top: 16px;
-}
+}}
 
-}
 
 .listItem_title{
     margin-right: 8px;
@@ -105,11 +103,11 @@
      padding: 0;
     cursor: pointer;
 
-    transition: $cubic;
+  transition: $cubic;
 
-    &:hover {
-       transform: scale(1.2);
-    }
+  &:hover {
+    transform: scale(1.2);
+  }
 
     @include for-size(tablet){
      height: 12px;
