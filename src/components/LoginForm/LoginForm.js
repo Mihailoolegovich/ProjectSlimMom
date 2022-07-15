@@ -61,8 +61,7 @@ export default function LoginForm() {
     validationSchema: LoginSchema,
     onSubmit: ({ email, password }) => {
       dispatch(authOperations.logIn({ email, password }));
-      navigate('/diary');
-      // alert(JSON.stringify(values, null, 2));
+      navigate('/diary'); //added useNavigate
     },
   });
   return (
