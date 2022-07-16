@@ -47,7 +47,7 @@
   @include for-size(tablet) {
     width: 288px;
     margin-left: 80px;
-    }
+  }
   @include for-size(desktop) {
     margin: 0 auto;
   }
@@ -93,6 +93,6 @@
 
 .foodNotRecommend .text {
   &:last-child {
-      margin-top: 20px;
-    }
+    margin-top: 20px;
+  }
 }

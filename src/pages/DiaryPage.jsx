@@ -4,8 +4,6 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
-import bgCalendar from '../images/bgCalendar.png';
 import RightSideBar from 'components/RightSideBar';
 
 const theme = createTheme({
@@ -33,15 +31,12 @@ const Item2 = styled('div')(({ theme }) => ({
   display: 'flex',
   width: 'auto',
   height: 'auto',
-  margin: '0 0px 0 -16px',
   backgroundRepeat: 'no-repeat',
-  overflow: 'auto',
   [theme.breakpoints.between('tablet', 'desktop')]: {
+    margin: '0 0 0 -20px',
     position: 'fixed',
-    left: '0px',
     bottom: '0px',
     width: '100%',
-    margin: '0',
     backgroundPosition: '100% 100%',
   },
   [theme.breakpoints.up('desktop')]: {
@@ -49,6 +44,7 @@ const Item2 = styled('div')(({ theme }) => ({
     top: '0',
     right: '0',
     width: '517px',
+    height: '100%',
   },
 }));
 
@@ -57,7 +53,13 @@ export default function DiaryPage() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Grid container display={'flexbox'} width={'auto'} height={'100vh'}>
+        <Grid
+          container
+          display={'flexbox'}
+          width={'auto'}
+          height={'100vh'}
+          overflow={'scroll'}
+        >
           <Grid item mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar />
