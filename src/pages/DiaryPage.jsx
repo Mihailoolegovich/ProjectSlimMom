@@ -4,8 +4,6 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
-import bgCalendar from '../images/bgCalendar.png';
 import RightSideBar from 'components/RightSideBar';
 
 const theme = createTheme({
@@ -29,43 +27,39 @@ const Item1 = styled('div')(({ theme }) => ({
 }));
 
 const Item2 = styled('div')(({ theme }) => ({
-  backgroundColor: '#E5E5E5',
+  backgroundColor: '#f0f1f3',
   display: 'flex',
   width: 'auto',
   height: 'auto',
-  margin: '0 16px 0 -16px',
   backgroundRepeat: 'no-repeat',
-  // backgroundPosition: '0% 0%',
-  flexDirection: 'column',
   [theme.breakpoints.between('tablet', 'desktop')]: {
-    backgroundImage: `url("${bgTabletSidebar}")`,
-    backgroundRepeat: 'no-repeat',
-    margin: '0 20px 0 -20px',
+    margin: '0 0 0 -20px',
+    position: 'fixed',
+    bottom: '0px',
+    width: '100%',
     backgroundPosition: '100% 100%',
-    flexDirection: 'row',
-    backgroundColor: 'transporent',
-    justifyContent: 'space-around',
   },
   [theme.breakpoints.up('desktop')]: {
-    justifyContent: 'center',
-    paddimgTop: '257px',
-    alignItems: 'center',
-    marginBottom: '60px',
-    backgroundImage: `url("${bgCalendar}")`,
-    height: '100vh',
-    width: 'auto',
-    backgroundPosition: '100% 100%',
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    width: '517px',
+    height: '100%',
   },
 }));
 
 //    <DiaryFormButton/> приймає:  type, action.
 export default function DiaryPage() {
-
-
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Grid container display={'flexbox'} width={'auto'} height={'100vh'}>
+        <Grid
+          container
+          display={'flexbox'}
+          width={'auto'}
+          height={'100vh'}
+          overflow={'scroll'}
+        >
           <Grid item mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar />
@@ -73,37 +67,11 @@ export default function DiaryPage() {
               <DiaryProductsList />
             </Item1>
           </Grid>
-          {/* <Grid item mobile={12} tablet={12} desktop={5}>
+          <Grid item mobile={12} tablet={12} desktop={5}>
             <Item2>
-              <div // для проверки позиционирования
-                style={{
-                  textAlign: 'center',
-                  border: '1px solid',
-                  padding: '20px',
-                  marginBottom: '60px',
-                  backgroundColor: 'transporent',
-                  width: '330px',
-                  height: '168px',
-                }}
-              >
-                Summary for 06/20/2020
-              </div>
-              <div // для проверки позиционирования
-                style={{
-                  textAlign: 'center',
-                  border: '1px solid',
-                  padding: '20px',
-                  marginBottom: '60px',
-                  backgroundColor: 'transporent',
-                  width: '330px',
-                  height: '168px',
-                }}
-              >
-                Food not recommended
-              </div>
+              <RightSideBar />
             </Item2>
-          </Grid> */}
-          <RightSideBar />
+          </Grid>
         </Grid>
       </ThemeProvider>
     </>
