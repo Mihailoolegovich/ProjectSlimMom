@@ -11,7 +11,8 @@ export const getCurrentDay = createAsyncThunk(
   async (date, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/days/user`, { date });
-      return data;
+      console.log(data);
+      return data ? data.items : [];
     } catch (error) {
       return rejectWithValue(error);
     }

@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import DiaryDateCalendar from '../components/DiaryDateCalendar';
 import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
+
+import { getCurrentDay } from 'redux/products';
 import RightSideBar from 'components/RightSideBar';
+// import Summary from '../components/RightSideBar/Summary';
+// import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
 
 const theme = createTheme({
   breakpoints: {
@@ -50,6 +55,12 @@ const Item2 = styled('div')(({ theme }) => ({
 
 //    <DiaryFormButton/> приймає:  type, action.
 export default function DiaryPage() {
+  const [date, setDate] = useState(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    date && dispatch(getCurrentDay(date));
+  });
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -62,14 +73,16 @@ export default function DiaryPage() {
         >
           <Grid item mobile={12} tablet={12} desktop={7}>
             <Item1>
-              <DiaryDateCalendar />
+              <DiaryDateCalendar setDate={setDate} />
               <DiaryAddProductForm />
               <DiaryProductsList />
             </Item1>
           </Grid>
           <Grid item mobile={12} tablet={12} desktop={5}>
             <Item2>
-              <RightSideBar />
+              <RightSideBar date={date} />
+              {/* <Summary date={date} />
+              <FoodNotRecommend /> */}
             </Item2>
           </Grid>
         </Grid>

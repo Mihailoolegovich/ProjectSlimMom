@@ -6,7 +6,7 @@ import {
   getNotRecommendProd,
 } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
-const RightSideBar = ({ date }) => {
+const Summary = ({ date }) => {
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
   // console.log('getNotRecommendProdData:', getNotRecommendProdData);
 
@@ -20,7 +20,7 @@ const RightSideBar = ({ date }) => {
 
   const consumedData = () => {
     let totalCalories = [];
-    productsData?.map(product => totalCalories.push(product.calories));
+    productsData.items?.map(product => totalCalories.push(product.calories));
     return totalCalories.reduce((partialSum, a) => partialSum + a, 0);
   };
   consumedData();
@@ -64,36 +64,19 @@ const RightSideBar = ({ date }) => {
     },
   ];
 
-  // 5. Отримуємо нерекомендовані для споживання продукти
-  const foodNotRecommend = getNotRecommendProdData?.join(', ');
-  function capitalizeFirstLetter(data) {
-    return data[0].toUpperCase() + data.slice(1);
-  }
-
-  const diet =
-    getNotRecommendProdData.length !== 0
-      ? capitalizeFirstLetter(foodNotRecommend)
-      : 'Your diet weel be dispalayed here';
-
   return (
-    <div className={s.container}>
-      <div className={s.summaryForDate}>
-        <p className={s.title}>Summary for {currentDateNow}</p>
-        <ul className={s.list}>
-          {elements.map(({ type, data, id }) => (
-            <li className={s.item} key={id}>
-              <p className={s.text}>{type}</p>
-              <p className={s.text}>{data} kcal</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className={s.foodNotRecommend}>
-        <p className={s.title}>Food not recommend</p>
-        <p className={s.text}>{diet}</p>
-      </div>
+    <div className={s.summaryForDate}>
+      <p className={s.title}>Summary for {currentDateNow}</p>
+      <ul className={s.list}>
+        {elements.map(({ type, data, id }) => (
+          <li className={s.item} key={id}>
+            <p className={s.text}>{type}</p>
+            <p className={s.text}>{data} kcal</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default RightSideBar;
+export default Summary;
