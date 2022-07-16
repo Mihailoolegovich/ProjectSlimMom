@@ -17,7 +17,6 @@ export default function NavAuth() {
 
   const dispatch = useDispatch();
   const email = useSelector(authSelectors.getUserEmail);
-  // const name = 'Ivan Testov';
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
 
