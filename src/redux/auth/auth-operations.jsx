@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { authSlice } from '.';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://health-base-api.herokuapp.com';
+axios.defaults.baseURL = 'https://weightbusters-api.herokuapp.com';
 
 const token = {
   set(token) {

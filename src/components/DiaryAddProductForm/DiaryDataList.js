@@ -4,10 +4,10 @@ const DiaryDataList = ({ productList, handleClick }) => {
   return (
     <div className={s.dataContainer}>
       <ul className={s.dataList}>
-        {productList.map(({ title, id }) => {
+        {productList.map(({ title, _id }) => {
           return (
-            <li key={id} className={s.dataListItem} onClick={handleClick}>
-              {title.ua}
+            <li key={_id} className={s.dataListItem} onClick={handleClick}>
+              {title.en}
             </li>
           );
         })}

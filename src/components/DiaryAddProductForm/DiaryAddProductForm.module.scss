@@ -1,88 +1,128 @@
 @import '../../sass/base/BaseStyles.scss';
 
-.diaryForm {
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(3, 1fr);
-  background-color: $primary-bg-color;
 
-  @include for-size(tablet) {
+.diaryForm{ 
+display: flex;
+flex-direction: column;
+position: relative;
+width: 100%;
+margin: 80px 0 60px 0;
+align-items: center;
+background-color: transparent;
+
+@include for-size(tablet){
     width: 503px;
     margin: 0 0 60px 0;
-  }
-  @include for-size(desktop) {
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: flex-end;
+    padding-left: 69px;
+}
+    @include for-size(desktop){
     width: 503px;
     margin: 0 0 60px 0;
+     padding-left: 75px;
   }
 }
 
-.diaryInput {
-  padding: 0 0 20px 0;
-  color: $secondary-text-color;
-  border: none;
-  border-bottom: 1px solid $light-gray;
-  outline: none;
-  text-align: right;
-  background-color: $primary-bg-color;
-  @include font(700, 14px, 17px, 'Verdana', 0.04em);
-  &::placeholder {
+
+.diaryInput{
+    padding: 0 0 8px 0;
+    width: 280px;
     color: $secondary-text-color;
-  }
-
-  &:first-child {
-    margin-right: 48px;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+    outline: none;
     text-align: left;
-    width: 240px;
-    @include for-size(tablet) {
-      margin-right: 22px;
+    background-color: inherit;
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    &::placeholder{color: $secondary-text-color;}
+
+    @include for-size(tablet){
+        padding: 0 0 20px 0;
     }
-    @include for-size(desktop) {
-      margin-right: 48px;
+      @include for-size(desktop){
+        padding: 0 0 20px 0;
     }
-  }
-  &:last-of-type {
-    width: 107px;
-    margin-right: 60px;
-    @include for-size(tablet) {
-      margin-right: 87px;
+
+    &:first-child{
+         @include for-size(mobile){
+            margin:0 0 32px 0;
+        }
+        @include for-size(tablet){
+            margin: 0 22px 0 0;
+            width: 240px;
+        }
+        @include for-size(desktop){
+            margin: 0 48px 0 0;
+            width: 240px;
+        }
     }
-    @include for-size(desktop) {
-      margin-right: 60px;
+    &:last-of-type{
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+        }
+         @include for-size(mobile){
+            margin:0 0 60px 0;
+        }
+         @include for-size(tablet){
+            text-align: right;
+            margin: 0 87px 0 0;
+            width: 107px;
+        }
+        @include for-size(desktop){
+            text-align: right;
+            margin: 0 60px 0 0;
+            width: 107px;
+        }
     }
-  }
+};
+
+
+
+.diaryButton{
+     width: 176px;
+     padding: 13px 0;
+     display: block;
+    background-color: $accent-color;
+    color: $accent-text-color;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    @include font(700, 14px, 1.21);
+    
+    cursor: pointer;
+    transition: $cubic;
+
+    &:hover, &:focus {
+        border: 2px solid $accent-color;
+        box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    }
+
+    @include for-size(tablet){
+    height: 48px;
+     width: 48px;
+     background-image: url(../../icons/addBtnIcon.png);
+     background-repeat: no-repeat;
+     background-position: 15px 15px;
+     background-size: 13.5px 13.5px;
+     border-radius: 50%;
+     color: transparent;
+
+    }
 }
 
-.diaryButton {
-  height: 48px;
-  width: 48px;
-  background-image: url(../../icons/addBtnIcon.png);
-  background-repeat: no-repeat;
-  background-position: 15px 15px;
-  background-size: 13.5px 13.5px;
-  background-color: $accent-color;
-  color: $accent-text-color;
-  display: block;
-  @include font(700, 14px, 1.21);
-  border: 2px solid transparent;
-  cursor: pointer;
-
-  border-radius: 50%;
-  transition: $cubic;
-
-  &:hover {
-    border: 2px solid $accent-color;
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-  }
-}
 
 .dataContainer {
   position: absolute;
-  top: 48px;
-  width: 240px;
-  background-color: $primary-bg-color;
+  top: 30px;
+  width: 280px;
+  background-color: transparent;
   max-height: 150px;
   overflow-y: scroll;
   z-index: 100;
+  overflow-block: hidden;
   &::-webkit-scrollbar {
     width: 6px;
     background-color: $secondary-bg-color;
@@ -94,6 +134,11 @@
     background: $decorative-color;
     width: 6px;
     height: 40px;
+  }
+  @include for-size(tablet){
+    top: 50px;
+  width: 240px;
+
   }
 }
 
@@ -117,6 +162,6 @@
   transition: $cubic;
   &:hover,
   &:focus {
-    background-color: $primary-bg-color;
+    background-color: transparent;
   }
 }

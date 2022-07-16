@@ -18,12 +18,12 @@ const authSlice = createSlice({
       state.user.name = action.payload.data.user.name;
       state.user.email = action.payload.data.user.email;
       state.token = action.payload.token;
-      state.isLoggedIn = true;
+      // state.isLoggedIn = true;
       // console.log(action);
       console.log(state);
     },
     [authOperations.logIn.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user = action.payload.data.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
