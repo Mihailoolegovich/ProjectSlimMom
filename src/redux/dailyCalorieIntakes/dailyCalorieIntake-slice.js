@@ -10,7 +10,7 @@ const caloriesSlice = createSlice({
   name: 'calories',
   initialState,
   extraReducers: {
-    [dailyCalories.fulfilled](state, action) {
+    [dailyCalories.fulfilled]: (state, action) => {
       state.calories = action.payload.data.user.dailyCalorieIntake;
       state.notRecommendProd = [
         ...action.payload.data.user.notRecommendedProducts,
