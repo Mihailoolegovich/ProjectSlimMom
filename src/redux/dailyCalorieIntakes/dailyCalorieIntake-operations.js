@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -8,8 +7,10 @@ const dailyCalories = createAsyncThunk(
   'daily-calorie-intakes',
   async credentials => {
     try {
-      const { data } = await axios.post('/daily-calorie-intakes', credentials);
-
+      const { data } = await axios.post(
+        '/daily-calorie-intakes/private',
+        credentials
+      );
       return data;
     } catch (error) {
       console.log(error.message);

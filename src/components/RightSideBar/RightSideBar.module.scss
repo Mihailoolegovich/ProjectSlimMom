@@ -47,7 +47,7 @@
   @include for-size(tablet) {
     width: 288px;
     margin-left: 80px;
-  }
+    }
   @include for-size(desktop) {
     margin: 0 auto;
   }
@@ -91,8 +91,8 @@
   color: $secondary-text-color;
 }
 
-.foodNotRecommend .text {
-  &:last-child {
-    margin-top: 20px;
-  }
-}
+// .foodNotRecommend .text {
+//   &:last-child {
+//       margin-top: 20px;
+//     }
+// }
