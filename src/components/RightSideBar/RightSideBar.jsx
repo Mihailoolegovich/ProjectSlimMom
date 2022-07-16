@@ -20,7 +20,7 @@ const RightSideBar = ({ date }) => {
 
   const consumedData = () => {
     let totalCalories = [];
-    productsData.items?.map(product => totalCalories.push(product.calories));
+    productsData?.map(product => totalCalories.push(product.calories));
     return totalCalories.reduce((partialSum, a) => partialSum + a, 0);
   };
   consumedData();
