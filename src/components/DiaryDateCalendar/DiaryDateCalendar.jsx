@@ -1,13 +1,16 @@
-import React, { useState, forwardRef } from 'react';
+import React, { useState, forwardRef, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import CalendarContent from './CalendarContent';
 import styles from './DiaryDateCalendar.module.scss';
 import { uk } from 'date-fns/esm/locale';
 import { ReactComponent as LogoCalendar } from '../../icons/logoCalendar.svg';
 
-const DiaryDateCalendar = () => {
-
+const DiaryDateCalendar = ({ setDate }) => {
   const [startDate, setStartDate] = useState(new Date());
+
+  useEffect(() => {
+    setDate(startDate);
+  }, [setDate, startDate]);
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <>

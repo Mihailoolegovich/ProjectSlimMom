@@ -3,7 +3,7 @@ import {
   fetchProducts,
   addProduct,
   deleteProduct,
-  getCurrentDay
+  getCurrentDay,
 } from './products-operations';
 
 const productsSlice = createSlice({
@@ -11,11 +11,11 @@ const productsSlice = createSlice({
   initialState: {
     productsList: [],
     isLoading: false,
-    consumedProd: {},
+    consumedProd: [],
   },
   extraReducers: {
     [getCurrentDay.fulfilled]: (state, { payload }) => {
-      state.consumedProd = payload;
+      state.consumedProd = [...payload];
     },
     [fetchProducts.fulfilled]: (state, { payload }) => {
       state.isLoading = false
@@ -29,7 +29,6 @@ const productsSlice = createSlice({
     },
 
     [deleteProduct.fulfilled](state, action) {
-    
       state.consumedProd.items = state.consumedProd.items.filter(({ id }) => {
         return id !== action.meta.arg.id;
       });

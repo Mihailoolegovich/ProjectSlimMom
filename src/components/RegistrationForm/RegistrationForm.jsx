@@ -12,14 +12,15 @@ export default function RegistrationForm() {
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Too short')
-      .max(30, 'Too Long!')
+      .max(254, 'Too Long!')
       .required('Required'),
     email: Yup.string()
-      .email('Invalid email.  Must contain .com, .net, .ua')
+      .email('Invalid email')
+      // .oneOf(['.com' '.net', '.ua'])
       .required('Required'),
     password: Yup.string()
-      .min(6, 'Must be at least 6 symbols!')
-      .max(20, 'Too Long!')
+      .min(8, 'Must be at least 8 symbols!')
+      .max(100, 'Too Long!')
       .required('Required'),
   });
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export default function RegistrationForm() {
   };
 
   const renderError = message => <p className={s.error}>{message}</p>;
+
   return (
     <>
       <Formik
