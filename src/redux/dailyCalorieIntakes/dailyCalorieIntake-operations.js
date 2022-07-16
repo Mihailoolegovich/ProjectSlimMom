@@ -11,7 +11,6 @@ const dailyCalories = createAsyncThunk(
         '/daily-calorie-intakes/private',
         credentials
       );
-
       return data;
     } catch (error) {
       console.log(error.message);
