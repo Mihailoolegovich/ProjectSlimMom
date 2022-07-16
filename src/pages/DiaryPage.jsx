@@ -5,8 +5,7 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-// import Summary from 'components/RightSideBar/Summary';
-// import FoodNotRec from 'components/RightSideBar/FoodNotRecommend';
+
 import { getCurrentDay } from 'redux/products';
 import RightSideBar from 'components/RightSideBar';
 // import Summary from '../components/RightSideBar/Summary';
