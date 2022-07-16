@@ -8,6 +8,9 @@ import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
 import bgCalendar from '../images/bgCalendar.png';
 import RightSideBar from 'components/RightSideBar';
 
+import MUIForm from 'components/DiaryAddProductForm/MUIForm';
+
+
 const theme = createTheme({
   breakpoints: {
     values: {
