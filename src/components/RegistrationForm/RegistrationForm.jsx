@@ -16,7 +16,7 @@ export default function RegistrationForm() {
       .required('Required'),
     email: Yup.string()
       .email('Invalid email')
-      .oneOf(['.com', '.net', '.ua'])
+      // .oneOf(['.com' '.net', '.ua'])
       .required('Required'),
     password: Yup.string()
       .min(8, 'Must be at least 8 symbols!')
