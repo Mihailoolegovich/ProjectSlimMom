@@ -8,27 +8,28 @@ position: relative;
 width: 100%;
 margin: 80px 0 60px 0;
 align-items: center;
+margin:auto;
 background-color: transparent;
 
 @include for-size(tablet){
-    width: 503px;
     margin: 0 0 60px 0;
     flex-direction: row;
     justify-items: flex-start;
     align-items: flex-end;
-    padding-left: 69px;
+    
 }
     @include for-size(desktop){
-    width: 503px;
     margin: 0 0 60px 0;
-     padding-left: 75px;
+    
   }
+
 }
 
 
 .diaryInput{
     padding: 0 0 8px 0;
     width: 280px;
+    margin:0 0 32px 0;
     color: $secondary-text-color;
     border: none;
     border-bottom: 1px solid $light-gray;
@@ -40,43 +41,42 @@ background-color: transparent;
 
     @include for-size(tablet){
         padding: 0 0 20px 0;
+        margin: 0 22px 0 0;
+        width: 240px;
+    }
+      @include for-size(desktop){
+       
+         margin: 0 48px 0 0;
+          
+    }
+
+    
+};
+
+.diaryInput_weight{
+    padding: 0 0 8px 0;
+    width: 280px;
+    margin:0 0 60px 0;
+    color: $secondary-text-color;
+    border: none;
+    border-bottom: 1px solid $light-gray;
+    outline: none;
+    text-align: left;
+    background-color: inherit;
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    &::placeholder{color: $secondary-text-color;}
+
+    @include for-size(tablet){
+        padding: 0 0 20px 0;
+          text-align: right;
+            margin: 0 87px 0 0;
+            width: 107px;
     }
       @include for-size(desktop){
         padding: 0 0 20px 0;
-    }
-
-    &:first-child{
-         @include for-size(mobile){
-            margin:0 0 32px 0;
-        }
-        @include for-size(tablet){
-            margin: 0 22px 0 0;
-            width: 240px;
-        }
-        @include for-size(desktop){
-            margin: 0 48px 0 0;
-            width: 240px;
-        }
-    }
-    &:last-of-type{
-
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button{
-            -webkit-appearance: none;
-        }
-         @include for-size(mobile){
-            margin:0 0 60px 0;
-        }
-         @include for-size(tablet){
-            text-align: right;
-            margin: 0 87px 0 0;
-            width: 107px;
-        }
-        @include for-size(desktop){
-            text-align: right;
+         text-align: right;
             margin: 0 60px 0 0;
             width: 107px;
-        }
     }
 };
 
@@ -114,6 +114,7 @@ background-color: transparent;
 }
 
 
+
 .dataContainer {
   position: absolute;
   top: 30px;
@@ -125,10 +126,10 @@ background-color: transparent;
   overflow-block: hidden;
   &::-webkit-scrollbar {
     width: 6px;
-    background-color: $secondary-bg-color;
+    background-color: transparent;
   }
   &::-webkit-scrollbar-track {
-    background-color: $secondary-bg-color;
+    background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {
     background: $decorative-color;
@@ -163,6 +164,15 @@ background-color: transparent;
   transition: $cubic;
   &:hover,
   &:focus {
-    background-color: transparent;
+    background-color: $primary-bg-color;
   }
+}
+
+
+.notification{
+  width: 100%;
+  padding-top: 8px;
+   @include font(400, 12px, 17px, 'Verdana', 0.04em);
+  text-align: left;
+  color: $accent-color;
 }

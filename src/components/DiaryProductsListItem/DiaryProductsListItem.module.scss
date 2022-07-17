@@ -36,6 +36,13 @@
         }
 }
 
+.item_container{
+   display: flex;
+}
+
+
+
+
 .mark{
     @include font(400, 10px, 13px, 'Verdana', 0.04em);
 

@@ -37,7 +37,7 @@ const Item1 = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up('desktop')]: {
     margin: '290px 16px 0 16px',
-    position: 'absolute',
+
   },
 }));
 
@@ -84,7 +84,7 @@ export default function DiaryPage() {
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
-  }, [date]);
+  },[date, dispatch]);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -124,8 +124,8 @@ export default function DiaryPage() {
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              <DiaryAddProductForm />
-              <DiaryProductsList />
+              <DiaryAddProductForm date={date} />
+              <DiaryProductsList date={date} />
               {/* <DiaryFormButton /> приймає: type, action. */}
             </Item1>
           </Grid>

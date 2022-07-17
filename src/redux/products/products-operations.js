@@ -1,10 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-/*
-const TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDMwODQ1M2JhN2UyZjkyZjQzZDc5ZiIsImlhdCI6MTY1ODAxNDcxMSwiZXhwIjoxNjU4MDE4MzExfQ.j9OulEy5Xog7API5NxJ54ujmMtF4dMMMMNpVC5oIjMY';
-*/
-//axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;
 
 export const getCurrentDay = createAsyncThunk(
   'products/getCurrentDay',
