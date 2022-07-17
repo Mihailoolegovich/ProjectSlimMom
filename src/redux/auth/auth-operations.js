@@ -1,8 +1,6 @@
 import axios from 'axios';
-import apiService from '../../services/service-api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { authSlice } from '.';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://weightbusters-api.herokuapp.com';
@@ -30,7 +28,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/auth/login', credentials);
     token.set(data.data.token);
-    
+
     return data;
   } catch (error) {
     console.log(error.message);
@@ -47,7 +45,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
 });
 
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'users/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
