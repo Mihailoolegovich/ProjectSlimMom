@@ -1,0 +1,93 @@
+@import '../../sass/base/BaseStyles.scss';
+
+.mainContainer {
+    padding: 40px 20px 0 20px;
+
+    @include for-size(tablet) {
+        padding: 64px 82px 82px 82px;
+    }
+}
+
+.container {
+
+    padding-bottom: 32px;
+    // @include for-size(tablet) {
+    //        padding: 64px 82px 81px;
+    //     }
+}
+
+.title {
+    @include font(700, 18px, 26px, 'Verdana', 0.04em);
+    color: $primary-text-color;
+    margin-bottom: 40px;
+    @include for-size(tablet) {
+        @include font(700, 26px, 100%, 'Verdana', 0.04em);
+       text-align: center;
+        // margin-bottom: 20px;
+        }
+}
+
+.value {
+    @include font(700, 18px, 26px, 'Verdana', 0.04em);
+    color: $decorative-color;
+    text-align: center;
+}
+ .calories{
+    font-size: 40px;
+ }
+.productsTitle {
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    color: $primary-text-color;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    // @include for-size(tablet) {
+    //         margin-top: 12px;
+    //     }
+
+}
+.containerFood{
+    border-top: 1px solid $light-gray;
+    @include for-size(tablet) {
+          width: 330px;
+          margin-right: auto;
+          margin-left: auto;
+
+        }
+}
+.productsList{
+    padding-left: 20px;
+    color: $secondary-text-color;
+}
+
+.productItem {
+    @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+
+.button {
+    padding: 13px 0;
+     display: block;
+    text-align: center;
+    margin: 40px auto 0;
+    // margin-top: 40px;
+    width: 176px;
+    border: 2px solid #fc842d;
+    border-radius: 30px;
+    background-color: #fc842d;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: Verdana;
+    font-size: 14px;
+    line-height: 1.21;
+    text-align: center;
+    letter-spacing: 0.04em;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #fc842d;
+    color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+}
