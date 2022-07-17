@@ -1,6 +1,9 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
 import PublicRoute from './PublicRoute';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {authOperations} from '../redux/auth';
 
 import {
   LoginPage,
@@ -11,6 +14,14 @@ import {
 } from 'pages';
 
 export const App = () => {
+
+  const dispatch = useDispatch();
+ 
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
+
   const { pathname } = useLocation();
 
   function adaptiveClassName(loc) {

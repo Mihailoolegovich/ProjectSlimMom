@@ -12,7 +12,7 @@ export default function LoginForm() {
   const LoginSchema = Yup.object({
     email: Yup.string().email('Invalid email').required('Email is required'),
     password: Yup.string()
-      .min(6, 'Must be at least 6 symbols!')
+      .min(8, 'Must be at least 8 symbols!')
       .max(20, 'Too Long!')
       .required('Password is required'),
     // .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),

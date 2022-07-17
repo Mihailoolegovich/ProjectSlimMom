@@ -36,7 +36,7 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload;
+      state.user = action.payload.data.user;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
@@ -44,63 +44,6 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = false;
     },
   },
-  // reducers: {
-  //   registerRequest: state => {
-  //     state.isLoading = true;
-  //   },
-  //   registerSuccess: (state, { payload }) => {
-  //     state.user = payload.user;
-  //     state.token = payload.user.token;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = true;
-  //   },
-  //   registerError: (state, { payload }) => {
-  //     state.error = payload.message;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = false;
-  //   },
-  //   loginRequest: state => {
-  //     state.isLoading = true;
-  //   },
-  //   loginSuccess: (state, { payload }) => {
-  //     state.user = payload.user;
-  //     state.token = payload.user.token;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = true;
-  //   },
-  //   loginError: (state, { payload }) => {
-  //     state.error = payload.message;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = false;
-  //   },
-  //   logoutRequest: state => {
-  //     state.isLoading = true;
-  //   },
-  //   logoutSuccess: state => {
-  //     state.user = null;
-  //     state.token = null;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = false;
-  //   },
-  //   logoutError: (state, { payload }) => {
-  //     state.error = payload?.message;
-  //     state.isLoading = false;
-  //   },
-  //   getCurrentUserRequest: (state, { payload }) => {
-  //     state.isLoading = true;
-  //   },
-  //   getCurrentUserSuccess: (state, { payload }) => {
-  //     state.user = payload.user;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = true;
-  //   },
-  //   getCurrentUserError: (state, { payload }) => {
-  //     state.error = payload;
-  //     state.isLoading = false;
-  //     state.isLoggedOn = false;
-  //   },
-  // },
 });
 
-// eslint-disable-next-line
 export default authSlice.reducer;
