@@ -84,7 +84,7 @@ export default function DiaryPage() {
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
-  },[date]);
+  }, [date]);
   return (
     <>
       <ThemeProvider theme={theme}>
