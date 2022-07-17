@@ -8,6 +8,8 @@ import { ReactComponent as LogoCalendar } from '../../icons/logoCalendar.svg';
 const DiaryDateCalendar = ({ setDate }) => {
   const [startDate, setStartDate] = useState(new Date());
 
+ 
+
   useEffect(() => {
     setDate(startDate);
   }, [setDate, startDate]);

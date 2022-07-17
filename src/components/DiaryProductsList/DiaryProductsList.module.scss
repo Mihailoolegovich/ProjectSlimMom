@@ -5,9 +5,11 @@
     position: relative;
     width: 300px;
     margin: auto;
+     @include font(700, 14px, 17px, 'Verdana', 0.04em);
+    color: $secondary-text-color;
     @include for-size(tablet){
         margin: 0;
-        max-width: 624px;
+        width: 624px;
         padding-left: 69px;
     }
     @include for-size(desktop){
@@ -65,4 +67,19 @@ padding-bottom: 40px;
     @include for-size(desktop){
     width: 618px;
    }
+}
+
+
+.placeholder{
+    border: 1px solid $light-gray;
+    padding: 8px 0 8px 0;
+    width: 100%;
+    text-align: center;
+    
+    @include for-size(tablet){
+        padding: 20px 0 20px 0;
+        border: none;
+        border-bottom: 1px solid $light-gray;
+        text-align: left;
+    }
 }
