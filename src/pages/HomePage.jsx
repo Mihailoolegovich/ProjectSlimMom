@@ -5,8 +5,6 @@ import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
 // import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
 
-// const BASE_URL = "https://slimmom-backend.goit.global";
-
 const transformString = obj => {
   const newObj = {};
   for (const [key, value] of Object.entries(obj)) {
@@ -42,6 +40,7 @@ const HomePage = () => {
 
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
+          Here is modal
           {/* <DailyKkalIntake {...data} /> */}
         </Modal>
       )}

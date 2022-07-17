@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Modal.styled.css';
+import ReactDOM from 'react-dom';
+import styles from './Modal.module.css';
 import { useEffect } from 'react';
-import ReactDom from 'react-dom';
 
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
@@ -36,7 +36,7 @@ const Modal = ({ onClose, children }) => {
     }
   };
 
-  return ReactDom.createPortal(
+  return ReactDOM.createPortal(
     <div
       className={styles.moduleMainContainerOverlay}
       onClick={handleBackdropClick}
@@ -46,7 +46,7 @@ const Modal = ({ onClose, children }) => {
         {children}
       </div>
     </div>,
-    document.getElementById('modal_root')
+    document.getElementById('modal-root')
   );
 };
 
