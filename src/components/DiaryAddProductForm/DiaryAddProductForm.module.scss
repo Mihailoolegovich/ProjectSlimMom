@@ -147,10 +147,11 @@ background-color: transparent;
 }
 
 .dataList {
-  width: 100%;
+  display: block;
+  width:100%;
 }
 
-.dataListItem {
+.option {
   color: $secondary-text-color;
   border: none;
   border-bottom: 1px solid $light-gray;

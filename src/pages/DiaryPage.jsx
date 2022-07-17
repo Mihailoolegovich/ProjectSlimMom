@@ -10,6 +10,9 @@ import { getCurrentDay } from 'redux/products';
 import RightSideBar from 'components/RightSideBar';
 // import Summary from '../components/RightSideBar/Summary';
 // import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
+import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
+import Modal from 'components/Modal/Modal';
+
 
 const theme = createTheme({
   breakpoints: {
@@ -57,10 +60,14 @@ const Item2 = styled('div')(({ theme }) => ({
 export default function DiaryPage() {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+
+
+
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
-  });
+  },[date]);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -74,8 +81,9 @@ export default function DiaryPage() {
           <Grid item mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              <DiaryAddProductForm />
-              <DiaryProductsList />
+              <DiaryAddProductForm date={ date} />
+              <DiaryProductsList date={date} />
+              <DiaryFormButton />
             </Item1>
           </Grid>
           <Grid item mobile={12} tablet={12} desktop={5}>

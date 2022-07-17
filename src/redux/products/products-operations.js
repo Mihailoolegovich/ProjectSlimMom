@@ -2,19 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 /*
 const TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2YwYzg1NWEyZTc2YjFhN2Q4ZDI1ZiIsImlhdCI6MTY1Nzg5MzU1OSwiZXhwIjoxNjU3ODk3MTU5fQ.wEokYMHoajdeNVL3120LqtGfHfUgbb9gN85XaCYHGlA';
-
-axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;*/
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDMwODQ1M2JhN2UyZjkyZjQzZDc5ZiIsImlhdCI6MTY1ODAxNDcxMSwiZXhwIjoxNjU4MDE4MzExfQ.j9OulEy5Xog7API5NxJ54ujmMtF4dMMMMNpVC5oIjMY';
+*/
+//axios.defaults.headers.common.Authorization = `Bearer ${TOKEN}`;
 
 export const getCurrentDay = createAsyncThunk(
   'products/getCurrentDay',
   async (date, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/days/user`, { date });
-      console.log(data);
-      return data ? data.items : [];
+
+      return data.items;
     } catch (error) {
-      return rejectWithValue(error);
+      return [];
     }
   }
 );
@@ -25,13 +25,10 @@ export const fetchProducts = createAsyncThunk(
     try {
       const { data } = await axios.get(`/products?query=${value}`);
       if (data.message) {
-        console.log(data.message);
         return [];
       }
       return data;
-    } catch (error) {
-      console.log(rejectWithValue);
-    }
+    } catch (error) {}
   }
 );
 
@@ -40,10 +37,11 @@ export const addProduct = createAsyncThunk(
   async (product, { rejectWithValue }) => {
     try {
       const { data } = await axios.post(`/days/create`, product);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+      if (data.message) {
+        return [];
+      }
+      return data.items;
+    } catch (error) {}
   }
 );
 
@@ -55,8 +53,6 @@ export const deleteProduct = createAsyncThunk(
     try {
       const { data } = await axios.post(`/days/user/product/${id}`, dateObj);
       return data;
-    } catch (error) {
-      return rejectWithValue(error);
-    }
+    } catch (error) {}
   }
 );
