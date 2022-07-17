@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { dailyCaloriesPrivate, dailyCaloriesPublic } from './dailyCalorieIntake-operations';
+import {
+  dailyCaloriesPrivate,
+  dailyCaloriesPublic,
+} from './dailyCalorieIntake-operations';
 
 const initialState = {
   calories: null,
@@ -20,9 +23,7 @@ const caloriesSlice = createSlice({
     },
     [dailyCaloriesPublic.fulfilled]: (state, action) => {
       state.calories = action.payload.dailyCalorieIntake;
-      state.notRecommendProd = [
-        ...action.payload.notRecommendedProducts,
-      ];
+      state.notRecommendProd = [...action.payload.notRecommendedProducts];
       // console.log(action);
       console.log(state);
     },
