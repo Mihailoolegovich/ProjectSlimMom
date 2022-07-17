@@ -5,7 +5,7 @@ import useDebounce from 'hooks/useDebounce';
 import DiaryDataList from './DiaryDataList';
 import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
-const DiaryAddProductForm = ({ date = '2022-07-13' }) => {
+const DiaryAddProductForm = ({ date }) => {
   const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
   const [datalistVisible, setDataListVisible] = useState(false);
@@ -49,8 +49,7 @@ const DiaryAddProductForm = ({ date = '2022-07-13' }) => {
   };
 
   const handleClick = e => {
-    console.log('123');
-    setProduct(e.currentTarget.value);
+    setProduct(e.currentTarget.textContent);
     setDataListVisible(false);
   };
 
@@ -89,7 +88,7 @@ const DiaryAddProductForm = ({ date = '2022-07-13' }) => {
         required
       />
 
-      <button className={s.diaryButton} type="submit"></button>
+      <button className={s.diaryButton} type="submit">Add</button>
       {datalistVisible && (
         <DiaryDataList productList={products} handleClick={handleClick} />
       )}

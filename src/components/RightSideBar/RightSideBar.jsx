@@ -13,6 +13,7 @@ const RightSideBar = ({ date }) => {
   const currentDateNow = date
     ? date.toLocaleDateString('en-GB')
     : new Date().toLocaleDateString('en-GB');
+  
 
   // 1. отримуємо суму спожитих калорій
   const productsData = useSelector(ProductsSelectors.consumedProducts);

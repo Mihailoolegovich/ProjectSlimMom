@@ -3,29 +3,29 @@ import s from './DiaryProductsList.module.scss';
 import { useSelector } from 'react-redux';
 import { ProductsSelectors } from 'redux/products';
 
-const DiaryProductsList = () => {
+const DiaryProductsList = ({date}) => {
   const products = useSelector(ProductsSelectors.consumedProducts);
 
   return (
     <div className={s.productList_container}>
-      {products.items ? (
+      {products.length > 0 ? (
         <ul className={s.productList}>
-          {products.items.map(product => (
+          {products.map(product => (
             <DiaryProductsListItem
               key={product.id}
               id={product.id}
               title={product.name.en}
               weight={product.weight}
               calories={product.calories}
-              date={products.date}
+              date={date}
             />
           ))}
         </ul>
       ) : (
-        <p></p>
+        <p className={s.placeholder}>You have not yet added used products on the selected date</p>
       )}
 
-      <div className={s.productList_downboard}></div>
+      {products.length > 0 && <div className={s.productList_downboard}></div>}
     </div>
   );
 };

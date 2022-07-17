@@ -6,7 +6,7 @@ const DiaryDataList = ({ productList, handleClick }) => {
         {productList.map(({ title, _id }) => {
           return (
             <li key={_id} className={s.option} onClick={handleClick}>
-              <option value={title.en} />
+              {title.en}
             </li>
           );
         })}

@@ -3,7 +3,7 @@ const DiaryFormButton = ({
   type,
   title,
   action,
-  class_name = s.diaryFormButton,
+  class_name = s.diaryFormButton
 }) => {
   return (
     <button className={class_name} type={type} onClick={action}>
