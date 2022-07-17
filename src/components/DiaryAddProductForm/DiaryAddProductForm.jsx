@@ -13,7 +13,8 @@ const DiaryAddProductForm = ({ date }) => {
   const products = useSelector(ProductsSelectors.getProducts);
   const dispatch = useDispatch();
 
-  const search = useDebounce(product, 500);
+  const search = useDebounce(product.trim(), 500);
+  
 
   const resetForm = () => {
     setProduct('');
@@ -21,15 +22,15 @@ const DiaryAddProductForm = ({ date }) => {
   };
 
   useEffect(() => {
-    if (search) {
+    if (search !== "") {
       dispatch(fetchProducts(search));
     }
   }, [search, dispatch]);
 
   const handleChange = e => {
     const { name, value } = e.target;
-    name === 'product' && setProduct(value);
-    name === 'weight' && setWeight(value);
+    name === 'product' && setProduct(value.trim());
+    name === 'weight' && setWeight(value.trim());
   };
 
   const handleSubmit = e => {
@@ -64,7 +65,7 @@ const DiaryAddProductForm = ({ date }) => {
         value={product}
         autoComplete="off"
         autoSave="off"
-        maxLength={250}
+        maxLength={100}
         required
         onFocus={() => setDataListVisible(true)}
         onBlur={() => {
@@ -73,16 +74,17 @@ const DiaryAddProductForm = ({ date }) => {
           }, 250);
         }}
       />
-
+      
       <input
-        className={s.diaryInput}
+        className={s.diaryInput_weight}
         onInput={handleChange}
         type="number"
         placeholder="Grams"
         name="weight"
         pattern="[0-9]+"
         value={weight}
-        maxLength={4}
+        min={1}
+        max={5000}
         autoComplete="off"
         autoSave="off"
         required
@@ -92,6 +94,7 @@ const DiaryAddProductForm = ({ date }) => {
       {datalistVisible && (
         <DiaryDataList productList={products} handleClick={handleClick} />
       )}
+      
     </form>
   );
 };
