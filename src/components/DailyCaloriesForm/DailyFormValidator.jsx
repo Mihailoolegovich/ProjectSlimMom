@@ -2,29 +2,29 @@ import * as Yup from 'yup';
 
 const BasicFormSchema = Yup.object().shape({
   height: Yup.number()
-    .required('Обязательное поле ввода')
-    .typeError('Форма принимает, только числовое значение')
-    .negative('Введите числовое значение от 2 до 3 символов')
-    .min(100, 'Введите Ваш рост от 100см')
-    .max(250, 'Введите Ваш рост до 250см')
+    .required('Required input field')
+    .typeError('The form accepts only a numeric value')
+    .negative('Enter a numeric value between 2 and 3 characters')
+    .min(100, 'Enter your height from 100 cm')
+    .max(250, 'Enter your height to 250 cm')
     .integer(),
   age: Yup.number()
-    .required('Обязательное поле ввода')
-    .typeError('Форма принимает, только числовое значение')
-    .min(18, 'Введите Ваш возраст от 18 лет')
-    .max(99, 'Введите Ваш возраст до 100 лет')
+    .required('Required input field')
+    .typeError('The form accepts only a numeric value')
+    .min(18, 'Enter your age from 18 years')
+    .max(99, 'Enter your age to 99 years')
     .integer(),
   currentWeight: Yup.number()
-    .required('Обязательное поле ввода')
-    .typeError('Форма принимает, только числовое значение')
-    .min(20, 'Введите Ваш текущий вес от 20 кг')
-    .max(500, 'Введите Ваш текущий вес до 500 кг')
+    .required('Required input field')
+    .typeError('The form accepts only a numeric value')
+    .min(20, 'Enter your current weight from 20 kg')
+    .max(500, 'Enter your current weight to 500 kg')
     .integer(),
   desiredWeight: Yup.number()
-    .required('Обязательное поле ввода')
-    .typeError('Форма принимает, только числовое значение')
-    .min(20, 'Введите Ваш желаемый вес от 20 кг')
-    .max(500, 'Введите Ваш текущий вес до 500 кг')
+    .required('Required input field')
+    .typeError('The form accepts only a numeric value')
+    .min(20, 'Enter your desired weight from 20 kg')
+    .max(500, 'Enter your desired weight to 500 kg')
     .integer(),
 });
 export default BasicFormSchema;
