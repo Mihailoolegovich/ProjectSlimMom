@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
-import DailyCaloriesFormValidator from './DailyCaloriesFormValidator';
-import styles from './DailyCaloriesForm.styled.css';
+import DailyCaloriesFormValidator from './DailyFormValidator';
+import styles from './DailyForm.module.scss';
 import { useSelector } from 'react-redux';
-import { getLoggedOn } from 'redux/auth/auth-selectors';
+import authSelectors from '../../redux/auth/auth-selectors';
 import RightSideBar from 'components/RightSideBar/RightSideBar';
 
 const DailyCaloriesForm = ({
@@ -11,7 +11,7 @@ const DailyCaloriesForm = ({
   initialValues,
   enableReinitialize = false,
 }) => {
-  const isAuth = useSelector(getLoggedOn);
+  const isAuth = useSelector(authSelectors.getLoggedOn);
 
   return (
     <div className={styles.calculator}>
