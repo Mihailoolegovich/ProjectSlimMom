@@ -41,7 +41,6 @@ const Item1 = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up('desktop')]: {
     margin: '290px 16px 0 16px',
-
   },
 }));
 
@@ -91,7 +90,7 @@ export default function DiaryPage() {
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
-  },[date, dispatch]);
+  }, [date, dispatch]);
   return (
     <>
       <ThemeProvider theme={theme}>
