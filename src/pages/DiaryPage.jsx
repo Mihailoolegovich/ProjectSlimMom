@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import DiaryDateCalendar from '../components/DiaryDateCalendar';
 import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
-import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
+// import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import { getCurrentDay } from 'redux/products';
@@ -37,7 +37,6 @@ const Item1 = styled('div')(({ theme }) => ({
   },
   [theme.breakpoints.up('desktop')]: {
     margin: '290px 16px 0 16px',
-
   },
 }));
 
@@ -80,11 +79,11 @@ const Item2 = styled('div')(({ theme }) => ({
 export default function DiaryPage() {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
-  },[date, dispatch]);
+  }, [date, dispatch]);
   return (
     <>
       <ThemeProvider theme={theme}>
