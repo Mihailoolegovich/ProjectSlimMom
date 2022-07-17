@@ -26,6 +26,7 @@ export const App = () => {
   return (
     <section className={adaptiveClassName(pathname)}>
       <Header />
+      <HomePage />
       <Routes>
         <Route path="auth/login" element={<PublicRoute path="/auth/login" restricted><LoginPage /></PublicRoute>} />
         <Route
@@ -37,9 +38,9 @@ export const App = () => {
           }
         />
         <Route path="diary" element={<DiaryPage />} />
-        {/* <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="calculator" element={<CalculatorPage />} />
-        <Route path="*" element={<HomePage />} /> */}
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </section>
   );
