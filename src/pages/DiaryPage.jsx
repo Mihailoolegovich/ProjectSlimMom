@@ -4,6 +4,9 @@ import DiaryDateCalendar from '../components/DiaryDateCalendar';
 import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
+import DiaryFormWrapper from 'components/DiaryFormWrappers/DiaryFormWrapper';
+import DiaryFormMobileWrapper from 'components/DiaryFormWrappers/DiaryFormMobileWrapper';
+import Modal from 'components/Modal/Modal';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import { getCurrentDay } from 'redux/products';
@@ -11,6 +14,7 @@ import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
 import bgCalendar from '../images/bgCalendar.png';
 import Summary from '../components/RightSideBar/Summary';
 import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
+import { ToastContainer } from 'react-toastify';
 
 const theme = createTheme({
   breakpoints: {
@@ -81,6 +85,9 @@ export default function DiaryPage() {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  
+
+  const toggleModal = ()=> {setIsOpen(!isOpen)}
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
@@ -124,9 +131,19 @@ export default function DiaryPage() {
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              <DiaryAddProductForm date={date} />
+              {!isOpen && <DiaryFormWrapper>
+                <DiaryAddProductForm date={date} />
+              </DiaryFormWrapper>}
               <DiaryProductsList date={date} />
-              {/* <DiaryFormButton /> приймає: type, action. */}
+
+
+              <DiaryFormButton type={'button'} action={toggleModal} /> 
+              {isOpen &&
+              <DiaryFormMobileWrapper>
+                <Modal onClose={toggleModal}>
+                    <DiaryAddProductForm date={date} closeModal={toggleModal } />
+                </Modal>
+              </DiaryFormMobileWrapper>}
             </Item1>
           </Grid>
           <Grid item xs={12} mobile={12} tablet={12} desktop={5}>
@@ -137,6 +154,13 @@ export default function DiaryPage() {
           </Grid>
         </Grid>
       </ThemeProvider>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={1500}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+      />
     </>
   );
 }
