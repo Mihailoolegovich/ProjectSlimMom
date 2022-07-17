@@ -1,32 +1,31 @@
-import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
+import {
+  dailyCaloriesPrivate,
+  dailyCaloriesPublic,
+} from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operations';
 import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
 // import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
 
-// const BASE_URL = "https://slimmom-backend.goit.global";
-
-const transformString = obj => {
-  const newObj = {};
-  for (const [key, value] of Object.entries(obj)) {
-    newObj[key] = Number(value);
-  }
-  return newObj;
-};
 const HomePage = () => {
-  const [data, setData] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(authSelectors.getLoggedOn);
+
   const onToggleModal = () => {
     setShowModal(prevState => !prevState);
   };
-  const onSubmit = async values => {
-    const data = transformString(values);
-    const res = await axios.post(`/daily-calorie-intakes`, data);
-    setData(res.data);
 
+  const onSubmit = values => {
+    isLoggedIn
+      ? dispatch(dailyCaloriesPrivate(values))
+      : dispatch(dailyCaloriesPublic(values));
     setShowModal(true);
   };
+
   return (
     <>
       <DailyCaloriesForm
@@ -42,7 +41,8 @@ const HomePage = () => {
 
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
-          {/* <DailyKkalIntake {...data} /> */}
+          Here is modal
+          {/* <DailyKkalIntake /> */}
         </Modal>
       )}
     </>

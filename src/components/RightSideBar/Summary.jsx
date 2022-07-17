@@ -1,15 +1,11 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import s from './RightSideBar.module.scss';
 import { useSelector } from 'react-redux';
 import { ProductsSelectors } from 'redux/products';
-import {
-  getCalories,
-  getNotRecommendProd,
-} from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
+import { getCalories } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
 const Summary = ({ date }) => {
-  const getNotRecommendProdData = useSelector(getNotRecommendProd);
-  // console.log('getNotRecommendProdData:', getNotRecommendProdData);
-
   const currentDateNow = date
     ? date.toLocaleDateString('en-GB')
     : new Date().toLocaleDateString('en-GB');
@@ -18,13 +14,9 @@ const Summary = ({ date }) => {
   const productsData = useSelector(ProductsSelectors.consumedProducts);
   // console.log('productsData:', productsData);
 
-  const consumedData = () => {
-    let totalCalories = [];
-    productsData.items?.map(product => totalCalories.push(product.calories));
-    return totalCalories.reduce((partialSum, a) => partialSum + a, 0);
-  };
-  consumedData();
-  const consumed = consumedData();
+  const consumed = productsData
+    ?.map(product => product.calories)
+    .reduce((partialSum, a) => partialSum + a, 0);
   // console.log('Consumed:', consumed);
 
   // 2. отримуємо денну норму споживання калорій
@@ -47,18 +39,22 @@ const Summary = ({ date }) => {
 
   const elements = [
     {
+      id: uuidv4(),
       type: 'Left',
       data: left.toFixed(),
     },
     {
+      id: uuidv4(),
       type: 'Consumed',
       data: consumed.toFixed(),
     },
     {
+      id: uuidv4(),
       type: 'Daily rate',
       data: dailyRate || 0,
     },
     {
+      id: uuidv4(),
       type: 'n% of normal',
       data: caloriesPercentage(),
     },

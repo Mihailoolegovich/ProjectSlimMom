@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import s from './RightSideBar.module.scss';
 import { useSelector } from 'react-redux';
 import { ProductsSelectors } from 'redux/products';
@@ -8,24 +10,22 @@ import {
 
 const RightSideBar = ({ date }) => {
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
+  const notRecommendProd = getNotRecommendProdData?.map(
+    product => product.en[0]
+  );
   // console.log('getNotRecommendProdData:', getNotRecommendProdData);
 
   const currentDateNow = date
     ? date.toLocaleDateString('en-GB')
     : new Date().toLocaleDateString('en-GB');
-  
 
   // 1. отримуємо суму спожитих калорій
   const productsData = useSelector(ProductsSelectors.consumedProducts);
   // console.log('productsData:', productsData);
 
-  const consumedData = () => {
-    let totalCalories = [];
-    productsData?.map(product => totalCalories.push(product.calories));
-    return totalCalories.reduce((partialSum, a) => partialSum + a, 0);
-  };
-  consumedData();
-  const consumed = consumedData();
+  const consumed = productsData
+    ?.map(product => product.calories)
+    .reduce((partialSum, a) => partialSum + a, 0);
   // console.log('Consumed:', consumed);
 
   // 2. отримуємо денну норму споживання калорій
@@ -48,32 +48,35 @@ const RightSideBar = ({ date }) => {
 
   const elements = [
     {
+      id: uuidv4(),
       type: 'Left',
       data: left.toFixed(),
     },
     {
+      id: uuidv4(),
       type: 'Consumed',
       data: consumed.toFixed(),
     },
     {
+      id: uuidv4(),
       type: 'Daily rate',
       data: dailyRate || 0,
     },
     {
+      id: uuidv4(),
       type: 'n% of normal',
       data: caloriesPercentage(),
     },
   ];
 
   // 5. Отримуємо нерекомендовані для споживання продукти
-  const foodNotRecommend = getNotRecommendProdData?.join(', ');
   function capitalizeFirstLetter(data) {
     return data[0].toUpperCase() + data.slice(1);
   }
 
   const diet =
     getNotRecommendProdData.length !== 0
-      ? capitalizeFirstLetter(foodNotRecommend)
+      ? capitalizeFirstLetter(notRecommendProd.join(', '))
       : 'Your diet weel be dispalayed here';
 
   return (

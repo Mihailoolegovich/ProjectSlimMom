@@ -4,16 +4,17 @@ import { getNotRecommendProd } from 'redux/dailyCalorieIntakes/dailyCalorieIntak
 
 const FoodNotRecommend = () => {
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
-  // console.log('getNotRecommendProdData:', getNotRecommendProdData);
-
-  const foodNotRecommend = getNotRecommendProdData?.join(', ');
+  const notRecommendProd = getNotRecommendProdData?.map(
+    product => product.en[0]
+  );
+  console.log(notRecommendProd);
   function capitalizeFirstLetter(data) {
     return data[0].toUpperCase() + data.slice(1);
   }
 
   const diet =
     getNotRecommendProdData.length !== 0
-      ? capitalizeFirstLetter(foodNotRecommend)
+      ? capitalizeFirstLetter(notRecommendProd.join(', '))
       : 'Your diet weel be dispalayed here';
 
   return (
