@@ -1,36 +1,36 @@
-import React from "react";
-import styles from "./Modal.styled.css";
-import { useEffect } from "react";
-import ReactDom from "react-dom";
+import React from 'react';
+import styles from './Modal.styled.css';
+import { useEffect } from 'react';
+import ReactDom from 'react-dom';
 
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
-    window.addEventListener("keydown", handleEscape);
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    window.addEventListener('keydown', handleEscape);
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener("keydown", handleEscape);
-      window.removeEventListener("click", handleButtonClick);
-      const body = document.querySelector("body");
-      body.style.overflow = "auto";
+      window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('click', handleButtonClick);
+      const body = document.querySelector('body');
+      body.style.overflow = 'auto';
     };
   });
 
-  const handleEscape = (e) => {
-    if (e.code === "Escape") {
+  const handleEscape = e => {
+    if (e.code === 'Escape') {
       onClose();
     }
   };
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
 
-  const handleButtonClick = (e) => {
-    if (e.target.tagName === "BUTTON") {
+  const handleButtonClick = e => {
+    if (e.target.tagName === 'BUTTON') {
       console.log(e.target.tagName);
       onClose();
     }
@@ -46,8 +46,7 @@ const Modal = ({ onClose, children }) => {
         {children}
       </div>
     </div>,
-    document.getElementById("modal-root")
-
+    document.getElementById('modal_root')
   );
 };
 

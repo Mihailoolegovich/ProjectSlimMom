@@ -1,13 +1,13 @@
-import axios from "axios";
-import React from "react";
-import { useState } from "react";
-import DailyCaloriesForm from "../components/DailyCaloriesForm/DailyForm";
+import axios from 'axios';
+import React from 'react';
+import { useState } from 'react';
+import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
 // import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
 
-const BASE_URL = "https://slimmom-backend.goit.global";
+// const BASE_URL = "https://slimmom-backend.goit.global";
 
-const transformString = (obj) => {
+const transformString = obj => {
   const newObj = {};
   for (const [key, value] of Object.entries(obj)) {
     newObj[key] = Number(value);
@@ -18,11 +18,11 @@ const HomePage = () => {
   const [data, setData] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const onToggleModal = () => {
-    setShowModal((prevState) => !prevState);
+    setShowModal(prevState => !prevState);
   };
-  const onSubmit = async (values) => {
+  const onSubmit = async values => {
     const data = transformString(values);
-    const res = await axios.post(`${BASE_URL}/daily-rate`, data);
+    const res = await axios.post(`/daily-calorie-intakes`, data);
     setData(res.data);
 
     setShowModal(true);
@@ -32,11 +32,11 @@ const HomePage = () => {
       <DailyCaloriesForm
         onSubmit={onSubmit}
         initialValues={{
-          height: "",
-          age: "",
-          weight: "",
-          desiredWeight: "",
-          bloodType: "1",
+          height: '',
+          age: '',
+          currentWeight: '',
+          desiredWeight: '',
+          bloodType: '1',
         }}
       />
 

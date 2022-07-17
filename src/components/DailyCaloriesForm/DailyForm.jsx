@@ -45,10 +45,14 @@ const DailyCaloriesForm = ({
                     {errors.age && touched.age && (
                       <div className={styles.fieldError}>{errors.age}</div>
                     )}
-                    <label htmlFor="weight" className={styles.formInput}>
+                    <label htmlFor="currentWeight" className={styles.formInput}>
                       Current weight *
                     </label>
-                    <Field name="weight" type="text" className={styles.field} />
+                    <Field
+                      name="currentWeight"
+                      type="text"
+                      className={styles.field}
+                    />
 
                     {errors.weight && touched.weight && (
                       <div className={styles.fieldError}>{errors.weight}</div>
