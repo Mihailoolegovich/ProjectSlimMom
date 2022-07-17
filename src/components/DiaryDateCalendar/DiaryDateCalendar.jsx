@@ -13,6 +13,11 @@ const DiaryDateCalendar = ({ setDate }) => {
   useEffect(() => {
     setDate(startDate);
   }, [setDate, startDate]);
+  const getDateUser = newDate => {
+    console.log(
+      'запрос за списком продуктов по выбранной дате ---  ' + newDate
+    );
+  };
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <>
@@ -22,21 +27,20 @@ const DiaryDateCalendar = ({ setDate }) => {
       </button>
     </>
   ));
-  const handleCalendarOpen = () => console.log('Calendar opened');
+
   return (
     <>
       <DatePicker
         wrapperClassName={styles.datepicker}
         selected={startDate}
-        closeOnScroll={true}
+        close={true}
         input={true}
-        onCalendarOpen={handleCalendarOpen}
         onChange={newDate => {
           if (startDate.getDate() === newDate.getDate()) {
             return;
           }
           setStartDate(newDate);
-          // console.log('запрос за данными по выбранной дате' + newDate );
+          getDateUser(newDate);
         }}
         locale={uk}
         dateFormat="dd.MM.yyyy"
@@ -44,8 +48,6 @@ const DiaryDateCalendar = ({ setDate }) => {
         todayButton="Сьогодні"
         customInput={<ExampleCustomInput />}
         autoFocus
-
-        // minDate={dateRegUser} дата регистрации юзера
       />
     </>
   );
