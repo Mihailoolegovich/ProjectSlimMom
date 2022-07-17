@@ -10,6 +10,9 @@ import {
 
 const RightSideBar = ({ date }) => {
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
+  const notRecommendProd = getNotRecommendProdData?.map(
+    product => product.en[0]
+  );
   // console.log('getNotRecommendProdData:', getNotRecommendProdData);
 
   const currentDateNow = date
@@ -67,14 +70,13 @@ const RightSideBar = ({ date }) => {
   ];
 
   // 5. Отримуємо нерекомендовані для споживання продукти
-  const foodNotRecommend = getNotRecommendProdData?.join(', ');
   function capitalizeFirstLetter(data) {
     return data[0].toUpperCase() + data.slice(1);
   }
 
   const diet =
     getNotRecommendProdData.length !== 0
-      ? capitalizeFirstLetter(foodNotRecommend)
+      ? capitalizeFirstLetter(notRecommendProd.join(', '))
       : 'Your diet weel be dispalayed here';
 
   return (
