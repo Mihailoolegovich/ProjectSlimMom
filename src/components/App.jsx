@@ -11,7 +11,7 @@ import {
   RegistrationPage,
   DiaryPage,
   CalculatorPage,
-} from 'pages';
+} from '../pages';
 
 export const App = () => {
   const dispatch = useDispatch();

@@ -1,14 +1,16 @@
-import * as Yup from 'yup';
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import authOperations from '../../redux/auth/auth-operations';
-import { Link } from 'react-router-dom';
-import s from './RegisterForm.module.scss';
+import authOperations from '../redux/auth/auth-operations';
+import s from '../sass/styleComponents/Identification.module.scss';
 
-export default function RegistrationForm() {
+export default function RegistrationPage() {
+  const dispatch = useDispatch();
+
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Too short')
@@ -23,7 +25,6 @@ export default function RegistrationForm() {
       .max(100, 'Too Long!')
       .required('Required'),
   });
-  const dispatch = useDispatch();
 
   const onSubmit = ({ name, email, password }) => {
     dispatch(authOperations.register({ name, email, password }));
@@ -45,13 +46,8 @@ export default function RegistrationForm() {
         <Form>
           {/* <div className={s.imageContainer}> */}
           <div>
-            <div
-              className={s.formContainer}
-              // style={{
-              //   marginTop: '115px',
-              // }}
-            >
-              <h2 className={s.caption}>Register</h2>
+            <div className={s.formContainer}>
+              <h2 className={s.title}>Register</h2>
               <div className="field">
                 <label className="label" htmlFor="name"></label>
                 <div className="control">
