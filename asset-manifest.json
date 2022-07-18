@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d4c72c6b.css",
-    "main.js": "/static/js/main.d2eb9d86.js",
-    "registration-page.js": "/static/js/registration-page.ea92a60d.chunk.js",
+    "main.css": "/static/css/main.0bddcaab.css",
+    "main.js": "/static/js/main.bc5fb269.js",
     "static/media/bgDesctop.png": "/static/media/bgDesctop.331c39b81c84b10b847d.png",
     "static/media/bgTablet_Log.png": "/static/media/bgTablet_Log.2dea5912e59cb3b1299a.png",
     "static/media/bgTablet_Home.png": "/static/media/bgTablet_Home.14535b38e688d928dd13.png",
@@ -31,12 +30,11 @@
     "static/media/logoCalendar.svg": "/static/media/logoCalendar.26f85a29609df01bfb1a2c054e438d53.svg",
     "static/media/сlose.svg": "/static/media/сlose.4590c3b815a8d3bfee21.svg",
     "static/media/arrowBack.svg": "/static/media/arrowBack.822317d3ab5586ebb7046962fd75a06b.svg",
-    "main.d4c72c6b.css.map": "/static/css/main.d4c72c6b.css.map",
-    "main.d2eb9d86.js.map": "/static/js/main.d2eb9d86.js.map",
-    "registration-page.ea92a60d.chunk.js.map": "/static/js/registration-page.ea92a60d.chunk.js.map"
+    "main.0bddcaab.css.map": "/static/css/main.0bddcaab.css.map",
+    "main.bc5fb269.js.map": "/static/js/main.bc5fb269.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4c72c6b.css",
-    "static/js/main.d2eb9d86.js"
+    "static/css/main.0bddcaab.css",
+    "static/js/main.bc5fb269.js"
   ]
 }
