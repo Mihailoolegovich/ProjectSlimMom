@@ -34,6 +34,11 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     if (error.response.status === 401) {
       return toast.error('Email is wrong or not verify, or password is wrong');
     }
+    if (error.response.status === 500) {
+      return toast.error(
+        'Oops, something went wrong. Try to refresh this page or try again later'
+      );
+    }
     return toast.error(error.message);
   }
 });
