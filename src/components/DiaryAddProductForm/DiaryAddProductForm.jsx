@@ -5,7 +5,7 @@ import useDebounce from 'hooks/useDebounce';
 import DiaryDataList from './DiaryDataList';
 import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
-const DiaryAddProductForm = ({ date }) => {
+const DiaryAddProductForm = ({ date, closeModal=null }) => {
   const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
   const [datalistVisible, setDataListVisible] = useState(false);
@@ -47,6 +47,7 @@ const DiaryAddProductForm = ({ date }) => {
     };
     dispatch(addProduct(data));
     resetForm();
+    if(closeModal){closeModal()}
   };
 
   const handleClick = e => {
