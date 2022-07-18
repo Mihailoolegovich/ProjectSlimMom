@@ -1,11 +1,9 @@
 import axios from 'axios';
-import apiService from '../../services/service-api';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { authSlice } from '.';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://health-base-api.herokuapp.com';
+axios.defaults.baseURL = 'https://weightbusters-api.herokuapp.com';
 
 const token = {
   set(token) {
@@ -19,8 +17,7 @@ const token = {
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/auth/signup', credentials);
-    token.set(data.token);
-    console.log(data);
+    token.set(data.data.user.verificationToken);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -30,7 +27,8 @@ const register = createAsyncThunk('auth/register', async credentials => {
 const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/auth/login', credentials);
-    token.set(data.token);
+    token.set(data.data.token);
+
     return data;
   } catch (error) {
     console.log(error.message);
@@ -39,7 +37,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
 
 const logOut = createAsyncThunk('auth/logout', async () => {
   try {
-    await axios.post('/auth/logout');
+    await axios.get('/auth/logout');
     token.unset();
   } catch (error) {
     console.log(error.message);
@@ -47,7 +45,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
 });
 
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'users/current',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -69,6 +67,6 @@ const authOperations = {
   register,
   logIn,
   logOut,
-  fetchCurrentUser
+  fetchCurrentUser,
 };
 export default authOperations;

@@ -1,74 +1,115 @@
 @import '../../sass/base/BaseStyles.scss';
 
-.listItem {
-  display: grid;
-  grid-template-columns: 288px 141px 141px 12px;
-  padding-top: 16px;
-  @include for-size(mobile) {
-    grid-template-columns: 138px 57px 75px 10px;
+.listItem{
+   display: flex;
+   flex-direction: row;
     padding-top: 20px;
-  }
-  @include for-size(tablet) {
-    grid-template-columns: 262px 153px 139px 12px;
+    background-color: transparent;
+   
+@include for-size(tablet){
+    
     padding-top: 16px;
-  }
-  @include for-size(desktop) {
-    grid-template-columns: 288px 141px 141px 12px;
-    padding-top: 16px;
-  }
 }
+@include for-size(desktop){
+    
+     padding-top: 16px;
+}}
 
-.listItem_el {
-  padding: 0 0 8px 0;
-  border-bottom: 1px solid $light-gray;
-  text-align: right;
-  background-color: transparent;
-  margin-right: 17px;
-  color: $primary-text-color;
-  @include font(400, 14px, 17px, 'Verdana', 0.04em);
 
-  @include for-size(mobile) {
-    padding: 0 0 8px 0;
+.listItem_title{
+    display: block;
     margin-right: 8px;
-  }
-  @include for-size(tablet) {
-    padding: 0 0 20px 0;
-    margin-right: 32px;
-  }
-
-  &:first-child {
+    width: 130px;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid $light-gray;
     text-align: left;
-    @include for-size(tablet) {
-      margin-right: 22px;
-    }
-    @include for-size(desktop) {
-      margin-right: 48px;
-    }
-  }
-  &:nth-child(2) {
-    @include for-size(mobile) {
-      margin-right: 8px;
-    }
-    @include for-size(tablet) {
-      margin-right: 32px;
-    }
-    @include for-size(desktop) {
-      margin-right: 46px;
-    }
-  }
+    background-color: transparent;
+    color: $primary-text-color;
+    @include font(400, 14px, 17px, 'Verdana', 0.04em);
+    
+     @include for-size(tablet){
+        width: 240px;
+        margin-right: 22px;
+        padding: 0 0 20px 0;
+        }
+         @include for-size(desktop){
+            margin-right: 48px;
+        }
 }
 
-.listItem_btn {
-  display: block;
-  height: 10px;
-  width: 10px;
-  align-self: center;
-  background-image: url(../../icons/deleteBtn.png);
-  background-repeat: no-repeat;
-  background-size: 10px 10px;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+
+
+
+.mark{
+    @include font(400, 10px, 13px, 'Verdana', 0.04em);
+
+    @include for-size(tablet){
+        @include font(400, 14px, 17px, 'Verdana', 0.04em);
+        }
+
+}
+
+
+.listItem_weight{
+    display: block;
+     margin-right: 8px;
+    width: 49px;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid $light-gray;
+    text-align: center;
+    background-color: transparent;
+    color: $primary-text-color;
+    @include font(400, 14px, 17px, 'Verdana', 0.04em);
+    
+     @include for-size(tablet){
+            margin-right: 46px;
+            width: 107px;
+            padding: 0 0 20px 0;
+            text-align: right;
+        }
+         @include for-size(desktop){
+            margin-right: 32px;
+        }
+
+}
+
+.listItem_kcal{
+    display: block;
+    margin-right: 17px;
+    width: 58px;
+    padding: 0 0 8px 0;
+    border-bottom: 1px solid $light-gray;
+    text-align: center;
+    background-color: transparent;
+    color: $primary-text-color;
+    @include font(400, 14px, 17px, 'Verdana', 0.04em);
+    
+     @include for-size(tablet){
+            margin-right: 32px;
+            width: 107px;
+            padding: 0 0 8px 0;
+            text-align: right;
+        }
+         @include for-size(desktop){
+            margin-right: 32px;
+        }
+
+}
+
+
+.listItem_btn{
+    display: block;
+     height: 10px;
+     width: 10px;
+     align-self: center;
+     margin-right: 14px;
+     background-color: transparent;
+     background-image: url(../../icons/deleteBtn.png);
+     background-repeat: no-repeat;
+     background-size: 10px 10px;
+     border: none;
+     padding: 0;
+    cursor: pointer;
 
   transition: $cubic;
 
@@ -76,9 +117,9 @@
     transform: scale(1.2);
   }
 
-  @include for-size(tablet) {
-    height: 12px;
-    width: 12px;
-    background-size: 12px 12px;
-  }
+    @include for-size(tablet){
+     height: 12px;
+     width: 12px;
+     background-size: 12px 12px;
+    }
 }

@@ -18,6 +18,7 @@
   }
   @include for-size(desktop) {
     width: 288px;
+    margin: 0;
     padding: 292px 123px 166px 106px;
     flex-direction: column;
     background-image: url('../../images/bgDesctop_Sidebar.png');
@@ -90,8 +91,8 @@
   color: $secondary-text-color;
 }
 
-.foodNotRecommend .text {
-  &:last-child {
-      margin-top: 20px;
-    }
-}
+// .foodNotRecommend .text {
+//   &:last-child {
+//       margin-top: 20px;
+//     }
+// }

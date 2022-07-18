@@ -23,7 +23,6 @@ const CalendarContent = ({ style, children }) => {
 
           {`.react-datepicker-popper{
         padding:5px;
-        margin-top: 20px;
         text-align: center;
         color:  #FC842D;
         background-color:  #F0F1F3;

@@ -17,20 +17,14 @@ export default function Header() {
     navigate('/', { replace: true });
     goBack = false;
   }
-  // const isAuthenticated = useSelector(authSelectors.getLoggedOn);
+  const isAuthenticated = useSelector(authSelectors.getLoggedOn);
 
   return (
     <div className={styles.HeaderWrapper}>
       <div className={styles.navWrapper}>
-        <Logo />
-        <Nav>
-          <NavNotAuth />
-        </Nav>
-        <Nav>
-          {' '}
-          <NavAuth />{' '}
-        </Nav>
-        {/* <Nav> {isAuthenticated ? <NavAuth /> : <NavNotAuth />} </Nav> */}
+        <Logo isAuthorized={isAuthenticated} />
+
+        <Nav> {isAuthenticated ? <NavAuth /> : <NavNotAuth />} </Nav>
 
         {goBack && (
           <button type="button" className={styles.arrowBtn}>

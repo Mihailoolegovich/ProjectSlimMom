@@ -1,77 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
+import {
+  dailyCaloriesPrivate,
+  dailyCaloriesPublic,
+} from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operations';
+import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
+import Modal from '../components/Modal/Modal';
+import DailyCaloriesIntake from 'components/DailyCaloriesIntake/DailyCaloriesIntake';
 
 const HomePage = () => {
-  const [height, setHeight] = useState('');
-  const [age, setAge] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
-  const [current, setCurrent] = useState('');
-  const [desired, setDesired] = useState('');
-  const [blood, setBlood] = useState('');
+  const onToggleModal = () => {
+    setShowModal(prevState => !prevState);
+  };
 
-  function handleChange(e) {
-    const { name, value } = e.currentTarget;
-    name === 'height' && setHeight(value);
-    name === 'age' && setAge(value);
-    name === 'current' && setCurrent(value);
-    name === 'desired' && setDesired(value);
-    name === 'blood' && setBlood(value);
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const data = { height, age, current, desired, blood };
-    console.log('data on Register', data);
-  }
+  const onSubmit = values => {
+    isLoggedIn
+      ? dispatch(dailyCaloriesPrivate(values))
+      : dispatch(dailyCaloriesPublic(values));
+    setShowModal(true);
+  };
 
   return (
     <>
-      <h3>Calculate your daily calorie intake right now</h3>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Height *
-          <input
-            onChange={handleChange}
-            type="text"
-            name="height"
-            value={height}
-          />
-        </label>
-        <label>
-          Age *
-          <input onChange={handleChange} type="text" name="age" value={age} />
-        </label>
-        <label>
-          Current weight *
-          <input
-            onChange={handleChange}
-            type="text"
-            name="current"
-            value={current}
-            id="registerPass"
-          />
-        </label>
+      <DailyCaloriesForm
+        onSubmit={onSubmit}
+        initialValues={{
+          height: '',
+          age: '',
+          currentWeight: '',
+          desiredWeight: '',
+          bloodType: '1',
+        }}
+      />
 
-        <label>
-          Desired weight *
-          <input
-            onChange={handleChange}
-            type="text"
-            name="desired"
-            value={desired}
-            id="registerPass"
-          />
-        </label>
-
-        <label>
-          Blood type *
-          <input style={{ margin: '10px' }} type="checkbox" />
-          <input style={{ margin: '10px' }} type="checkbox" />
-          <input style={{ margin: '10px' }} type="checkbox" />
-        </label>
-        <button type="submit" name="button">
-          Start losing weight
-        </button>
-      </form>
+      {showModal && (
+        <Modal onClick={onToggleModal} onClose={onToggleModal}>
+          <DailyCaloriesIntake />
+        </Modal>
+      )}
     </>
   );
 };

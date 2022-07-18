@@ -1,0 +1,55 @@
+@import '../../sass/base/BaseStyles.scss';
+
+.burgerBtnWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 18px;
+    height: 12px;
+    cursor: pointer;
+
+
+    @include for-size(tablet) {
+        position: absolute;
+        right: 50px;
+        top: 33px;
+    }
+
+    @include for-size(desktop) {
+        display: none;
+    }
+}
+
+.burgerBtn .burgerBtn__line,
+.burgerBtn .burgerBtn__line::before,
+.burgerBtn .burgerBtn__line::after {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: $primary-text-color;
+}
+
+.burgerBtn .burgerBtn__line::before,
+.burgerBtn .burgerBtn__line::after {
+    content: '';
+}
+
+.burgerBtn .burgerBtn__line::before {
+    transform: translateY(-5px);
+}
+
+.burgerBtn .burgerBtn__line::after {
+    transform: translateY(5px);
+}
+
+.cross .burgerBtn__line {
+    height: 0;
+}
+
+.cross .burgerBtn__line::before {
+    transform: rotate(45deg);
+}
+
+.cross .burgerBtn__line::after {
+    transform: rotate(-45deg);
+}
