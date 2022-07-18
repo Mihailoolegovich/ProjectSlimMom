@@ -1,10 +1,10 @@
 import { lazy } from 'react';
-const HomePage = lazy(() => import('./pages/HomePage'));
+const HomePage = lazy(() => import('./pages/CalculatorPage'));
 const LoginPage = lazy(() =>
   import('./pages/LoginPage' /*webpackChunkName: "login-page" */)
 );
 const RegisterPage = lazy(() =>
-  import('./pages/RegisterPage' /*webpackChunkName: "registration-page" */)
+  import('./pages/RegistrationPage' /*webpackChunkName: "registration-page" */)
 );
 const DiaryPage = lazy(() =>
   import('./pages/DiaryPage' /*webpackChunkName: "diary-page" */)
