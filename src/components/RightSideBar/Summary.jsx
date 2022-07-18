@@ -24,7 +24,11 @@ const Summary = ({ date }) => {
   // console.log('Daily rate:', dailyRate);
 
   // 3. розраховуємо залишок скільки ще можна спожити калорій
-  const left = dailyRate - consumed;
+  const leftCalc = dailyRate - consumed;
+  const left =
+    leftCalc < 0
+      ? 'Exceeded by ' + Math.abs(leftCalc.toFixed())
+      : leftCalc.toFixed();
   // console.log('Left:', left);
 
   // 4. розраховуємо відсоткове значення спожитих калорій
@@ -41,7 +45,7 @@ const Summary = ({ date }) => {
     {
       id: uuidv4(),
       type: 'Left',
-      data: left.toFixed(),
+      data: left,
     },
     {
       id: uuidv4(),
