@@ -48,12 +48,12 @@ const Item2 = styled('div')(({ theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   textAlign: 'center',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
   height: '100%',
-  padding: '40px  20px ',
-  margin: '0',
+  padding: '0px  20px 0px 40px',
+  margin: '0 0px 0 -20px',
   backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
   [theme.breakpoints.between('tablet', 'desktop')]: {
@@ -61,7 +61,8 @@ const Item2 = styled('div')(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'flex-start',
     maxHeight: '350px',
-    padding: '80px 0',
+    padding: '80px 0 0 40px',
+    margin: '0 0px 0 0px',
     backgroundImage: `url("${bgTabletSidebar}")`,
     backgroundPosition: '100% 100%',
   },
@@ -83,8 +84,8 @@ const Item2 = styled('div')(({ theme }) => ({
 export default function DiaryPage() {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
-
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
@@ -101,25 +102,25 @@ export default function DiaryPage() {
             ({
               xs: '-20px',
               tablet: '-32px',
-              desktop: '-96px',
+              desktop: '-32px',
               lg: '-156px',
             },
             {
               xs: '-20px',
-              tablet: '-32px',
-              desktop: '-16px',
-              lg: '-64px',
+              tablet: '-20px',
+              desktop: '-20px',
+              lg: '-20px',
             },
             {
               xs: '-20px',
               tablet: '-32px',
-              desktop: '-56px',
+              desktop: '-32px',
               lg: '-64px',
             },
             {
               xs: '-20px',
-              tablet: '-32px',
-              desktop: '-16px',
+              tablet: '-20px',
+              desktop: '-20px',
               lg: '-64px',
             })
           }
