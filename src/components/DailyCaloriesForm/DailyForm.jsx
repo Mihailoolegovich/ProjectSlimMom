@@ -55,7 +55,9 @@ const DailyCaloriesForm = ({
                     />
 
                     {errors.currentWeight && touched.currentWeight && (
-                      <div className={styles.fieldError}>{errors.currentWeight}</div>
+                      <div className={styles.fieldError}>
+                        {errors.currentWeight}
+                      </div>
                     )}
                   </div>
                   <div className={styles.radioWrapper}>

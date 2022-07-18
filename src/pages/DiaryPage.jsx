@@ -83,8 +83,8 @@ const Item2 = styled('div')(({ theme }) => ({
 export default function DiaryPage() {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
-
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };

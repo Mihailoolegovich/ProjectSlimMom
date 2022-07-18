@@ -7,7 +7,6 @@ import { authOperations } from '../redux/auth';
 
 import {
   LoginPage,
-  HomePage,
   RegistrationPage,
   DiaryPage,
   CalculatorPage,
@@ -36,9 +35,8 @@ export const App = () => {
     <>
       <Header />
       <section className={adaptiveClassName(pathname)}>
-        {/* <HomePage /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<CalculatorPage />} />
           <Route
             path="auth/login"
             element={
@@ -56,9 +54,8 @@ export const App = () => {
             }
           />
           <Route path="diary" element={<DiaryPage />} />
-
           <Route path="calculator" element={<CalculatorPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<CalculatorPage />} />
         </Routes>
       </section>
     </>
