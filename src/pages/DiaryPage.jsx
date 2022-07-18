@@ -83,10 +83,11 @@ const Item2 = styled('div')(({ theme }) => ({
 export default function DiaryPage() {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
-  
 
-  const toggleModal = ()=> {setIsOpen(!isOpen)}
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
@@ -130,19 +131,21 @@ export default function DiaryPage() {
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              {!isOpen && <DiaryFormWrapper>
-                <DiaryAddProductForm date={date} />
-              </DiaryFormWrapper>}
+              {!isOpen && (
+                <DiaryFormWrapper>
+                  <DiaryAddProductForm date={date} />
+                </DiaryFormWrapper>
+              )}
               <DiaryProductsList date={date} />
 
-
-              <DiaryFormButton type={'button'} action={toggleModal} /> 
-              {isOpen &&
-              <DiaryFormMobileWrapper>
-                <Modal onClose={toggleModal}>
-                    <DiaryAddProductForm date={date} closeModal={toggleModal } />
-                </Modal>
-              </DiaryFormMobileWrapper>}
+              <DiaryFormButton type={'button'} action={toggleModal} />
+              {isOpen && (
+                <DiaryFormMobileWrapper>
+                  <Modal onClose={toggleModal}>
+                    <DiaryAddProductForm date={date} closeModal={toggleModal} />
+                  </Modal>
+                </DiaryFormMobileWrapper>
+              )}
             </Item1>
           </Grid>
           <Grid item xs={12} mobile={12} tablet={12} desktop={5}>

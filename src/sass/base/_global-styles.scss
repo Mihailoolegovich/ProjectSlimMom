@@ -1,5 +1,9 @@
 @import './BaseStyles.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: $primary-text-color;
   background: $primary-bg-color;
