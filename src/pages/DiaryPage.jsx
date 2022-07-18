@@ -47,8 +47,7 @@ const Item2 = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
   padding: '40px 0 20px 0px',
-  //  backgroundColor: '#F0F1F3',
-  backgroundColor: 'red',
+  backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
   [theme.breakpoints.between('tablet', 'desktop')]: {
     flexDirection: 'row',
