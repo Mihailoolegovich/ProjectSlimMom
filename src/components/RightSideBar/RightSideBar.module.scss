@@ -30,24 +30,28 @@
 .summaryForDate {
   display: flex;
   flex-direction: column;
-  width: 285px;
+  justify-content: space-between;
+  max-width: 350px;
+  width: inherit;
   @include for-size(tablet) {
-    width: 288px;
+    // width: 288px;
   }
 
   @include for-size(desktop) {
-    margin-bottom: 60px;
-    width: 288px;
+    margin-bottom: 60px;;
+    // width: 288px;
   }
 }
 
 .foodNotRecommend {
   display: flex;
   flex-direction: column;
+  max-width: 350px;
+  width: inherit;
   @include for-size(tablet) {
-    width: 288px;
+    // width: 288px;
     margin-left: 80px;
-    }
+  }
   @include for-size(desktop) {
     margin: 0 auto;
   }
@@ -55,6 +59,9 @@
 
 .title {
   display: flex;
+  max-width: 350px;
+  width: inherit;
+  text-align: left;
   margin-bottom: 20px;
   height: 20px;
   @include font(700, 14px, 17px, $primary-font, 0.04em);
@@ -70,7 +77,8 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
-
+  max-width: 400px;
+  width: inherit;
   @include for-size(tablet) {
     height: 112px;
     margin-bottom: 0;
