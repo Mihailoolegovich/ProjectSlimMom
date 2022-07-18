@@ -20,8 +20,11 @@ const BurgerMenu = ({ isActive, onCloseBurger }) => {
           key={uuidv4()}
           to={link.path}
           exact="true"
-          className={styles.link}
-          activeclassname={styles.activeLink}
+          // className={styles.link}
+          className={({ isActive }) =>
+            isActive ? styles.activeLink : styles.link
+          }
+          // activeClassName={styles.activeLink}
           onClick={onCloseBurger}
         >
           {link.label}

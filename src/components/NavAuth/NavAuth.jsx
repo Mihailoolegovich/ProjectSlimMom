@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { authSelectors, authOperations } from '../../redux/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useMemo, useState, useEffect } from 'react';
@@ -11,15 +11,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 import routes from '../../routes';
 import styles from './NavAuth.module.scss';
+import { replace } from 'formik';
 
 export default function NavAuth() {
   const [menuActive, setMenuActive] = useState(false);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUserName);
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
-
+  console.log(navLinks);
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = menuActive ? 'hidden' : 'auto';
@@ -27,6 +28,7 @@ export default function NavAuth() {
 
   const onLogOut = useCallback(() => {
     dispatch(authOperations.logOut());
+    navigate('/');
   }, [dispatch]);
 
   //   const handelCloseModal = e => {
@@ -45,8 +47,11 @@ export default function NavAuth() {
             key={uuidv4()}
             to={link.path}
             exact="true"
-            className={styles.enter}
-            activeclassname={styles.activeEnter}
+            className={({ isActive }) =>
+              isActive ? styles.activeEnter : styles.enter
+            }
+            // className={styles.enter}
+            // activeclassname={styles.activeEnter}
           >
             {link.label}
           </NavLink>
