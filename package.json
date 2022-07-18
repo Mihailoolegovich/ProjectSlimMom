@@ -2,8 +2,7 @@
   "name": "Weightbusters",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Mihailoolegovich.github.io/Weightbusters/",
-  "dependencies": {
+    "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.9.0",
