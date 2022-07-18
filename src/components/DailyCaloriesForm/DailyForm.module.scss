@@ -5,7 +5,7 @@
 }
 
 .sideBar__active {
-  background-color: #f0f1f3;
+  background-color: $accent-text-color;
   width: 320px;
   margin: 0 auto;
 }
@@ -16,14 +16,15 @@
 }
 
 .title {
-  margin-top: 0;
+  margin-top: 32px;
   margin-bottom: 30px;
-  font-family: Verdana;
+  font-family: $primary-font;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
-  color: #212121;
+  color: $primary-text-color;
+  width: 280px;
 }
 
 .container {
@@ -48,14 +49,13 @@
   margin-top: 30px;
   left: 0;
   top: -28px;
-
   padding: 0;
-  font-family: Verdana;
+  font-family: $primary-font;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.21;
   letter-spacing: 0.04em;
-  color: #9b9faa;
+  color: $secondary-text-color;
 
   transition: 0.3s;
 }
@@ -63,13 +63,13 @@
 .field {
   width: 240px;
   border: 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid $light-gray;
 }
 
 .fieldError {
   color: red;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .radio {
@@ -84,7 +84,7 @@
   left: 0;
   top: -28px;
   padding: 0;
-  color: #9b9faa;
+  color: $secondary-text-color;
 }
 
 .button {
@@ -94,26 +94,27 @@
   margin: 0 auto;
   margin-left: 50px;
   width: 176px;
-  border: 2px solid #fc842d;
+  border: 2px solid $accent-color;
   border-radius: 30px;
-  background-color: #fc842d;
-  color: #ffffff;
+  background-color: $accent-color;
+  color: $accent-text-color;
   font-weight: 700;
-  font-family: Verdana;
+  font-family: $primary-font;
   font-size: 14px;
   line-height: 1.21;
   text-align: center;
-  letter-spacing: 0.04em;
+  letter-spacing: $primary-letter-spacing;
   outline: none;
+  cursor: pointer;
 }
 
 .button:hover {
-  background-color: #fc842d;
-  color: #ffffff;
+  background-color: $accent-color;
+  color: $accent-text-color;
   box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 }
 
-@media screen and (min-width: 768px) {
+@include for-size(tablet) {
   .sideBar__active {
     width: 768px;
   }
@@ -136,17 +137,14 @@
   }
 
   .container__active {
-    max-width: 768px;
-    margin: 0 auto;
-    width: 100%;
     padding: 100px 76px 74px 87px;
   }
 
   .title {
-    padding-right: 76px;
     font-size: 30px;
     line-height: 36px;
-    margin-bottom: 60px;
+    width: 570px;
+    max-height: 85px;
   }
 
   .formWrapper {
@@ -163,6 +161,7 @@
 
   .button {
     margin: 0;
+    cursor: pointer;
   }
 
   .radio {
@@ -170,30 +169,13 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .global {
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+@include for-size(desktop) {
 
   .calculator {
-    padding-left: 115px;
     margin: 0 auto;
     display: flex;
     padding-top: 0px;
     width: 1280px;
-  }
-
-  .container {
-    max-width: 1280px;
-    padding: 140px 0px 0px 0px;
-    margin: 0 auto;
-    position: absolute;
-    z-index: -100;
-    background-repeat: no-repeat;
-    background-position: top 0% right 115px;
-    background-size: 900px, 500px, 700px, 700px;
-    top: 0;
   }
 
   .container__active {
@@ -210,12 +192,12 @@
     font-size: 34px;
     line-height: 41px;
     padding: 0px;
-    margin-bottom: 68px;
-    width: 605px;
+    width: 608px;
   }
 
   .button {
     margin-left: 346px;
+    cursor: pointer;
   }
 }
 
@@ -236,8 +218,8 @@ input[type='radio'] ~ span:before {
   position: absolute;
   top: -17.5px;
   left: -1px;
-  border: 1px solid #aaa;
-  background-color: #fff;
+  border: 1px solid $secondary-text-color;
+  background-color: $accent-text-color;
   border-radius: 50%;
 }
 
@@ -254,12 +236,12 @@ input[type='radio']:checked ~ span:after {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #fc842d;
+  background: $accent-color;
 }
 
 small {
   color: #aaa;
-  font-family: Verdana;
+  font-family: $primary-font;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
@@ -268,8 +250,8 @@ small {
 }
 
 input[type='radio']:checked ~ small {
-  color: #fc842d;
-  font-family: Verdana;
+  color: $accent-color;
+  font-family: $primary-font;
   font-style: normal;
   font-weight: bold;
   font-size: 17px;
