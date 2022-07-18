@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkWeightbusters=self.webpackChunkWeightbusters||[]).push([[835],{8432:function(e,t,u){u.r(t),u.d(t,{default:function(){return r}});var n=u(2391),s=u(3329);function r(){return(0,s.jsx)(n.Z,{})}}}]);
+//# sourceMappingURL=registration-page.ea92a60d.chunk.js.map
