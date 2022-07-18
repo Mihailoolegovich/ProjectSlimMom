@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import authOperations from '../redux/auth/auth-operations';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import s from '../sass/styleComponents/Identification.module.scss';
 
 export default function LoginPage() {
@@ -25,8 +27,7 @@ export default function LoginPage() {
     },
     validationSchema: LoginSchema,
     onSubmit: ({ email, password }) => {
-      dispatch(authOperations.logIn({ email, password }));
-      // alert(JSON.stringify(values, null, 2));
+      dispatch(authOperations.logIn({ email, password }));      
     },
   });
   return (
@@ -72,6 +73,7 @@ export default function LoginPage() {
           </Link>
         </div>
       </form>
+      <ToastContainer position="top-right" autoClose={2000} />
     </div>
   );
 }

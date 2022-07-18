@@ -31,7 +31,10 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
 
     return data;
   } catch (error) {
-    console.log(error.message);
+    if (error.response.status === 401) {
+      return toast.error('Email is wrong or not verify, or password is wrong');
+    }
+    return toast.error(error.message);
   }
 });
 
