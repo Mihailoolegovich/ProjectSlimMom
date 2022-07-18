@@ -19,10 +19,11 @@ const DiaryProductsListItem = ({ id, title, weight, calories, date }) => {
       <span className={s.listItem_kcal}>
         {roundedCalories} <span className={s.mark}>kcal</span>
       </span>
+     
       <button
         className={s.listItem_btn}
         onClick={() => dispath(deleteProduct(data))}
-      ></button>
+        ></button>
     </li>
   );
 };

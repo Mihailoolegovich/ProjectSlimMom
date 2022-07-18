@@ -8,7 +8,7 @@ import {
 } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operations';
 import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
-// import DailyKkalIntake from "../../components/kkalInfo/DailyKkalIntake";
+import DailyCaloriesIntake from 'components/DailyCaloriesIntake/DailyCaloriesIntake';
 
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -41,8 +41,7 @@ const HomePage = () => {
 
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
-          Here is modal
-          {/* <DailyKkalIntake /> */}
+          <DailyCaloriesIntake />
         </Modal>
       )}
     </>
