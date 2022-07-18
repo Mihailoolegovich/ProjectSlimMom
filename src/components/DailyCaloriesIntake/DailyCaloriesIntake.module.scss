@@ -2,9 +2,12 @@
 
 .mainContainer {
     padding: 40px 20px 0 20px;
-
+    margin: 0 auto;
+    max-width: 320px;
     @include for-size(tablet) {
         padding: 64px 82px 82px 82px;
+        margin: 0;
+        max-width: 100%;
     }
 }
 

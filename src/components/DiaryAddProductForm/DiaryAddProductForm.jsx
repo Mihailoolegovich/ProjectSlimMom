@@ -66,6 +66,7 @@ const DiaryAddProductForm = ({ date, closeModal=null }) => {
         value={product}
         autoComplete="off"
         autoSave="off"
+        minLength={1}
         maxLength={100}
         required
         onFocus={() => setDataListVisible(true)}
