@@ -9,7 +9,7 @@ export const getCurrentDay = createAsyncThunk(
     try {
       const { data } = await axios.post(`/days/user`, { date });
       if (data.message) {
-        toast.warning(data.message);
+        toast.info(data.message);
         return [];
       }
       return data.items;

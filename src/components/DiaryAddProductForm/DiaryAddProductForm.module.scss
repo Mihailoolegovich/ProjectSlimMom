@@ -163,6 +163,7 @@ background-color: transparent;
   padding: 10px 0 10px 0;
   text-align: left;
   background-color: $secondary-bg-color;
+  cursor: pointer;
   @include font(700, 14px, 17px, 'Verdana', 0.04em);
   transition: $cubic;
   &:hover,
@@ -174,7 +175,7 @@ background-color: transparent;
 
 .notification{
   width: 100%;
-  padding-top: 4px;
+  padding-top: 2px;
    @include font(400, 12px, 17px, 'Verdana', 0.04em);
   text-align: left;
   color: $accent-color;
