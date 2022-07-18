@@ -88,6 +88,8 @@ export default function DiaryPage() {
   const mobile_size = useMediaQuery('(max-width:767px)');
   const tablet_size = useMediaQuery('(min-width:768px)');
 
+ useEffect(()=>{tablet_size&&setIsOpen(false)}, [tablet_size])
+
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
