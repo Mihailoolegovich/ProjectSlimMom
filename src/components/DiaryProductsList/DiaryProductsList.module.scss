@@ -11,7 +11,7 @@
      @include font(700, 14px, 17px, 'Verdana', 0.04em);
     color: $secondary-text-color;
     @include for-size(tablet){
-        wdth:100%;
+        width:100%;
        justify-content: flex-start;
         
     }
