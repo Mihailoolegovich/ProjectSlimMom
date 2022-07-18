@@ -16,7 +16,7 @@ export default function NavAuth() {
   const [menuActive, setMenuActive] = useState(false);
 
   const dispatch = useDispatch();
-  const email = useSelector(authSelectors.getUserEmail);
+  const name = useSelector(authSelectors.getUserName);
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
 
@@ -80,7 +80,7 @@ export default function NavAuth() {
           //  : null
         }
 
-        <p className={styles.userName}>{email}</p>
+        <p className={styles.userName}>{name}</p>
         <button onClick={onLogOut} className={styles.logout}>
           Sign out
         </button>
