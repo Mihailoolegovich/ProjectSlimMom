@@ -1,7 +1,7 @@
 @import './base/BaseStyles.scss';
 @import './base/global-styles';
-@import '../components/App.module.scss';
+@import './styleComponents/App.module.scss';
+@import './styleComponents/Identification.module.scss';
 @import '../components/DiaryAddProductForm/DiaryAddProductForm.module.scss';
 @import '../components/DiaryProductsList/DiaryProductsList.module.scss';
 @import '../components/DiaryProductsListItem/DiaryProductsListItem.module.scss';
-@import '../../src/components/RegistrationForm/RegisterForm.module.scss';

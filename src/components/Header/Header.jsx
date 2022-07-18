@@ -23,13 +23,7 @@ export default function Header() {
     <div className={styles.HeaderWrapper}>
       <div className={styles.navWrapper}>
         <Logo isAuthorized={isAuthenticated} />
-        {/* <Nav>
-          <NavNotAuth />
-        </Nav>
-        <Nav>
-          {' '}
-          <NavAuth />{' '}
-        </Nav> */}
+
         <Nav> {isAuthenticated ? <NavAuth /> : <NavNotAuth />} </Nav>
 
         {goBack && (
