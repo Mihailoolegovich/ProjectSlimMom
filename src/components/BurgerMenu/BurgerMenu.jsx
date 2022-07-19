@@ -22,7 +22,9 @@ const BurgerMenu = ({ isActive, onCloseBurger }) => {
           exact="true"
           // className={styles.link}
           className={({ isActive }) =>
-            isActive ? styles.activeLink : styles.link
+            isActive
+              ? `${styles.link} + ' '  ${styles.activeLink}`
+              : styles.link
           }
           // activeClassName={styles.activeLink}
           onClick={onCloseBurger}

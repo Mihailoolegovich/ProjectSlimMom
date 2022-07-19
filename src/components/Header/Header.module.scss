@@ -1,62 +1,63 @@
 @import '../../sass/base/BaseStyles.scss';
 
 .navWrapper {
-    display: flex;
-    align-items: center;
-    padding: 18px 30px 18px 30px;
-    margin: 0 auto;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  &:after {
+    content: '';
+    border-bottom: 2px solid $light-gray;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  @include for-size(tablet) {
+    padding: 20px 32px;
+  }
+
+  @include for-size(desktop) {
+    justify-content: start;
+    padding: 80px 46px 34px;
 
     &:after {
-        content: '';
-        border-bottom: 2px solid $light-gray;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+      content: '';
+      border: none;
     }
-
-    @include for-size(tablet) {
-        padding: 17px 87px 17px 69px;
-    }
-
-    @include for-size(desktop) {
-        justify-content: start;
-        padding: 75px 132px 20px 75px;
-
-        &:after {
-            content: '';
-            border: none;
-        }
-    }
+  }
 }
 
 .HeaderWrapper {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 200;
-    background-color: $primary-bg-color;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+  background-color: $primary-bg-color;
 
-    @include for-size(tablet) {}
+  @include for-size(tablet) {
+  }
 
-    @include for-size(desktop) {
-        background-color: transparent;
-    }
+  @include for-size(desktop) {
+    background-color: transparent;
+  }
 }
 
 .arrowBtn {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: inherit;
-    padding: 15px;
-    position: absolute;
-    left: 0;
-    bottom: -44px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+  padding: 15px;
+  position: absolute;
+  left: 0;
+  bottom: -44px;
 
-    @include for-size(tablet) {
-        display: none;
-    }
+  @include for-size(tablet) {
+    display: none;
+  }
 }
