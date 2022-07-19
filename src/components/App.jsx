@@ -2,8 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
 import PublicRoute from './PublicRoute';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { authOperations } from '../redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from '../redux/auth';
 
 import {
   LoginPage,
@@ -16,9 +16,8 @@ export const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const toggleModal = (value = !modalOpen) => {
-    setModalOpen(value)
-  }
-
+    setModalOpen(value);
+  };
 
   const dispatch = useDispatch();
 
@@ -26,16 +25,17 @@ export const App = () => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
+  const isLoggedIn = useSelector(authSelectors.getLoggedOn);
   const { pathname } = useLocation();
 
   function adaptiveClassName(loc) {
-    const className = {
+    const findClassName = {
+      '/': 'mainContainer',
       '/auth/login': 'mainContainer localIdent',
       '/auth/signup': 'mainContainer localIdent',
-      '/diary': 'mainContainer localRest',
-      '/calculator': 'mainContainer localRest',
     };
-    return className[loc] ?? 'mainContainer';
+    return isLoggedIn ? 'mainContainer localRest' : findClassName[loc];
+    // return className[loc] ?? 'mainContainer';
   }
 
   return (
@@ -43,7 +43,15 @@ export const App = () => {
       <Header closeModal={toggleModal} isModalOpen={modalOpen} />
       <section className={adaptiveClassName(pathname)}>
         <Routes>
-          <Route path="/" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen}/>} />
+          <Route
+            path="/"
+            element={
+              <CalculatorPage
+                onToggleModal={toggleModal}
+                showModal={modalOpen}
+              />
+            }
+          />
           <Route
             path="auth/login"
             element={
@@ -60,9 +68,28 @@ export const App = () => {
               </PublicRoute>
             }
           />
-          <Route path="diary" element={<DiaryPage toggleModal={toggleModal} isOpen={modalOpen } />} />
-          <Route path="calculator" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen}/>} />
-          <Route path="*" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen} />} />
+          <Route
+            path="diary"
+            element={<DiaryPage toggleModal={toggleModal} isOpen={modalOpen} />}
+          />
+          <Route
+            path="calculator"
+            element={
+              <CalculatorPage
+                onToggleModal={toggleModal}
+                showModal={modalOpen}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <CalculatorPage
+                onToggleModal={toggleModal}
+                showModal={modalOpen}
+              />
+            }
+          />
         </Routes>
       </section>
     </>

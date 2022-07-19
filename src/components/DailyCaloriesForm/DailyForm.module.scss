@@ -153,7 +153,6 @@
 }
 
 @include for-size(desktop) {
-
   .calculator {
     margin: 0 auto;
     display: flex;
@@ -184,7 +183,7 @@
   }
 }
 
-input[type='radio']+span {
+input[type='radio'] + span {
   display: inline-block;
   cursor: pointer;
   position: relative;
@@ -193,7 +192,7 @@ input[type='radio']+span {
   font-size: 14px;
 }
 
-input[type='radio']~span:before {
+input[type='radio'] ~ span:before {
   content: '';
   display: block;
   width: 22px;
@@ -210,7 +209,7 @@ input[type='radio'] {
   display: none;
 }
 
-input[type='radio']:checked~span:after {
+input[type='radio']:checked ~ span:after {
   content: '';
   display: block;
   position: absolute;
@@ -232,7 +231,7 @@ small {
   letter-spacing: 0.04em;
 }
 
-input[type='radio']:checked~small {
+input[type='radio']:checked ~ small {
   color: $accent-color;
   font-family: $primary-font;
   font-style: normal;
