@@ -10,8 +10,7 @@ import Modal from '../components/Modal/Modal';
 import DailyCaloriesIntake from 'components/DailyCaloriesIntake/DailyCaloriesIntake';
 import { getUserData } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
-const CalculatorPage = ({onToggleModal, showModal}) => {
-
+const CalculatorPage = ({ onToggleModal, showModal }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 

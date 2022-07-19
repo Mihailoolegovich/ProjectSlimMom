@@ -80,17 +80,18 @@ const Item2 = styled('div')(({ theme }) => ({
   },
 }));
 
-export default function DiaryPage({toggleModal, isOpen}) {
+export default function DiaryPage({ toggleModal, isOpen }) {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
-  
 
   const mobile_size = useMediaQuery('(max-width:767px)');
   const tablet_size = useMediaQuery('(min-width:768px)');
 
- useEffect(()=>{if(tablet_size){return toggleModal(false)}}, [tablet_size])
-
- 
+  useEffect(() => {
+    if (tablet_size) {
+      return toggleModal(false);
+    }
+  }, [tablet_size]);
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
@@ -134,17 +135,23 @@ export default function DiaryPage({toggleModal, isOpen}) {
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              {tablet_size && 
-                  <DiaryAddProductForm date={date} />
-              }
+              {tablet_size && <DiaryAddProductForm date={date} />}
               <DiaryProductsList date={date} />
               <DiaryFormButton type={'button'} action={toggleModal} />
-              
-            {mobile_size && <> {isOpen && (
-                  <Modal onClose={toggleModal}>
-                    <DiaryAddProductForm date={date} closeModal={toggleModal} />
-                  </Modal>
-              )}</>}
+
+              {mobile_size && (
+                <>
+                  {' '}
+                  {isOpen && (
+                    <Modal onClose={toggleModal}>
+                      <DiaryAddProductForm
+                        date={date}
+                        closeModal={toggleModal}
+                      />
+                    </Modal>
+                  )}
+                </>
+              )}
             </Item1>
           </Grid>
           <Grid item xs={12} mobile={12} tablet={12} desktop={5}>

@@ -11,10 +11,10 @@ import { getUserDiet } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operat
 
 const RightSideBar = ({ date }) => {
   const dispatch = useDispatch();
-  
 
-  useEffect(()=> {dispatch(getUserDiet())}, [dispatch])
-
+  useEffect(() => {
+    dispatch(getUserDiet());
+  }, [dispatch]);
 
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
   const notRecommendProd = getNotRecommendProdData?.map(

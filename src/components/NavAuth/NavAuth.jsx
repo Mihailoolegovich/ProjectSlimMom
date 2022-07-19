@@ -14,7 +14,7 @@ import routes from '../../routes';
 import styles from './NavAuth.module.scss';
 
 
-export default function NavAuth({closeModal, isModalOpen}) {
+export default function NavAuth({ closeModal, isModalOpen }) {
   const [menuActive, setMenuActive] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -65,28 +65,29 @@ export default function NavAuth({closeModal, isModalOpen}) {
       <BurgerBtn active={menuActive} setActive={setMenuActive} />
 
       <div className={styles.userWrapper}>
-        {
-             isModalOpen &&
+        {isModalOpen && (
           <button
-              type='button'
-             className={styles.closeModal}
-             onClick={()=>{closeModal()}}
-           >
-             <svg
-               width="12"
-               height="7"
-               viewBox="0 0 15 9"
-               fill="none"
-               xmlns="http://www.w3.org/2000/svg"
-             >
-               <path
-                 d="M14 1.5V4.5H2M2 4.5L5.5 1M2 4.5L5.5 8"
-                 stroke="black"
-                 strokeWidth="2"
-               />
-             </svg>
-           </button>
-        }
+            type="button"
+            className={styles.closeModal}
+            onClick={() => {
+              closeModal();
+            }}
+          >
+            <svg
+              width="12"
+              height="7"
+              viewBox="0 0 15 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 1.5V4.5H2M2 4.5L5.5 1M2 4.5L5.5 8"
+                stroke="black"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
+        )}
 
         <p className={styles.userName}>{name}</p>
         <button onClick={onLogOut} className={styles.logout}>
