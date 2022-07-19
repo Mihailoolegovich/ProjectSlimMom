@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.6e9a2d37.css",
-    "main.js": "/static/js/main.8183a46c.js",
+    "main.css": "/static/css/main.4b4dde43.css",
+    "main.js": "/static/js/main.9d204589.js",
     "static/media/bgDesctop.png": "/static/media/bgDesctop.331c39b81c84b10b847d.png",
     "static/media/bgTablet_Log.png": "/static/media/bgTablet_Log.2dea5912e59cb3b1299a.png",
     "static/media/bgTablet_Home.png": "/static/media/bgTablet_Home.14535b38e688d928dd13.png",
@@ -30,11 +30,11 @@
     "static/media/logoCalendar.svg": "/static/media/logoCalendar.26f85a29609df01bfb1a2c054e438d53.svg",
     "static/media/сlose.svg": "/static/media/сlose.4590c3b815a8d3bfee21.svg",
     "static/media/arrowBack.svg": "/static/media/arrowBack.822317d3ab5586ebb7046962fd75a06b.svg",
-    "main.6e9a2d37.css.map": "/static/css/main.6e9a2d37.css.map",
-    "main.8183a46c.js.map": "/static/js/main.8183a46c.js.map"
+    "main.4b4dde43.css.map": "/static/css/main.4b4dde43.css.map",
+    "main.9d204589.js.map": "/static/js/main.9d204589.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e9a2d37.css",
-    "static/js/main.8183a46c.js"
+    "static/css/main.4b4dde43.css",
+    "static/js/main.9d204589.js"
   ]
 }
