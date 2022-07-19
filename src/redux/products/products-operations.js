@@ -58,10 +58,10 @@ export const addProduct = createAsyncThunk(
     } catch (error) {
       if (error.response.status === 401) {
         toast.error('Pleace, sign in');
-        return [];
+        return;
       }
       toast.error(error.response.data.message);
-      return [];
+      return;
     }
   }
 );

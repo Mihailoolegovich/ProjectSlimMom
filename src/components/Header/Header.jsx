@@ -9,22 +9,21 @@ import { useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import { authSelectors } from '../../redux/auth';
 
-export default function Header() {
+export default function Header({closeModal, isModalOpen}) {
   let navigate = useNavigate();
-  let goBack;
+  let goBack = false;
 
   function handleGoBack() {
     navigate('/', { replace: true });
     goBack = false;
   }
   const isAuthenticated = useSelector(authSelectors.getLoggedOn);
-
   return (
     <div className={styles.HeaderWrapper}>
       <div className={styles.navWrapper}>
         <Logo isAuthorized={isAuthenticated} />
 
-        <Nav> {isAuthenticated ? <NavAuth /> : <NavNotAuth />} </Nav>
+        <Nav> {isAuthenticated ? <NavAuth closeModal={closeModal} isModalOpen={isModalOpen} /> : <NavNotAuth />} </Nav>
 
         {goBack && (
           <button type="button" className={styles.arrowBtn}>

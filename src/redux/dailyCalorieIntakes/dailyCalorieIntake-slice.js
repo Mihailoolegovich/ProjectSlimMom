@@ -13,19 +13,17 @@ const caloriesSlice = createSlice({
   name: 'calories',
   initialState,
   extraReducers: {
-    [dailyCaloriesPrivate.fulfilled]: (state, action) => {
-      state.calories = action.payload.data.user.dailyCalorieIntake;
-      state.notRecommendProd = [
-        ...action.payload.data.user.notRecommendedProducts,
-      ];
+    [dailyCaloriesPrivate.fulfilled]: (state, { payload }) => {
+      state.calories = payload.dailyCalorieIntake;
+      state.notRecommendProd = [...payload.notRecommendedProducts];
       // console.log(action);
-      console.log(state);
+      //console.log(state);
     },
-    [dailyCaloriesPublic.fulfilled]: (state, action) => {
-      state.calories = action.payload.dailyCalorieIntake;
-      state.notRecommendProd = [...action.payload.notRecommendedProducts];
+    [dailyCaloriesPublic.fulfilled]: (state, { payload }) => {
+      state.calories = payload.dailyCalorieIntake;
+      state.notRecommendProd = [...payload.notRecommendedProducts];
       // console.log(action);
-      console.log(state);
+      //console.log(state);
     },
   },
 });
