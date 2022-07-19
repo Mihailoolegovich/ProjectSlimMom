@@ -20,7 +20,7 @@ export default function NavAuth({closeModal, isModalOpen}) {
   const name = useSelector(authSelectors.getUserName);
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
-  console.log(navLinks);
+  //console.log(navLinks);
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = menuActive ? 'hidden' : 'auto';

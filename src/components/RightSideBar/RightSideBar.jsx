@@ -1,14 +1,21 @@
 import { v4 as uuidv4 } from 'uuid';
-
+import { useEffect } from 'react';
 import s from './RightSideBar.module.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ProductsSelectors } from 'redux/products';
 import {
   getCalories,
   getNotRecommendProd,
 } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
+import { getUserDiet } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operations';
 
 const RightSideBar = ({ date }) => {
+  const dispatch = useDispatch();
+  
+
+  useEffect(()=> {dispatch(getUserDiet())}, [dispatch])
+
+
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
   const notRecommendProd = getNotRecommendProdData?.map(
     product => product.en[0]
