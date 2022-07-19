@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import authOperations from '../redux/auth/auth-operations';
+
 import s from '../sass/styleComponents/Identification.module.scss';
 
 export default function RegistrationPage() {
@@ -14,20 +15,25 @@ export default function RegistrationPage() {
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Too short')
-      .max(254, 'Too Long!')
+      .max(254, 'Too Long')
       .required('Required'),
     email: Yup.string()
-      .email('Invalid email')
-      // .oneOf(['.com' '.net', '.ua'])
+      .email('Invalid email. Must contain "@" and "."')
+      // .oneOf(
+      //   ['com', 'net', 'ua'],
+      //   'Email must have just com, net and ua domain'
+      // )
       .required('Required'),
     password: Yup.string()
-      .min(8, 'Must be at least 8 symbols!')
-      .max(100, 'Too Long!')
+      .min(8, 'Must be at least 8 symbols ')
+      .max(100, 'Too Long')
+      .matches(/[A-Za-z]+\d+.*$/, 'Password must contain letters and numbers')
       .required('Required'),
   });
 
   const onSubmit = ({ name, email, password }) => {
     dispatch(authOperations.register({ name, email, password }));
+
     // alert(JSON.stringify({ name, email, password }, null, 2));
   };
 
@@ -64,6 +70,7 @@ export default function RegistrationPage() {
                 <label className="label" htmlFor="email"></label>
                 <div className="control">
                   <Field
+                    id="email"
                     name="email"
                     type="text"
                     className="input"
@@ -77,6 +84,7 @@ export default function RegistrationPage() {
                 <label className="label" htmlFor="password"></label>
                 <div className="control">
                   <Field
+                    id="password"
                     name="password"
                     type="text"
                     className="input"

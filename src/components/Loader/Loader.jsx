@@ -1,21 +1,22 @@
 import React from 'react';
-import { PacmanLoader } from 'react-spinners';
-import styles from './Loader.styled.css';
+import { Plane } from 'react-loader-spinner';
+import styles from './Loader.scss';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-const Loader = () => {
+const AppLoader = () => {
   return (
-    <div className={styles.overlay}>
-      <div className={styles.loaderContainer}>
-        <PacmanLoader
-          color="#0dec1d"
-          loading="true"
-          margin={2}
-          size={50}
-          speedMultiplier={1}
-        ></PacmanLoader>
-      </div>
+    <div className={styles.Loader}>
+      <Plane
+        style={styles}
+        // type="Circles"
+        color="blue"
+        secondaryColor="yellow"
+        height={100}
+        width={100}
+        ariaLabel="loading-indicator"
+      />
     </div>
   );
 };
 
-export default Loader
+export default AppLoader;

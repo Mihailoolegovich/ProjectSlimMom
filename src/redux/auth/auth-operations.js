@@ -18,9 +18,18 @@ const register = createAsyncThunk('auth/register', async credentials => {
   try {
     const { data } = await axios.post('/auth/signup', credentials);
     token.set(data.data.user.verificationToken);
+    toast.success('Registration successfull. Confirm your email!');
     return data;
   } catch (error) {
-    console.log(error.message);
+    if (error.response.status === 409) {
+      return toast.error('The user with this email already registered');
+    } else if (error.response.status === 500) {
+      return toast.error(
+        'Oops, something went wrong. Try to refresh this page or try again later'
+      );
+    } else {
+      return toast.error(error.message);
+    }
   }
 });
 

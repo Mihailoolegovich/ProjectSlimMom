@@ -31,17 +31,14 @@ export const dailyCaloriesPublic = createAsyncThunk(
   }
 );
 
-export const getUserDiet = createAsyncThunk(
-  'calories/getUserDiet',
-  async () => {
-    try {
-      const { data } = await axios.get('/___');
-      if (!data.data) {
-        return { dailyCalorieIntake: null, notRecommendedProducts: []};
-      }
-      return data.data.user;
-    } catch (error) {
-      console.log(error.message);
+export const getUserDiet = createAsyncThunk('users/current', async () => {
+  try {
+    const { data } = await axios.get('/users/current');
+    if (!data.data.user) {
+      return;
     }
+    return data;
+  } catch (error) {
+    return;
   }
-);
+});
