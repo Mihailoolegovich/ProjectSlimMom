@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import { authSelectors } from '../../redux/auth';
 
-export default function Header({closeModal, isModalOpen}) {
+export default function Header({ closeModal, isModalOpen }) {
   let navigate = useNavigate();
   let goBack = false;
 
@@ -23,7 +23,14 @@ export default function Header({closeModal, isModalOpen}) {
       <div className={styles.navWrapper}>
         <Logo isAuthorized={isAuthenticated} />
 
-        <Nav> {isAuthenticated ? <NavAuth closeModal={closeModal} isModalOpen={isModalOpen} /> : <NavNotAuth />} </Nav>
+        <Nav>
+          {' '}
+          {isAuthenticated ? (
+            <NavAuth closeModal={closeModal} isModalOpen={isModalOpen} />
+          ) : (
+            <NavNotAuth closeModal={closeModal} />
+          )}{' '}
+        </Nav>
 
         {goBack && (
           <button type="button" className={styles.arrowBtn}>

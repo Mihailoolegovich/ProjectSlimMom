@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
 import Header from './Header';
 import PublicRoute from './PublicRoute';
-import AppLoader from './Loader/Loader';
+// import AppLoader from './Loader/Loader';
 import {
   LoginPage,
   RegistrationPage,
@@ -40,62 +40,60 @@ export const App = () => {
 
   return (
     <>
-      <Suspense fallback={<AppLoader />}>
-        <Header closeModal={toggleModal} isModalOpen={modalOpen} />
-        <section className={adaptiveClassName(pathname)}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <CalculatorPage
-                  onToggleModal={toggleModal}
-                  showModal={modalOpen}
-                />
-              }
-            />
-            <Route
-              path="auth/login"
-              element={
-                <PublicRoute path="/auth/login" restricted>
-                  <LoginPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="auth/signup"
-              element={
-                <PublicRoute path="/auth/signup" restricted>
-                  <RegistrationPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="diary"
-              element={
-                <DiaryPage toggleModal={toggleModal} isOpen={modalOpen} />
-              }
-            />
-            <Route
-              path="calculator"
-              element={
-                <CalculatorPage
-                  onToggleModal={toggleModal}
-                  showModal={modalOpen}
-                />
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <CalculatorPage
-                  onToggleModal={toggleModal}
-                  showModal={modalOpen}
-                />
-              }
-            />
-          </Routes>
-        </section>
-      </Suspense>
+      {/* <Suspense fallback={<AppLoader />}> */}
+      <Header closeModal={toggleModal} isModalOpen={modalOpen} />
+      <section className={adaptiveClassName(pathname)}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <CalculatorPage
+                onToggleModal={toggleModal}
+                showModal={modalOpen}
+              />
+            }
+          />
+          <Route
+            path="auth/login"
+            element={
+              <PublicRoute path="/auth/login" restricted>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="auth/signup"
+            element={
+              <PublicRoute path="/auth/signup" restricted>
+                <RegistrationPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="diary"
+            element={<DiaryPage toggleModal={toggleModal} isOpen={modalOpen} />}
+          />
+          <Route
+            path="calculator"
+            element={
+              <CalculatorPage
+                onToggleModal={toggleModal}
+                showModal={modalOpen}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <CalculatorPage
+                onToggleModal={toggleModal}
+                showModal={modalOpen}
+              />
+            }
+          />
+        </Routes>
+      </section>
+      {/* </Suspense> */}
     </>
   );
 };
