@@ -15,15 +15,19 @@ export default function RegistrationPage() {
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Too short')
-      .max(254, 'Too Long!')
+      .max(254, 'Too Long')
       .required('Required'),
     email: Yup.string()
-      .email('Invalid email')
-      // .oneOf(['.com' '.net', '.ua'])
+      .email('Invalid email. Must contain "@" and "."')
+      // .oneOf(
+      //   ['com', 'net', 'ua'],
+      //   'Email must have just com, net and ua domain'
+      // )
       .required('Required'),
     password: Yup.string()
-      .min(8, 'Must be at least 8 symbols!')
-      .max(100, 'Too Long!')
+      .min(8, 'Must be at least 8 symbols ')
+      .max(100, 'Too Long')
+      .matches(/[A-Za-z]+\d+.*$/, 'Password must contain letters and numbers')
       .required('Required'),
   });
 
