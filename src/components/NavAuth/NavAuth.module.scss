@@ -13,6 +13,10 @@
         margin-right: 14px;
     }
 
+         & .activeEnter:first-child {
+             margin-right: 14px;
+         }
+
     @include for-size(tablet) {
         margin-left: auto;
     }

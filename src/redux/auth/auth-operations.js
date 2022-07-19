@@ -31,7 +31,15 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
 
     return data;
   } catch (error) {
-    console.log(error.message);
+    if (error.response.status === 401) {
+      return toast.error('Email is wrong or not verify, or password is wrong');
+    } else if (error.response.status === 500) {
+      return toast.error(
+        'Oops, something went wrong. Try to refresh this page or try again later'
+      );
+    } else {
+      return toast.error(error.message);
+    }
   }
 });
 
@@ -39,6 +47,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     await axios.get('/auth/logout');
     token.unset();
+    localStorage.setItem('user', JSON.stringify(null));
   } catch (error) {
     console.log(error.message);
   }

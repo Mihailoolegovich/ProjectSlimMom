@@ -60,9 +60,9 @@ const routes = [
     isLogBar: true,
     redirectTo: '/diary',
   },
-  //   {
-  //     component: Page404,
-  //     isProtected: null,
-  //   },
+  // {
+  //   component: Page404,
+  //   isProtected: null,
+  // },
 ];
 export default routes;

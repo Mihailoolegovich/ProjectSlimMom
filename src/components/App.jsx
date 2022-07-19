@@ -1,7 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
 import PublicRoute from './PublicRoute';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
 
@@ -13,6 +13,13 @@ import {
 } from '../pages';
 
 export const App = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = (value = !modalOpen) => {
+    setModalOpen(value)
+  }
+
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,10 +40,10 @@ export const App = () => {
 
   return (
     <>
-      <Header />
+      <Header closeModal={toggleModal} isModalOpen={modalOpen} />
       <section className={adaptiveClassName(pathname)}>
         <Routes>
-          <Route path="/" element={<CalculatorPage />} />
+          <Route path="/" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen}/>} />
           <Route
             path="auth/login"
             element={
@@ -53,9 +60,9 @@ export const App = () => {
               </PublicRoute>
             }
           />
-          <Route path="diary" element={<DiaryPage />} />
-          <Route path="calculator" element={<CalculatorPage />} />
-          <Route path="*" element={<CalculatorPage />} />
+          <Route path="diary" element={<DiaryPage toggleModal={toggleModal} isOpen={modalOpen } />} />
+          <Route path="calculator" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen}/>} />
+          <Route path="*" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen} />} />
         </Routes>
       </section>
     </>

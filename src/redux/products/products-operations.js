@@ -9,7 +9,7 @@ export const getCurrentDay = createAsyncThunk(
     try {
       const { data } = await axios.post(`/days/user`, { date });
       if (data.message) {
-        toast.warning(data.message);
+        toast.info(data.message);
         return [];
       }
       return data.items;
@@ -58,10 +58,10 @@ export const addProduct = createAsyncThunk(
     } catch (error) {
       if (error.response.status === 401) {
         toast.error('Pleace, sign in');
-        return [];
+        return;
       }
       toast.error(error.response.data.message);
-      return [];
+      return;
     }
   }
 );

@@ -4,8 +4,6 @@ import DiaryDateCalendar from '../components/DiaryDateCalendar';
 import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
-import DiaryFormWrapper from 'components/DiaryFormWrappers/DiaryFormWrapper';
-import DiaryFormMobileWrapper from 'components/DiaryFormWrappers/DiaryFormMobileWrapper';
 import Modal from 'components/Modal/Modal';
 import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
@@ -15,6 +13,7 @@ import bgCalendar from '../images/bgCalendar.png';
 import Summary from '../components/RightSideBar/Summary';
 import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
 import { ToastContainer } from 'react-toastify';
+import { useMediaQuery } from '@mui/material';
 
 const theme = createTheme({
   breakpoints: {
@@ -53,7 +52,7 @@ const Item2 = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
   padding: '0px  20px 0px 40px',
-  margin: '0 0px 0 -20px',
+  /*margin: '0 0px 0 -20px',*/
   backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
   [theme.breakpoints.between('tablet', 'desktop')]: {
@@ -81,14 +80,17 @@ const Item2 = styled('div')(({ theme }) => ({
   },
 }));
 
-export default function DiaryPage() {
+export default function DiaryPage({toggleModal, isOpen}) {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
-  const [isOpen, setIsOpen] = useState(false);
+  
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
+  const mobile_size = useMediaQuery('(max-width:767px)');
+  const tablet_size = useMediaQuery('(min-width:768px)');
+
+ useEffect(()=>{if(tablet_size){return toggleModal(false)}}, [tablet_size])
+
+ 
 
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
@@ -132,21 +134,17 @@ export default function DiaryPage() {
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              {!isOpen && (
-                <DiaryFormWrapper>
+              {tablet_size && 
                   <DiaryAddProductForm date={date} />
-                </DiaryFormWrapper>
-              )}
+              }
               <DiaryProductsList date={date} />
-
               <DiaryFormButton type={'button'} action={toggleModal} />
-              {isOpen && (
-                <DiaryFormMobileWrapper>
+              
+            {mobile_size && <> {isOpen && (
                   <Modal onClose={toggleModal}>
                     <DiaryAddProductForm date={date} closeModal={toggleModal} />
                   </Modal>
-                </DiaryFormMobileWrapper>
-              )}
+              )}</>}
             </Item1>
           </Grid>
           <Grid item xs={12} mobile={12} tablet={12} desktop={5}>

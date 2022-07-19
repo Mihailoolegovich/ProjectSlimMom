@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
@@ -10,22 +10,20 @@ import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
 import DailyCaloriesIntake from 'components/DailyCaloriesIntake/DailyCaloriesIntake';
 
-const CalculatorPage = () => {
-  const [showModal, setShowModal] = useState(false);
+const CalculatorPage = ({onToggleModal, showModal}) => {
 
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
-  const onToggleModal = () => {
-    setShowModal(prevState => !prevState);
-  };
-
+  
   const onSubmit = values => {
     isLoggedIn
       ? dispatch(dailyCaloriesPrivate(values))
       : dispatch(dailyCaloriesPublic(values));
-    setShowModal(true);
+    onToggleModal();
   };
+
+ 
 
   return (
     <>
@@ -42,7 +40,7 @@ const CalculatorPage = () => {
 
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
-          <DailyCaloriesIntake />
+          <DailyCaloriesIntake closeModal={onToggleModal} />
         </Modal>
       )}
     </>
