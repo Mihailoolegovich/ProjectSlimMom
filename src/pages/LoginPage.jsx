@@ -27,7 +27,7 @@ export default function LoginPage() {
     },
     validationSchema: LoginSchema,
     onSubmit: ({ email, password }) => {
-      dispatch(authOperations.logIn({ email, password }));      
+      dispatch(authOperations.logIn({ email, password }));
     },
   });
   return (
