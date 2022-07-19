@@ -5,7 +5,7 @@ import useDebounce from 'hooks/useDebounce';
 import DiaryDataList from './DiaryDataList';
 import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
-const DiaryAddProductForm = ({ date, closeModal=null }) => {
+const DiaryAddProductForm = ({ date, closeModal = null }) => {
   const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
   const [datalistVisible, setDataListVisible] = useState(false);
@@ -14,7 +14,6 @@ const DiaryAddProductForm = ({ date, closeModal=null }) => {
   const dispatch = useDispatch();
 
   const search = useDebounce(product.trim(), 500);
-  
 
   const resetForm = () => {
     setProduct('');
@@ -22,7 +21,7 @@ const DiaryAddProductForm = ({ date, closeModal=null }) => {
   };
 
   useEffect(() => {
-    if (search !== "") {
+    if (search !== '') {
       dispatch(fetchProducts(search));
     }
   }, [search, dispatch]);
@@ -47,7 +46,9 @@ const DiaryAddProductForm = ({ date, closeModal=null }) => {
     };
     dispatch(addProduct(data));
     resetForm();
-    if(closeModal){closeModal()}
+    if (closeModal) {
+      closeModal();
+    }
   };
 
   const handleClick = e => {
@@ -76,7 +77,7 @@ const DiaryAddProductForm = ({ date, closeModal=null }) => {
           }, 250);
         }}
       />
-      
+
       <input
         className={s.diaryInput_weight}
         onInput={handleChange}
@@ -92,11 +93,12 @@ const DiaryAddProductForm = ({ date, closeModal=null }) => {
         required
       />
 
-      <button className={s.diaryButton} type="submit">Add</button>
+      <button className={s.diaryButton} type="submit">
+        Add
+      </button>
       {datalistVisible && (
         <DiaryDataList productList={products} handleClick={handleClick} />
       )}
-      
     </form>
   );
 };

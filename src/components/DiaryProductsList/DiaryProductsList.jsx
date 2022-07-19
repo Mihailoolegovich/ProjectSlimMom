@@ -3,7 +3,7 @@ import s from './DiaryProductsList.module.scss';
 import { useSelector } from 'react-redux';
 import { ProductsSelectors } from 'redux/products';
 
-const DiaryProductsList = ({date}) => {
+const DiaryProductsList = ({ date }) => {
   const products = useSelector(ProductsSelectors.consumedProducts);
 
   return (
@@ -22,7 +22,9 @@ const DiaryProductsList = ({date}) => {
           ))}
         </ul>
       ) : (
-        <p className={s.placeholder}>You have not yet added used products on the selected date</p>
+        <p className={s.placeholder}>
+          You have not yet added used products on the selected date
+        </p>
       )}
 
       {products.length > 0 && <div className={s.productList_downboard}></div>}
