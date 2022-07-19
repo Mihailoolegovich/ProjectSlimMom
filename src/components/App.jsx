@@ -1,7 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
+import React , { useEffect, useState, Suspense } from 'react';
 import Header from './Header';
 import PublicRoute from './PublicRoute';
-import { useEffect, useState } from 'react';
+import AppLoader from "./Loader/Loader";
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
 
@@ -40,6 +41,7 @@ export const App = () => {
 
   return (
     <>
+      <Suspense fallback={<AppLoader />}>
       <Header closeModal={toggleModal} isModalOpen={modalOpen} />
       <section className={adaptiveClassName(pathname)}>
         <Routes>
@@ -64,7 +66,8 @@ export const App = () => {
           <Route path="calculator" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen}/>} />
           <Route path="*" element={<CalculatorPage onToggleModal={toggleModal} showModal={modalOpen} />} />
         </Routes>
-      </section>
+        </section>
+        </Suspense>
     </>
   );
 };
