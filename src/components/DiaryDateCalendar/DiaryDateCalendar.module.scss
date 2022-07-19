@@ -1,21 +1,17 @@
 @import '../../sass/base/BaseStyles.scss';
 
 .datepicker {
-  // display: flexbox;
-  // flex-direction: row;
-  // justify-content: center;
   width: auto;
   height: auto;
-  // margin-top: 160px;
   margin-bottom: 32px;
+  margin-top: 80px;
   background-color: transparent;
 
   @include for-size(mobile) {
     align-items: center;
-    // margin-top: 180px;
   }
   @include for-size(desktop) {
-    // margin-top: 283px;
+    margin-top: 150px;
   }
 }
 

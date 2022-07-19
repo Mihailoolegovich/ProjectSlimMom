@@ -9,7 +9,7 @@ import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import { getCurrentDay } from 'redux/products';
 import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
-import bgCalendar from '../images/bgCalendar.png';
+import bgDesctop_Sidebar from '../images/bgDesctop_Sidebar.png';
 import Summary from '../components/RightSideBar/Summary';
 import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
 import { ToastContainer } from 'react-toastify';
@@ -30,53 +30,74 @@ const theme = createTheme({
 const Item1 = styled('div')(({ theme }) => ({
   display: 'flexbox',
   alignItems: 'flex-start',
-  margin: '160px 20px 0 20px',
+  // margin: '160px 0 0 0',
   height: 'auto',
   width: 'auto',
   backgroundColor: '#ffffff',
 
-  [theme.breakpoints.between('tablet', 'desktop')]: {
-    margin: '180px 32px 0 32x',
-  },
-  [theme.breakpoints.up('desktop')]: {
-    margin: '290px 16px 0 16px',
-  },
+  // [theme.breakpoints.between('tablet', 'desktop')]: {
+  //   margin: '180px 32px 0 32x',
+  // },
+  // [theme.breakpoints.up('desktop')]: {
+  //   margin: '290px 16px 0 16px',
+  // },
 }));
 
 const Item2 = styled('div')(({ theme }) => ({
+  position: 'relative',
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-around',
   textAlign: 'center',
   alignItems: 'center',
   flexDirection: 'column',
   width: '100%',
-  height: '100%',
-  padding: '0px  20px 0px 40px',
-  /*margin: '0 0px 0 -20px',*/
-  backgroundColor: '#F0F1F3',
+  height: 'auto',
+  padding: '80px 20px 80px 20px',
   backgroundRepeat: 'no-repeat',
   [theme.breakpoints.between('tablet', 'desktop')]: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    alignContent: 'stretch',
     alignItems: 'flex-start',
-    maxHeight: '350px',
-    padding: '80px 0 0 40px',
-    margin: '0 0px 0 0px',
+    height: '100%',
+    backgroundColor: 'transporent',
+    padding: '40px 0px auto',
+    margin: '0px 20px 0 20px',
+  },
+  [theme.breakpoints.up('desktop')]: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignContent: 'center',
+    width: '100%',
+    height: '100vh',
+    backgroundColor: 'transporent',
+  },
+}));
+const Item3 = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  display: 'flex',
+  width: '100%',
+  alignContent: 'stretch',
+  backgroundColor: '#F0F1F3',
+  margin: '0 0px 0 -20px',
+  backgroundRepeat: 'no-repeat',
+  [theme.breakpoints.between('tablet', 'desktop')]: {
+    margin: '0px 0 0 -32px',
+    border: '2px #212121',
     backgroundImage: `url("${bgTabletSidebar}")`,
+    bottom: '0',
     backgroundPosition: '100% 100%',
+    padding: '40px 0 20px 0px',
   },
   [theme.breakpoints.up('desktop')]: {
     position: 'absolute',
+    display: 'block',
+    right: '-20px',
     top: '0',
-    right: '32px',
+    backgroundPosition: '100% 100%',
     width: '600px',
     height: '100vh',
-    padding: '0px',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    backgroundImage: `url("${bgCalendar}")`,
-    backgroundPosition: '100% 100%',
+    backgroundImage: `url("${bgDesctop_Sidebar}")`,
+    backgroundColor: '#F0F1F3',
   },
 }));
 
@@ -101,36 +122,10 @@ export default function DiaryPage({ toggleModal, isOpen }) {
       <ThemeProvider theme={theme}>
         <Grid
           container
-          margin={
-            ({
-              xs: '-20px',
-              tablet: '-32px',
-              desktop: '-32px',
-              lg: '-156px',
-            },
-            {
-              xs: '-20px',
-              tablet: '-20px',
-              desktop: '-20px',
-              lg: '-20px',
-            },
-            {
-              xs: '-20px',
-              tablet: '-32px',
-              desktop: '-32px',
-              lg: '-64px',
-            },
-            {
-              xs: '-20px',
-              tablet: '-20px',
-              desktop: '-20px',
-              lg: '-64px',
-            })
-          }
           display={'flexbox'}
           width={'100%'}
-          height={'100%'}
-          overflow={'scroll'}
+          maxHeight={'100%'}
+          // overflowY={'scroll'}
         >
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
@@ -141,7 +136,6 @@ export default function DiaryPage({ toggleModal, isOpen }) {
 
               {mobile_size && (
                 <>
-                  {' '}
                   {isOpen && (
                     <Modal onClose={toggleModal}>
                       <DiaryAddProductForm
@@ -155,10 +149,12 @@ export default function DiaryPage({ toggleModal, isOpen }) {
             </Item1>
           </Grid>
           <Grid item xs={12} mobile={12} tablet={12} desktop={5}>
-            <Item2>
-              <Summary date={date} />
-              <FoodNotRecommend />
-            </Item2>
+            <Item3>
+              <Item2>
+                <Summary date={date} />
+                <FoodNotRecommend />
+              </Item2>
+            </Item3>
           </Grid>
         </Grid>
       </ThemeProvider>
