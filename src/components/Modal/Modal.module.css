@@ -42,8 +42,7 @@
 @media screen and (min-width: 1280px) {
 
   .moduleMainContainer {
-    margin-top: 120px;
-    top: 10px;
+    top: 120px;
     width: 690px;
     height: 580px;
   }
