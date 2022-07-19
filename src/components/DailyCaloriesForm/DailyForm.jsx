@@ -77,7 +77,10 @@ const DailyCaloriesForm = ({
                   />
 
                   {errors.desiredWeight && touched.desiredWeight && (
-                    <div className={styles.fieldErrorNew}>
+                    <div
+                      className={styles.fieldErrorNew}
+                      style={{ top: '36%' }}
+                    >
                       <p className={styles.notificationF}>
                         {errors.desiredWeight}
                       </p>
