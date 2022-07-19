@@ -51,6 +51,7 @@
         position: static;
         background-color: transparent;
         width: unset;
+        display: inline;
     }
 
     @include for-size(desktop) {
