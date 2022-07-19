@@ -1,12 +1,12 @@
 import React from 'react';
-import { Plane  } from 'react-loader-spinner';
+import { Plane } from 'react-loader-spinner';
 import styles from './Loader.scss';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const AppLoader = () => {
   return (
     <div className={styles.Loader}>
-      <Plane 
+      <Plane
         style={styles}
         // type="Circles"
         color="blue"
