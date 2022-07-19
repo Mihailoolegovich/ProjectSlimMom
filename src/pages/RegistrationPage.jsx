@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import authOperations from '../redux/auth/auth-operations';
+
 import s from '../sass/styleComponents/Identification.module.scss';
 
 export default function RegistrationPage() {
@@ -28,6 +29,7 @@ export default function RegistrationPage() {
 
   const onSubmit = ({ name, email, password }) => {
     dispatch(authOperations.register({ name, email, password }));
+
     // alert(JSON.stringify({ name, email, password }, null, 2));
   };
 
@@ -64,6 +66,7 @@ export default function RegistrationPage() {
                 <label className="label" htmlFor="email"></label>
                 <div className="control">
                   <Field
+                    id="email"
                     name="email"
                     type="text"
                     className="input"
@@ -77,6 +80,7 @@ export default function RegistrationPage() {
                 <label className="label" htmlFor="password"></label>
                 <div className="control">
                   <Field
+                    id="password"
                     name="password"
                     type="text"
                     className="input"
