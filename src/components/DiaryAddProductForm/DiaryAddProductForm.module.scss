@@ -1,122 +1,113 @@
 @import '../../sass/base/BaseStyles.scss';
 
+.diaryForm {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin: 80px 0 60px 0;
+  align-items: center;
+  background-color: transparent;
 
-.diaryForm{ 
-display: flex;
-flex-direction: column;
-position: relative;
-width: 100%;
-margin: 80px 0 60px 0;
-align-items: center;
-background-color: transparent;
-
-@include for-size(tablet){
+  @include for-size(tablet) {
     margin: 0 0 60px 0;
     flex-direction: row;
     justify-items: flex-start;
     align-items: flex-end;
-    
-}
-    @include for-size(desktop){
+  }
+  @include for-size(desktop) {
     margin: 0 0 60px 0;
-    
+  }
+}
+
+.diaryInput {
+  padding: 0 0 8px 0;
+  width: 280px;
+  margin: 0 0 32px 0;
+  color: $secondary-text-color;
+  border: none;
+  border-bottom: 1px solid $light-gray;
+  outline: none;
+  text-align: left;
+  background-color: inherit;
+  @include font(700, 14px, 17px, 'Verdana', 0.04em);
+  &::placeholder {
+    color: $secondary-text-color;
   }
 
+  @include for-size(tablet) {
+    padding: 0 0 20px 0;
+    margin: 0 22px 0 0;
+    width: 240px;
+  }
+  @include for-size(desktop) {
+    margin: 0 48px 0 0;
+  }
 }
 
-
-.diaryInput{
-    padding: 0 0 8px 0;
-    width: 280px;
-    margin:0 0 32px 0;
+.diaryInput_weight {
+  padding: 0 0 8px 0;
+  width: 280px;
+  margin: 0 0 60px 0;
+  color: $secondary-text-color;
+  border: none;
+  border-bottom: 1px solid $light-gray;
+  outline: none;
+  text-align: left;
+  background-color: inherit;
+  @include font(700, 14px, 17px, 'Verdana', 0.04em);
+  &::placeholder {
     color: $secondary-text-color;
-    border: none;
-    border-bottom: 1px solid $light-gray;
-    outline: none;
-    text-align: left;
-    background-color: inherit;
-    @include font(700, 14px, 17px, 'Verdana', 0.04em);
-    &::placeholder{color: $secondary-text-color;}
+  }
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 
-    @include for-size(tablet){
-        padding: 0 0 20px 0;
-        margin: 0 22px 0 0;
-        width: 240px;
-    }
-      @include for-size(desktop){
-       
-         margin: 0 48px 0 0;
-          
-    }
+  @include for-size(tablet) {
+    padding: 0 0 20px 0;
+    text-align: right;
+    margin: 0 87px 0 0;
+    width: 107px;
+  }
+  @include for-size(desktop) {
+    padding: 0 0 20px 0;
+    text-align: right;
+    margin: 0 60px 0 0;
+    width: 107px;
+  }
+}
 
-    
-};
+.diaryButton {
+  width: 176px;
+  padding: 13px 0;
+  display: block;
+  background-color: $accent-color;
+  color: $accent-text-color;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  @include font(700, 14px, 1.21);
 
-.diaryInput_weight{
-    padding: 0 0 8px 0;
-    width: 280px;
-    margin:0 0 60px 0;
-    color: $secondary-text-color;
-    border: none;
-    border-bottom: 1px solid $light-gray;
-    outline: none;
-    text-align: left;
-    background-color: inherit;
-    @include font(700, 14px, 17px, 'Verdana', 0.04em);
-    &::placeholder{color: $secondary-text-color;};
-    &::-webkit-inner-spin-button,
-    &::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-    }
+  cursor: pointer;
+  transition: $cubic;
 
-    @include for-size(tablet){
-        padding: 0 0 20px 0;
-          text-align: right;
-            margin: 0 87px 0 0;
-            width: 107px;
-    }
-      @include for-size(desktop){
-        padding: 0 0 20px 0;
-         text-align: right;
-            margin: 0 60px 0 0;
-            width: 107px;
-    }
-};
+  &:hover,
+  &:focus {
+    border: 2px solid $accent-color;
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  }
 
-
-
-.diaryButton{
-     width: 176px;
-     padding: 13px 0;
-     display: block;
-    background-color: $accent-color;
-    color: $accent-text-color;
-    border: 2px solid transparent;
-    border-radius: 30px;
-    @include font(700, 14px, 1.21);
-    
-    cursor: pointer;
-    transition: $cubic;
-
-    &:hover, &:focus {
-        border: 2px solid $accent-color;
-        box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-    }
-
-    @include for-size(tablet){
+  @include for-size(tablet) {
     height: 48px;
-     width: 48px;
-     background-image: url(../../icons/addBtnIcon.png);
-     background-repeat: no-repeat;
-     background-position: 15px 15px;
-     background-size: 13.5px 13.5px;
-     border-radius: 50%;
-     color: transparent;
-
-    }
+    width: 48px;
+    background-image: url(../../icons/addBtnIcon.png);
+    background-repeat: no-repeat;
+    background-position: 15px 15px;
+    background-size: 13.5px 13.5px;
+    border-radius: 50%;
+    color: transparent;
+  }
 }
-
-
 
 .dataContainer {
   position: absolute;
@@ -139,10 +130,9 @@ background-color: transparent;
     width: 6px;
     height: 40px;
   }
-  @include for-size(tablet){
+  @include for-size(tablet) {
     top: 50px;
-  width: 240px;
-
+    width: 240px;
   }
 }
 
@@ -152,7 +142,7 @@ background-color: transparent;
 
 .dataList {
   display: block;
-  width:100%;
+  width: 100%;
 }
 
 .option {
@@ -172,16 +162,14 @@ background-color: transparent;
   }
 }
 
-
-.notification{
+.notification {
   width: 100%;
   padding-top: 2px;
-   @include font(400, 12px, 17px, 'Verdana', 0.04em);
+  @include font(400, 12px, 17px, 'Verdana', 0.04em);
   text-align: left;
   color: $accent-color;
 
-   @include for-size(tablet){
-   padding-top: 8px;
-
+  @include for-size(tablet) {
+    padding-top: 8px;
   }
 }

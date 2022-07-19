@@ -1,5 +1,46 @@
 @import '../../sass/base/BaseStyles.scss';
 
+.calculator {
+  min-width: 280px;
+
+  // margin: 0 auto;
+  @include for-size(tablet) {
+    // margin: 0 auto;
+    // display: flex;
+    // padding-top: 0px;
+    min-width: 704px;
+  }
+  @include for-size(desktop) {
+    // margin: 0 auto;
+    // display: flex;
+    // padding-top: 0px;
+    min-width: 1280px;
+  }
+}
+
+.container {
+  padding-top: 32px;
+  @include for-size(tablet) {
+    padding-top: 100px;
+  }
+  @include for-size(desktop) {
+    padding-top: 147px;
+  }
+}
+
+.container__active {
+  padding: 40px 15px 60px 15px;
+
+  @include for-size(tablet) {
+    padding: 100px 76px 74px 87px;
+  }
+  @include for-size(desktop) {
+    min-width: 630px;
+    // padding-left: 0;
+    // padding-right: 0px;
+  }
+}
+
 .sideBar {
   display: none;
 }
@@ -10,39 +51,53 @@
   margin: 0 auto;
 }
 
-.calculator {
-  min-width: 320px;
-  margin: 0 auto;
-}
-
 .title {
-  margin-top: 32px;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
   font-family: $primary-font;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   color: $primary-text-color;
-  width: 280px;
-}
-
-.container {
-  padding: 40px 15px 60px 15px;
-}
-
-.container__active {
-  padding: 40px 15px 60px 15px;
+  // width: 280px;
+  @include for-size(tablet) {
+    font-size: 30px;
+    line-height: 36px;
+    width: 570px;
+    max-height: 85px;
+  }
+  @include for-size(desktop) {
+    font-size: 34px;
+    line-height: 41px;
+    padding: 0px;
+    width: 608px;
+  }
 }
 
 .formContainer {
-  width: 240px;
-  margin-right: 0;
+  // width: 240px;
+  // margin-right: 0;
+  @include for-size(tablet) {
+    width: 520px;
+    // background-color: aqua;
+    // padding-bottom: 0px;
+  }
+}
+.formWrapper {
+  @include for-size(tablet) {
+    display: flex;
+    margin-bottom: 60px;
+  }
+}
+.inputCont {
+  @include for-size(tablet) {
+    width: 50%;
+  }
 }
 
 .formInput {
   display: block;
-  margin-top: 30px;
+  margin-top: 32px;
   left: 0;
   top: -28px;
   padding: 0;
@@ -57,82 +112,85 @@
 }
 
 .field {
-  width: 240px;
+  // width: 240px;
+  width: 100%;
   border: 0;
   border-bottom: 1px solid $light-gray;
 }
+// .fieldError {
+//   color: red;
+//   margin-top: 5px;
+//   margin-bottom: 5px;
+// }
 
-.fieldError {
-  color: red;
-  margin-top: 5px;
-  margin-bottom: 5px;
+.fieldErrorNew {
+  position: absolute;
+  z-index: 100;
+  // &:last-child {
+  //   // top: 21.5pc;
+  //   top: 35.5%;
+  // }
+}
+.fieldErrorNewLast {
+  // @extend fieldErrorNew{
+
+  //   top: 35.5%;
+  // }
+}
+.notificationF {
+  width: 100%;
+  padding-top: 2px;
+  @include font(400, 12px, 17px, 'Verdana', 0.04em);
+  text-align: left;
+  color: $accent-color;
+
+  @include for-size(tablet) {
+    padding-top: 8px;
+  }
+}
+
+.radioWrapper {
+  @include for-size(tablet) {
+    width: 50%;
+    margin-left: 31px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .radio {
+  max-width: 240px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
   margin-top: 10px;
+  @include for-size(tablet) {
+    margin-top: 18px;
+  }
 }
 
-.formRadio {
-  display: block;
-  left: 0;
-  top: -28px;
-  padding: 0;
-  color: $secondary-text-color;
-}
+// .formRadio {
+//   display: block;
+//   left: 0;
+//   top: -28px;
+//   padding: 0;
+//   color: $secondary-text-color;
+// }
 
 .button {
-  padding: 13px 0;
-  display: flex;
-  justify-content: center;
+  @include orangeBtn;
+  width: 210px;
   margin: 0 auto;
-  margin-left: 50px;
-  width: 176px;
-  border: 2px solid $accent-color;
-  border-radius: 30px;
-  background-color: $accent-color;
-  color: $accent-text-color;
-  font-weight: 700;
-  font-family: $primary-font;
-  font-size: 14px;
-  line-height: 1.21;
-  text-align: center;
-  letter-spacing: $primary-letter-spacing;
-  outline: none;
-  cursor: pointer;
-}
 
-.button:hover {
-  background-color: $accent-color;
-  color: $accent-text-color;
-  box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  @include for-size(tablet) {
+    margin: 0;
+  }
 }
 
 @include for-size(tablet) {
   .sideBar__active {
     width: 768px;
-  }
-
-  .formContainer {
-    padding-bottom: 0px;
-  }
-
-  .container__active {
-    padding: 100px 76px 74px 87px;
-  }
-
-  .title {
-    font-size: 30px;
-    line-height: 36px;
-    width: 570px;
-    max-height: 85px;
-  }
-
-  .formWrapper {
-    display: flex;
-    margin-bottom: 60px;
   }
 
   .radioWrapper {
@@ -141,45 +199,11 @@
     display: flex;
     flex-direction: column;
   }
-
-  .button {
-    margin: 0;
-    cursor: pointer;
-  }
-
-  .radio {
-    margin-top: 18px;
-  }
 }
 
 @include for-size(desktop) {
-  .calculator {
-    margin: 0 auto;
-    display: flex;
-    padding-top: 0px;
-    width: 1280px;
-  }
-
-  .container__active {
-    min-width: 630px;
-    padding-left: 0;
-    padding-right: 0px;
-  }
-
   .form {
     margin: 0;
-  }
-
-  .title {
-    font-size: 34px;
-    line-height: 41px;
-    padding: 0px;
-    width: 608px;
-  }
-
-  .button {
-    margin-left: 346px;
-    cursor: pointer;
   }
 }
 
@@ -195,8 +219,8 @@ input[type='radio'] + span {
 input[type='radio'] ~ span:before {
   content: '';
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: -17.5px;
   left: -1px;
@@ -213,10 +237,10 @@ input[type='radio']:checked ~ span:after {
   content: '';
   display: block;
   position: absolute;
-  bottom: 14%;
-  left: 40%;
-  width: 12px;
-  height: 12px;
+  bottom: 0.1pc;
+  left: 0.3pc;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: $accent-color;
 }
