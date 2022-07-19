@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+//import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
 import {
@@ -16,7 +15,9 @@ const CalculatorPage = ({onToggleModal, showModal}) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
-  
+  const userData = useSelector(getUserData);
+ 
+
   const onSubmit = values => {
     isLoggedIn
       ? dispatch(dailyCaloriesPrivate(values))
@@ -24,19 +25,25 @@ const CalculatorPage = ({onToggleModal, showModal}) => {
     onToggleModal();
   };
 
+
+  
+  const userValues = {
+    height: `${userData.height}`,
+    age: `${userData.age}`,
+    currentWeight: `${userData.currentWeight}`,
+    desiredWeight: `${userData.desiredWeight}`,
+    bloodType: `${userData.bloodType}`,
+  };
+
+
  
+
 
   return (
     <>
       <DailyCaloriesForm
         onSubmit={onSubmit}
-        initialValues={{
-          height: '',
-          age: '',
-          currentWeight: '',
-          desiredWeight: '',
-          bloodType: '1',
-        }}
+        initialValues={userValues}
       />
 
       {showModal && (
