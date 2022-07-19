@@ -7,11 +7,11 @@ import {
   getNotRecommendProd,
 } from '../../redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
-const DailyCaloriesIntake = () => {
+const DailyCaloriesIntake = ({closeModal}) => {
   const calories = useSelector(getCalories);
   const notRecommendProduct = useSelector(getNotRecommendProd);
-  console.log(calories);
-  console.log(notRecommendProduct);
+  //console.log(calories);
+  //console.log(notRecommendProduct);
 
   return (
     <div className={s.mainContainer}>
@@ -34,7 +34,7 @@ const DailyCaloriesIntake = () => {
         </ol>
       </div>
 
-      <Link type="button" to="/auth/login" className={s.button}>
+      <Link type="button" to="/auth/login" onClick={()=>{closeModal()}} className={s.button}>
         Start losing weight
       </Link>
     </div>
