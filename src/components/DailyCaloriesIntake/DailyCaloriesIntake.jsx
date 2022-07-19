@@ -7,11 +7,14 @@ import {
   getNotRecommendProd,
 } from '../../redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
+
 const DailyCaloriesIntake = ({closeModal}) => {
   const calories = useSelector(getCalories);
   const notRecommendProduct = useSelector(getNotRecommendProd);
   //console.log(calories);
   //console.log(notRecommendProduct);
+
+  
 
   return (
     <div className={s.mainContainer}>

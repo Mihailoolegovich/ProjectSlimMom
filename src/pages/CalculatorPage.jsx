@@ -9,6 +9,7 @@ import {
 import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
 import DailyCaloriesIntake from 'components/DailyCaloriesIntake/DailyCaloriesIntake';
+import { getUserData } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
 const CalculatorPage = ({onToggleModal, showModal}) => {
 
