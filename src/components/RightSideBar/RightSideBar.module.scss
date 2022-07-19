@@ -19,7 +19,7 @@
   @include for-size(desktop) {
     width: 288px;
     margin: 0;
-    padding: 292px 123px 166px 106px;
+    padding-top: 217px;
     flex-direction: column;
     background-image: url('../../images/bgDesctop_Sidebar.png');
     background-repeat: no-repeat;
@@ -30,15 +30,20 @@
 .summaryForDate {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 350px;
   width: inherit;
+  height: auto;
   @include for-size(tablet) {
     // width: 288px;
   }
 
   @include for-size(desktop) {
-    margin-bottom: 60px;
+    display: flex;
+    padding-top: 192px;
+    margin: 0 60px auto;
+    width: inherit;
+    height: 166px;
     // width: 288px;
   }
 }
@@ -53,7 +58,7 @@
     margin-left: 80px;
   }
   @include for-size(desktop) {
-    margin: 0 auto;
+    margin: 20px 20px 266px;
   }
 }
 
@@ -77,7 +82,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
-  max-width: 400px;
+  max-width: 350px;
   width: inherit;
   @include for-size(tablet) {
     height: 112px;
