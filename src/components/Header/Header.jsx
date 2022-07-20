@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Header.module.scss';
 import { authSelectors } from '../../redux/auth';
-
 import PropTypes from 'prop-types';
 
 export default function Header({ closeModal, isModalOpen }) {
@@ -26,11 +25,12 @@ export default function Header({ closeModal, isModalOpen }) {
         <Logo isAuthorized={isAuthenticated} />
 
         <Nav>
+          {' '}
           {isAuthenticated ? (
             <NavAuth closeModal={closeModal} isModalOpen={isModalOpen} />
           ) : (
-            <NavNotAuth />
-          )}
+            <NavNotAuth closeModal={closeModal} />
+          )}{' '}
         </Nav>
 
         {goBack && (

@@ -51,8 +51,6 @@ export default function NavAuth({ closeModal, isModalOpen }) {
             className={({ isActive }) =>
               isActive ? styles.activeEnter : styles.enter
             }
-            // className={styles.enter}
-            // activeclassname={styles.activeEnter}
           >
             {link.label}
           </NavLink>
