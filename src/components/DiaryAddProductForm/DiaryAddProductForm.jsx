@@ -60,7 +60,7 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
     <form className={s.diaryForm} onSubmit={handleSubmit}>
       <input
         className={s.diaryInput}
-        onInput={handleChange}
+        onChange={handleChange}
         type="text"
         placeholder="Enter product name"
         name="product"
@@ -80,11 +80,11 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
 
       <input
         className={s.diaryInput_weight}
-        onInput={handleChange}
+        onChange={handleChange}
         type="number"
         placeholder="Grams"
         name="weight"
-        pattern="[0-9]+"
+        pattern="^[1-9]\d*$"
         value={weight}
         min={1}
         max={5000}

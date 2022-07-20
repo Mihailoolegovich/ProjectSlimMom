@@ -12,6 +12,7 @@ import {
   CalculatorPage,
 } from '../pages';
 
+
 export const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -24,6 +25,8 @@ export const App = () => {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
+
+
 
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
   const { pathname } = useLocation();

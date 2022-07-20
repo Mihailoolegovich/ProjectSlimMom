@@ -9,7 +9,7 @@ import RightSideBar from 'components/RightSideBar/RightSideBar';
 const DailyCaloriesForm = ({
   onSubmit,
   initialValues,
-  enableReinitialize = false,
+  enableReinitialize = true,
 }) => {
   const isAuth = useSelector(authSelectors.getLoggedOn);
 
