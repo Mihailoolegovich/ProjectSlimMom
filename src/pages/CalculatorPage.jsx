@@ -1,6 +1,8 @@
 //import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
+import PropTypes from 'prop-types';
+
 import {
   dailyCaloriesPrivate,
   dailyCaloriesPublic,
@@ -15,7 +17,6 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
   const userData = useSelector(getUserData);
- 
 
   const onSubmit = values => {
     isLoggedIn
@@ -24,8 +25,6 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
     onToggleModal();
   };
 
-
-  
   const userValues = {
     height: `${userData.height}`,
     age: `${userData.age}`,
@@ -34,16 +33,9 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
     bloodType: `${userData.bloodType}`,
   };
 
-
- 
-
-
   return (
     <>
-      <DailyCaloriesForm
-        onSubmit={onSubmit}
-        initialValues={userValues}
-      />
+      <DailyCaloriesForm onSubmit={onSubmit} initialValues={userValues} />
 
       {showModal && (
         <Modal onClick={onToggleModal} onClose={onToggleModal}>
@@ -55,3 +47,7 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
 };
 
 export default CalculatorPage;
+
+CalculatorPage.propTypes = {
+  onToggleModal: PropTypes.func,
+};

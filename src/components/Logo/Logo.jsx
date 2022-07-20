@@ -3,6 +3,7 @@ import { ReactComponent as LogoImage } from '../../icons/logo-pic.svg';
 import { ReactComponent as LogoText } from '../../icons/logo-text.svg';
 import styles from './Logo.module.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Logo({ isAuthorized = false }) {
   return (
@@ -17,3 +18,7 @@ export default function Logo({ isAuthorized = false }) {
     </Link>
   );
 }
+
+Logo.propTypes = {
+  isAuthorized: PropTypes.bool,
+};
