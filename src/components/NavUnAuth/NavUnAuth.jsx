@@ -7,7 +7,7 @@ import routes from '../../routes';
 import styles from './NavUnAuth.module.scss';
 import { useNavigate } from 'react-router-dom';
 
-export default function NavNotAuth({ closeModal }) {
+export default function NavNotAuth({ closeModal, isModalOpen }) {
   const navLinks = useMemo(() => routes.filter(route => route.isLogBar), []);
   const dailyIntake = useSelector(state => state.calories.dailyCalorieIntake);
 
@@ -59,7 +59,7 @@ export default function NavNotAuth({ closeModal }) {
         ))}
       </div>
 
-      {dailyIntake && (
+      {isModalOpen && (
         <div className={styles.userWrapper}>
           <button
             type="button"
