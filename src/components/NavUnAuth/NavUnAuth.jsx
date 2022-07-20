@@ -50,8 +50,9 @@ export default function NavNotAuth({ closeModal }) {
             key={uuidv4()}
             to={link.path}
             exact="true"
-            className={styles.enter}
-            activeclassname={styles.activeEnter}
+            className={({ isActive }) =>
+              isActive ? styles.activeEnter : styles.enter
+            }
           >
             {link.label}
           </NavLink>

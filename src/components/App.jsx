@@ -36,7 +36,6 @@ export const App = () => {
       '/auth/signup': 'mainContainer localIdent',
     };
     return isLoggedIn ? 'mainContainer localRest' : findClassName[loc];
-    // return className[loc] ?? 'mainContainer';
   }
 
   return (

@@ -8,11 +8,7 @@ import {
   getNotRecommendProd,
 } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
-
 const RightSideBar = ({ date }) => {
- 
-
- 
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
   const notRecommendProd = getNotRecommendProdData?.map(
     product => product.en[0]

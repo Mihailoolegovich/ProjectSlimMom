@@ -55,8 +55,6 @@ const DiaryDateCalendar = ({ setDate }) => {
 
 export default DiaryDateCalendar;
 
-
 DiaryDateCalendar.propTypes = {
   setDate: PropTypes.func,
- 
 };

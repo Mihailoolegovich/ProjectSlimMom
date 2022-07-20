@@ -5,6 +5,9 @@ import styles from './DailyForm.module.scss';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import authSelectors from '../../redux/auth/auth-selectors';
+import FoodNotRecommend from '../RightSideBar/FoodNotRecommend';
+import Summary from '../RightSideBar/Summary';
+// import RightSideBar from 'components/RightSideBar';
 
 const DailyCaloriesForm = ({
   onSubmit,
@@ -151,6 +154,14 @@ const DailyCaloriesForm = ({
         />
         {/* </div> */}
       </div>
+      {isAuth && (
+        <div className={styles.sideBarContainer}>
+          <div className={styles.sideBarBox}>
+            <Summary />
+            <FoodNotRecommend />
+          </div>
+        </div>
+      )}
       {/* <div className={!isAuth ? styles.sideBar : styles.sideBar__active}>
         {!isAuth ? <p></p> : <RightSideBar />}
       </div> */}

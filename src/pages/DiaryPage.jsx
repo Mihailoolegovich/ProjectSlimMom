@@ -8,8 +8,8 @@ import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductF
 import DiaryDateCalendar from '../components/DiaryDateCalendar';
 import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
 import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
-import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
 import Summary from '../components/RightSideBar/Summary';
+import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
 import Modal from 'components/Modal/Modal';
 import { getCurrentDay } from 'redux/products';
 import bgDesctop_Sidebar from '../images/bgDesctop_Sidebar.png';
@@ -54,6 +54,7 @@ const Item2 = styled('div')(({ theme }) => ({
   height: 'auto',
   padding: '80px 20px 80px 20px',
   backgroundRepeat: 'no-repeat',
+
   [theme.breakpoints.between('tablet', 'desktop')]: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -63,38 +64,38 @@ const Item2 = styled('div')(({ theme }) => ({
     backgroundColor: 'transporent',
     padding: '80px 32px',
   },
+
   [theme.breakpoints.up('desktop')]: {
     display: 'flex',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     alignContent: 'center',
     width: '100%',
     height: '100vh',
     backgroundColor: 'transporent',
+    padding: '80px 106px',
   },
 }));
+
 const Item3 = styled('div')(({ theme }) => ({
   position: 'absolute',
-
   width: '100%',
   height: '45.3vh',
   left: 0,
   alignContent: 'stretch',
   backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
-  // [theme.breakpoints.between('mobile')]: {
 
-  // },
   [theme.breakpoints.between('tablet', 'desktop')]: {
     display: 'flex',
     height: 'auto',
-
     right: '0',
-
     border: '2px #212121',
     backgroundImage: `url("${bgTabletSidebar}")`,
     bottom: '0',
     backgroundPosition: '100% 100%',
   },
+
   [theme.breakpoints.up('desktop')]: {
     display: 'block',
     left: 'auto',
@@ -124,6 +125,7 @@ export default function DiaryPage({ toggleModal, isOpen }) {
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
   }, [date, dispatch]);
+
   return (
     <>
       <ThemeProvider theme={theme}>
