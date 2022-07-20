@@ -12,7 +12,7 @@ const BasicFormSchema = Yup.object().shape({
     .required('Required input field')
     .typeError('The form accepts only a numeric value')
     .min(18, 'Enter your age from 18 years')
-    .max(99, 'Enter your age to 99 years')
+    .max(120, 'Enter your age to 120 years')
     .integer(),
   currentWeight: Yup.number()
     .required('Required input field')

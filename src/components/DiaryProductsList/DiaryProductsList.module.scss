@@ -1,87 +1,85 @@
 @import '../../sass/base/BaseStyles.scss';
 
+.productList_container {
+  min-width: 280px;
 
-.productList_container{
+  @include font(700, 14px, 17px, 'Verdana', 0.04em);
+  color: $secondary-text-color;
+
+  @include for-size(tablet) {
     display: flex;
     position: relative;
-    min-width: 300px;
-    margin: 0, auto;
-    justify-content: center;
-   
-     @include font(700, 14px, 17px, 'Verdana', 0.04em);
-    color: $secondary-text-color;
-    @include for-size(tablet){
-        width:100%;
-       justify-content: flex-start;
-        
-    }
-    
+    width: 100%;
+    justify-content: flex-start;
+  }
 }
 
-.productList{
-display: flex;
-flex-direction: column;
-width: 300px;
-background-color: transparent;
-color: $primary-text-color;
-max-height: 300px;
-padding-bottom: 40px;
- @include font(400, 14px, 17px, 'Verdana', 0.04em);
-  
-    overflow-y: scroll;
-    &::-webkit-scrollbar{
+.productList {
+  display: flex;
+  flex-direction: column;
+
+  background-color: transparent;
+  color: $primary-text-color;
+
+  padding-bottom: 40px;
+  @include font(400, 14px, 17px, 'Verdana', 0.04em);
+
+  &::-webkit-scrollbar {
     width: 6px;
-	background-color: transparent;}
-    &::-webkit-scrollbar-track{
-	background-color: transparent;}
-    &::-webkit-scrollbar-thumb {
-  background: $decorative-color;
-}
- &::-webkit-scrollbar-track-piece{
     background-color: transparent;
- }
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $decorative-color;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
 
-@include for-size(tablet){
+  @include for-size(tablet) {
     width: 624px;
-    
+    max-height: 300px;
+
+    overflow-y: scroll;
+  }
 }
 
-}
+.productList_downboard {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 274px;
+  height: 44px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    $primary-bg-color 42.19%
+  );
 
-
-
-.productList_downboard{
-    display:none;
-    position: absolute;
-    bottom: 0;
-    left:0;
-    width: 274px;
-    height:44px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, $primary-bg-color 42.19%);
-
-@include for-size(tablet){
-    display:block;
+  @include for-size(tablet) {
+    display: block;
     width: 603px;
     height: 50px;
-    
-}
-    @include for-size(desktop){
+  }
+  @include for-size(desktop) {
     width: 618px;
-   }
+  }
 }
 
+.placeholder {
+  border: 1px solid $light-gray;
+  padding: 8px 0 8px 0;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid $light-gray;
+  text-align: center;
 
-.placeholder{
-    border: 1px solid $light-gray;
-    padding: 8px 0 8px 0;
-    width: 300px;
-    border: none;
-    border-bottom: 1px solid $light-gray;
-    text-align: center;
-    
-    @include for-size(tablet){
-        padding: 20px 0 20px 0;
-        text-align: left;
-        width: 624px;
-    }
+  @include for-size(tablet) {
+    padding: 20px 0 20px 0;
+    text-align: left;
+    width: 624px;
+  }
 }

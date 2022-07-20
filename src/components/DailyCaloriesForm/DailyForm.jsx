@@ -3,13 +3,15 @@ import { Formik, Field, Form } from 'formik';
 import DailyCaloriesFormValidator from './DailyFormValidator';
 import styles from './DailyForm.module.scss';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import authSelectors from '../../redux/auth/auth-selectors';
+
 import RightSideBar from 'components/RightSideBar/RightSideBar';
 
 const DailyCaloriesForm = ({
   onSubmit,
   initialValues,
-  enableReinitialize = false,
+  enableReinitialize = true,
 }) => {
   const isAuth = useSelector(authSelectors.getLoggedOn);
 
@@ -78,8 +80,9 @@ const DailyCaloriesForm = ({
 
                   {errors.desiredWeight && touched.desiredWeight && (
                     <div
-                      className={styles.fieldErrorNew}
-                      style={{ top: '36%' }}
+                      className={
+                        styles.fieldErrorNew + ' ' + styles.fieldErrorNewLast
+                      }
                     >
                       <p className={styles.notificationF}>
                         {errors.desiredWeight}
@@ -150,11 +153,17 @@ const DailyCaloriesForm = ({
         />
         {/* </div> */}
       </div>
-      <div className={!isAuth ? styles.sideBar : styles.sideBar__active}>
+      {/* <div className={!isAuth ? styles.sideBar : styles.sideBar__active}>
         {!isAuth ? <p></p> : <RightSideBar />}
-      </div>
+      </div> */}
     </div>
   );
 };
 
 export default DailyCaloriesForm;
+
+DailyCaloriesForm.propTypes = {
+  onSubmit: PropTypes.func,
+  initialValues: PropTypes.object,
+  enableReinitialize: PropTypes.bool,
+};

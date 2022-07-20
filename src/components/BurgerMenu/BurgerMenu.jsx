@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './BurgerMenu.module.scss';
 import routes from '../../routes';
+import PropTypes from 'prop-types';
 
 const BurgerMenu = ({ isActive, onCloseBurger }) => {
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
@@ -22,7 +23,9 @@ const BurgerMenu = ({ isActive, onCloseBurger }) => {
           exact="true"
           // className={styles.link}
           className={({ isActive }) =>
-            isActive ? styles.activeLink : styles.link
+            isActive
+              ? `${styles.link} + ' '  ${styles.activeLink}`
+              : styles.link
           }
           // activeClassName={styles.activeLink}
           onClick={onCloseBurger}
@@ -35,3 +38,7 @@ const BurgerMenu = ({ isActive, onCloseBurger }) => {
 };
 
 export default BurgerMenu;
+
+BurgerMenu.propTypes = {
+  onCloseBurger: PropTypes.func,
+};

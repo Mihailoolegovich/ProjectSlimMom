@@ -10,12 +10,12 @@
     // padding-top: 0px;
     min-width: 704px;
   }
-  @include for-size(desktop) {
-    // margin: 0 auto;
-    // display: flex;
-    // padding-top: 0px;
-    min-width: 1280px;
-  }
+  // @include for-size(desktop) {
+  //   // margin: 0 auto;
+  //   // display: flex;
+  //   // padding-top: 0px;
+  //   min-width: 1190px;
+  // }
 }
 
 .container {
@@ -24,21 +24,26 @@
     padding-top: 100px;
   }
   @include for-size(desktop) {
-    padding-top: 147px;
+    padding-top: 113px;
   }
 }
 
 .container__active {
-  padding: 40px 15px 60px 15px;
-
+  padding-top: 72px;
   @include for-size(tablet) {
-    padding: 100px 76px 74px 87px;
+    padding-top: 100px;
   }
   @include for-size(desktop) {
-    min-width: 630px;
-    // padding-left: 0;
-    // padding-right: 0px;
+    padding-top: 113px;
   }
+  // @include for-size(tablet) {
+  //   padding: 100px 76px 74px 87px;
+  // }
+  // @include for-size(desktop) {
+  //   min-width: 630px;
+  //   // padding-left: 0;
+  //   // padding-right: 0px;
+  // }
 }
 
 .sideBar {
@@ -133,9 +138,12 @@
 }
 .fieldErrorNewLast {
   // @extend fieldErrorNew{
-
-  //   top: 35.5%;
-  // }
+  @include for-size(tablet) {
+    top: 36%;
+  }
+  @include for-size(desktop) {
+    top: 49%;
+  }
 }
 .notificationF {
   width: 100%;
