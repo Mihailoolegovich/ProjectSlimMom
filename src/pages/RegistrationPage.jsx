@@ -12,7 +12,7 @@ import s from '../sass/styleComponents/Identification.module.scss';
 export default function RegistrationPage() {
   const dispatch = useDispatch();
   const success = useSelector(authSelectors.getSuccess);
-  console.log(success);
+  // console.log(success);
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Too short')

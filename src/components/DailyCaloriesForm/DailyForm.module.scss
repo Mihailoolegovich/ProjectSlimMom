@@ -36,13 +36,24 @@
   // height: 35.4vh;
   left: 0;
   background-color: $secondary-bg-color;
-
+  @include for-size(mobile) {
+    @media (min-height: 1038px) {
+      bottom: 0;
+      top: auto;
+    }
+  }
   @include for-size(tablet) {
-    height: 32.6vh;
-    bottom: 0;
+    height: fit-content;
+    // height: 32.6vh;
+    // bottom: 0;
+    top: 637px;
     background-image: url('../../images/bgTablet_Sidebar.png');
     background-position: 100% 100%;
     background-repeat: no-repeat;
+    @media (min-height: 980px) {
+      bottom: 0;
+      top: auto;
+    }
   }
 
   @include for-size(desktop) {
@@ -102,6 +113,7 @@
 
 .formContainer {
   @include for-size(tablet) {
+    position: absolute;
     width: 520px;
   }
 }
@@ -140,7 +152,6 @@
 }
 
 .fieldErrorNew {
-  position: absolute;
   z-index: 100;
 }
 .fieldErrorNewLast {
@@ -157,6 +168,7 @@
   @include font(400, 12px, 17px, 'Verdana', 0.04em);
   text-align: left;
   color: $accent-color;
+  position: absolute;
 
   @include for-size(tablet) {
     padding-top: 8px;

@@ -19,6 +19,8 @@ const authSlice = createSlice({
       state.user.name = action.payload.data.user.name;
       state.user.email = action.payload.data.user.email;
       state.token = action.payload.token;
+      state.success = true;
+
     },
     [authOperations.register.pending](state) {
       state.success = false;
@@ -40,12 +42,13 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, action) {
-      state.user = action.payload.data.user;
+      state.user = action.payload;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
     [authOperations.fetchCurrentUser.rejected](state) {
       state.isFetchingCurrentUser = false;
+      state.isLoggedIn = false;
     },
   },
 });

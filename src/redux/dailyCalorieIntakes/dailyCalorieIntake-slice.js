@@ -39,11 +39,6 @@ const caloriesSlice = createSlice({
       // console.log(action);
       //console.log(state);
     },
-    [getUserDiet.fulfilled]: (state, { payload }) => {
-      return (state = { ...payload.data.user });
-      // console.log(action);
-      //console.log(state);
-    },
   },
 });
 

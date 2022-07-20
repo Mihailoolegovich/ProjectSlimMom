@@ -29,7 +29,7 @@ export default function Header({ closeModal, isModalOpen }) {
           {isAuthenticated ? (
             <NavAuth closeModal={closeModal} isModalOpen={isModalOpen} />
           ) : (
-            <NavNotAuth closeModal={closeModal} />
+            <NavNotAuth closeModal={closeModal} isModalOpen={isModalOpen} />
           )}{' '}
         </Nav>
 

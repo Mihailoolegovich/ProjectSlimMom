@@ -20,7 +20,7 @@ export default function NavAuth({ closeModal, isModalOpen }) {
   const name = useSelector(authSelectors.getUserName);
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
-  //console.log(navLinks);
+  console.log(navLinks);
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = menuActive ? 'hidden' : 'auto';
@@ -28,8 +28,9 @@ export default function NavAuth({ closeModal, isModalOpen }) {
 
   const onLogOut = useCallback(() => {
     dispatch(authOperations.logOut());
+
     dispatch(clearStorage());
-    navigate('/');
+    navigate('/auth/login', { replace: true });
   }, [dispatch, navigate]);
 
   //   const handelCloseModal = e => {
@@ -87,7 +88,7 @@ export default function NavAuth({ closeModal, isModalOpen }) {
 
         <p className={styles.userName}>{name}</p>
         <button onClick={onLogOut} className={styles.logout}>
-          Log out
+          Exit
         </button>
       </div>
     </div>

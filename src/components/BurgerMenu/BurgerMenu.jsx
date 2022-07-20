@@ -40,5 +40,6 @@ const BurgerMenu = ({ isActive, onCloseBurger }) => {
 export default BurgerMenu;
 
 BurgerMenu.propTypes = {
+  isActive: PropTypes.bool,
   onCloseBurger: PropTypes.func,
 };

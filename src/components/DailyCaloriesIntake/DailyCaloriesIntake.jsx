@@ -35,15 +35,15 @@ const DailyCaloriesIntake = ({ closeModal }) => {
         </ol>
       </div>
 
-      <Link
-        type="button"
-        to="/auth/signup"
-        onClick={() => {
-          closeModal();
-        }}
-        className={s.button}
-      >
-        Start losing weight
+      <Link type="button" to="/auth/signup">
+        <button
+          onClick={() => {
+            closeModal();
+          }}
+          className={s.button}
+        >
+          Start losing weight
+        </button>
       </Link>
     </div>
   );
