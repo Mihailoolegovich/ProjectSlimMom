@@ -1,14 +1,22 @@
 import { v4 as uuidv4 } from 'uuid';
-
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import s from './RightSideBar.module.scss';
 import { useSelector } from 'react-redux';
 import { ProductsSelectors } from 'redux/products';
 import { getCalories } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
+import { getUserDiet } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operations';
 
 const Summary = ({ date }) => {
   const currentDateNow = date
     ? date.toLocaleDateString('en-GB')
     : new Date().toLocaleDateString('en-GB');
+  
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+    dispatch(getUserDiet());
+  }, [dispatch]);
 
   // 1. отримуємо суму спожитих калорій
   const productsData = useSelector(ProductsSelectors.consumedProducts);

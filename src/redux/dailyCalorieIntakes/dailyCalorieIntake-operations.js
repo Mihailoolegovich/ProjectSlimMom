@@ -31,14 +31,33 @@ export const dailyCaloriesPublic = createAsyncThunk(
   }
 );
 
-export const getUserDiet = createAsyncThunk('users/current', async () => {
-  try {
-    const { data } = await axios.get('/users/current');
-    if (!data.data.user) {
-      return;
+export const getUserDiet = createAsyncThunk(
+  'calories/getUserDiet',
+  async () => {
+    try {
+      const { data } = await axios.get('/users/current');
+      if (!data.data.user) {
+        return {
+          dailyCalorieIntake: null,
+          notRecommendedProducts: [],
+          height: '',
+          age: '',
+          currentWeight: '',
+          desiredWeight: '',
+          bloodType: 1,
+        };
+      }
+      return data.data.user;
+    } catch (error) {
+      return {
+        dailyCalorieIntake: null,
+        notRecommendedProducts: [],
+        height: '',
+        age: '',
+        currentWeight: '',
+        desiredWeight: '',
+        bloodType: 1,
+      };
     }
-    return data;
-  } catch (error) {
-    return;
   }
-});
+);

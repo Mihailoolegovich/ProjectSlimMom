@@ -15,6 +15,7 @@ const DailyCaloriesForm = ({
 }) => {
   const isAuth = useSelector(authSelectors.getLoggedOn);
 
+
   return (
     <div className={styles.calculator}>
       <div className={!isAuth ? styles.container : styles.container__active}>
