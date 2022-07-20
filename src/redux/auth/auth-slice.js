@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { bool } from 'yup';
 import authOperations from './auth-operations';
 
 const initialUserState = {
   user: { name: null, email: null },
   token: null,
-  success: false,
+  success: null,
   // error: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
@@ -25,6 +26,9 @@ const authSlice = createSlice({
       // console.log(state);
     },
     [authOperations.register.pending](state) {
+      state.success = false;
+    },
+    [authOperations.register.rejected](state) {
       state.success = false;
     },
     [authOperations.logIn.fulfilled](state, action) {

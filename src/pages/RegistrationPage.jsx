@@ -22,7 +22,7 @@ export default function RegistrationPage() {
       .email('Invalid email. Must contain "@" and "."')
       .min(3, 'Too short')
       .max(30, 'Too Long')
-      // .oneOf(['.com', '.net', '.ua'])
+      .matches(/(.ua|.com|.net)/, 'email must have .com, .net or .ua domain')
       .required('Required'),
     password: Yup.string()
       .min(8, 'Must be at least 8 symbols ')
@@ -49,10 +49,10 @@ export default function RegistrationPage() {
         validationSchema={validationSchema}
         onSubmit={async ({ name, email, password }, { resetForm }) => {
           await onSubmit({ name, email, password });
-          // if (success) {
-          //  resetForm();
-          // }
-          resetForm();
+          if (success) {
+            resetForm();
+          }
+          // resetForm();
         }}
       >
         <Form>
