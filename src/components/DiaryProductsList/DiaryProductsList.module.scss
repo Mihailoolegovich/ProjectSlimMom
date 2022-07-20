@@ -41,6 +41,7 @@
   @include for-size(tablet) {
     width: 624px;
     max-height: 300px;
+
     overflow-y: scroll;
   }
 }

@@ -57,6 +57,7 @@
   width: inherit;
   @include for-size(tablet) {
     max-width: 369px;
+    margin-left: 79px;
     // width: 288px;
     // margin-left: 80px;
   }
