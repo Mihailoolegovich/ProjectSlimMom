@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import authSelectors from '../../redux/auth/auth-selectors';
 import FoodNotRecommend from '../RightSideBar/FoodNotRecommend';
 import Summary from '../RightSideBar/Summary';
-// import RightSideBar from 'components/RightSideBar';
 
 const DailyCaloriesForm = ({
   onSubmit,
@@ -23,7 +22,6 @@ const DailyCaloriesForm = ({
         <h1 className={styles.title}>
           Calculate your daily calorie intake right now
         </h1>
-        {/* <div className={styles.inputWrapper}> */}
         <Formik
           enableReinitialize={enableReinitialize}
           initialValues={initialValues}
@@ -153,7 +151,6 @@ const DailyCaloriesForm = ({
             </Form>
           )}
         />
-        {/* </div> */}
       </div>
       {isAuth && (
         <div className={styles.sideBarContainer}>
@@ -163,9 +160,6 @@ const DailyCaloriesForm = ({
           </div>
         </div>
       )}
-      {/* <div className={!isAuth ? styles.sideBar : styles.sideBar__active}>
-        {!isAuth ? <p></p> : <RightSideBar />}
-      </div> */}
     </div>
   );
 };

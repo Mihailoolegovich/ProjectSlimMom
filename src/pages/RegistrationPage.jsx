@@ -1,33 +1,36 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import authOperations from '../redux/auth/auth-operations';
-
+import { authSelectors } from 'redux/auth';
 import s from '../sass/styleComponents/Identification.module.scss';
 
 export default function RegistrationPage() {
   const dispatch = useDispatch();
-
+  const success = useSelector(authSelectors.getSuccess);
+  // console.log(success);
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(3, 'Too short')
-      .max(254, 'Too Long')
+      .max(30, 'name should be of max 30 characters length')
       .required('Required'),
     email: Yup.string()
       .email('Invalid email. Must contain "@" and "."')
-      // .oneOf(
-      //   ['com', 'net', 'ua'],
-      //   'Email must have just com, net and ua domain'
-      // )
+      .min(3, 'Too short')
+      .max(30, 'Too Long')
+      // .oneOf(['.com', '.net', '.ua'])
       .required('Required'),
     password: Yup.string()
       .min(8, 'Must be at least 8 symbols ')
       .max(100, 'Too Long')
-      .matches(/[A-Za-z]+\d+.*$/, 'Password must contain letters and numbers')
+      .matches(
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/,
+        'Must have at least 1 uppercase, 1 lowercase latin letter and 1 number'
+      )
       .required('Required'),
   });
 
@@ -46,6 +49,9 @@ export default function RegistrationPage() {
         validationSchema={validationSchema}
         onSubmit={async ({ name, email, password }, { resetForm }) => {
           await onSubmit({ name, email, password });
+          // if (success) {
+          //  resetForm();
+          // }
           resetForm();
         }}
       >

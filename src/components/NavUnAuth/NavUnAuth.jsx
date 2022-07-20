@@ -40,7 +40,7 @@ export default function NavNotAuth({ closeModal }) {
         </button>
       </div>;
     };
-  }, []);
+  }, [closeModal]);
 
   return (
     <>

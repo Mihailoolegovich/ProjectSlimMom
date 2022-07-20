@@ -86,3 +86,9 @@
   box-shadow: 0 0 25px lightgrey;
   border: 1px solid lightgrey;
 }
+
+@media screen and (max-width: 767px) {
+  .closeModalBtn {
+    display: none;
+  }
+}
