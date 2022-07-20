@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4b4dde43.css",
-    "main.js": "/static/js/main.9d204589.js",
+    "main.css": "/static/css/main.28c98144.css",
+    "main.js": "/static/js/main.6e12b620.js",
     "static/media/bgDesctop.png": "/static/media/bgDesctop.331c39b81c84b10b847d.png",
     "static/media/bgTablet_Log.png": "/static/media/bgTablet_Log.2dea5912e59cb3b1299a.png",
     "static/media/bgTablet_Home.png": "/static/media/bgTablet_Home.14535b38e688d928dd13.png",
@@ -14,7 +14,6 @@
     "static/media/Verdana-Bold.woff": "/static/media/Verdana-Bold.9adb22889a3011bc59fb.woff",
     "static/media/logo-pic.svg": "/static/media/logo-pic.4fc7d78428ab2662a33189af4f54d76d.svg",
     "static/media/Verdana-Bold.woff2": "/static/media/Verdana-Bold.1d8bc5f9be9f4d1d0cc0.woff2",
-    "static/media/bgCalendar.png": "/static/media/bgCalendar.2bd41f81d9608a21ff91.png",
     "static/media/GothamPro-Light.eot": "/static/media/GothamPro-Light.56916222e0ca73585653.eot",
     "static/media/GothamPro-Bold.eot": "/static/media/GothamPro-Bold.eefda20950e42428d5db.eot",
     "static/media/GothamPro-Bold.ttf": "/static/media/GothamPro-Bold.eb4c39e5900eb7912e7c.ttf",
@@ -30,11 +29,11 @@
     "static/media/logoCalendar.svg": "/static/media/logoCalendar.26f85a29609df01bfb1a2c054e438d53.svg",
     "static/media/сlose.svg": "/static/media/сlose.4590c3b815a8d3bfee21.svg",
     "static/media/arrowBack.svg": "/static/media/arrowBack.822317d3ab5586ebb7046962fd75a06b.svg",
-    "main.4b4dde43.css.map": "/static/css/main.4b4dde43.css.map",
-    "main.9d204589.js.map": "/static/js/main.9d204589.js.map"
+    "main.28c98144.css.map": "/static/css/main.28c98144.css.map",
+    "main.6e12b620.js.map": "/static/js/main.6e12b620.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b4dde43.css",
-    "static/js/main.9d204589.js"
+    "static/css/main.28c98144.css",
+    "static/js/main.6e12b620.js"
   ]
 }
