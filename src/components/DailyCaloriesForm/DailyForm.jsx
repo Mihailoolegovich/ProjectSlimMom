@@ -151,9 +151,9 @@ const DailyCaloriesForm = ({
         />
         {/* </div> */}
       </div>
-      <div className={!isAuth ? styles.sideBar : styles.sideBar__active}>
+      {/* <div className={!isAuth ? styles.sideBar : styles.sideBar__active}>
         {!isAuth ? <p></p> : <RightSideBar />}
-      </div>
+      </div> */}
     </div>
   );
 };
