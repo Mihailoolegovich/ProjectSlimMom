@@ -1,14 +1,15 @@
 @import '../../sass/base/BaseStyles.scss';
 
 .datepicker {
-  width: auto;
+  width: 100%;
   height: auto;
   margin-bottom: 32px;
   margin-top: 80px;
   background-color: transparent;
+  text-align: center;
 
-  @include for-size(mobile) {
-    align-items: center;
+  @include for-size(tablet) {
+    text-align: left;
   }
   @include for-size(desktop) {
     margin-top: 150px;

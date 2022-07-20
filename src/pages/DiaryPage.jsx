@@ -56,6 +56,7 @@ const Item2 = styled('div')(({ theme }) => ({
   backgroundRepeat: 'no-repeat',
   [theme.breakpoints.between('tablet', 'desktop')]: {
     flexDirection: 'row',
+    justifyContent: 'flex-start',
     alignContent: 'stretch',
     alignItems: 'flex-start',
     height: '100%',
@@ -84,12 +85,12 @@ const Item3 = styled('div')(({ theme }) => ({
     margin: '0px 0 0 -32px',
     border: '2px #212121',
     backgroundImage: `url("${bgTabletSidebar}")`,
-    bottom: '0',
+    // bottom: '0',
     backgroundPosition: '100% 100%',
     // padding: '40px 0 20px 0px',
   },
   [theme.breakpoints.up('desktop')]: {
-    position: 'absolute',
+    // position: 'absolute',
     display: 'block',
     right: '-20px',
     top: '0',
