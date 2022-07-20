@@ -31,10 +31,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 350px;
+  max-width: 369px;
   width: inherit;
   height: auto;
   @include for-size(tablet) {
+    margin-right: 80px;
     // width: 288px;
   }
 
@@ -51,7 +52,7 @@
 .foodNotRecommend {
   display: flex;
   flex-direction: column;
-  max-width: 350px;
+  max-width: 369px;
   width: inherit;
   @include for-size(tablet) {
     // width: 288px;
@@ -82,7 +83,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
-  max-width: 350px;
+  // max-width: 350px;
   width: inherit;
   @include for-size(tablet) {
     height: 112px;
