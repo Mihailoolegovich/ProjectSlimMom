@@ -7,7 +7,7 @@ const FoodNotRecommend = () => {
   const notRecommendProd = getNotRecommendProdData?.map(
     product => product.en[0]
   );
-  console.log(notRecommendProd);
+  
   function capitalizeFirstLetter(data) {
     return data[0].toUpperCase() + data.slice(1);
   }

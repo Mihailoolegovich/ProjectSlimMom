@@ -69,9 +69,26 @@
   outline: transparent;
   transition: all 0.25s linear;
 }
+
+@media screen and (max-width: 767px) {
+  .closeModalBtn{
+    display:none;
+  }}
+
+@media screen and (min-width: 768px) {
+  .closeModalBtn{
+    display:block;
+  }}
+
 .closeModalBtn:hover,
 .closeModalBtn:focus {
   transform: scale(1.15);
   box-shadow: 0 0 25px lightgrey;
   border: 1px solid lightgrey;
+}
+
+@media screen and (max-width: 767px) {
+  .closeModalBtn {
+    display: none;
+  }
 }

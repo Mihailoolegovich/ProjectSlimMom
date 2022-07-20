@@ -1,7 +1,7 @@
 @import '../../sass/base/BaseStyles.scss';
 
 .productList_container {
-  min-width: 280px;
+  // min-width: 280px;
 
   @include font(700, 14px, 17px, 'Verdana', 0.04em);
   color: $secondary-text-color;
