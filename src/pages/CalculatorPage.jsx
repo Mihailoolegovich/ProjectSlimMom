@@ -15,7 +15,6 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
-
   const userData = useSelector(getUserData);
 
   const onSubmit = values => {

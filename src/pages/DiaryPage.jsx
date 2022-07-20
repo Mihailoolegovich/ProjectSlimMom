@@ -15,7 +15,6 @@ import { getCurrentDay } from 'redux/products';
 import bgDesctop_Sidebar from '../images/bgDesctop_Sidebar.png';
 import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
 
-
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -93,6 +92,7 @@ const Item3 = styled('div')(({ theme }) => ({
   // },
 
   [theme.breakpoints.between('tablet', 'desktop')]: {
+    top: '637px',
     display: 'flex',
     height: 'auto',
     right: '0',
@@ -101,6 +101,7 @@ const Item3 = styled('div')(({ theme }) => ({
     // bottom: '0',
     backgroundPosition: '100% 100%',
     '@media (min-height:970px)': {
+      top: 'auto',
       bottom: '0',
     },
   },
@@ -124,7 +125,6 @@ export default function DiaryPage({ toggleModal, isOpen }) {
 
   const mobile_size = useMediaQuery('(max-width:767px)');
   const tablet_size = useMediaQuery('(min-width:768px)');
- 
 
   useEffect(() => {
     if (tablet_size) {
