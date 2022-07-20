@@ -36,7 +36,7 @@ export const getUserDiet = createAsyncThunk(
   async () => {
     try {
       const { data } = await axios.get('/users/current');
-      if (!data.data.user) {
+      if (!data.data.user.age) {
         return {
           dailyCalorieIntake: null,
           notRecommendedProducts: [],
