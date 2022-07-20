@@ -53,7 +53,7 @@ const Item2 = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   width: '100%',
   height: 'auto',
-  padding: '80px 20px 80px 20px',
+  padding: '40px 20px',
   backgroundRepeat: 'no-repeat',
 
   [theme.breakpoints.between('tablet', 'desktop')]: {
@@ -86,6 +86,11 @@ const Item3 = styled('div')(({ theme }) => ({
   alignContent: 'stretch',
   backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
+  // [theme.breakpoints.between('mobile')]: {
+  '@media (min-height:1012px)': {
+    bottom: '0',
+  },
+  // },
 
   [theme.breakpoints.between('tablet', 'desktop')]: {
     display: 'flex',
@@ -93,8 +98,11 @@ const Item3 = styled('div')(({ theme }) => ({
     right: '0',
     border: '2px #212121',
     backgroundImage: `url("${bgTabletSidebar}")`,
-    bottom: '0',
+    // bottom: '0',
     backgroundPosition: '100% 100%',
+    '@media (min-height:970px)': {
+      bottom: '0',
+    },
   },
 
   [theme.breakpoints.up('desktop')]: {
