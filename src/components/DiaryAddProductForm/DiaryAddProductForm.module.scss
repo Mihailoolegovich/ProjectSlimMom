@@ -91,6 +91,17 @@
   cursor: pointer;
   transition: $cubic;
 
+  &:disabled{
+    background-color: rgb(185, 177, 177);
+    &:hover,
+    &:focus {
+    border: 2px solid rgb(185, 177, 177);
+    box-shadow: none;
+    cursor: auto;
+  }
+  }
+
+
   &:hover,
   &:focus {
     border: 2px solid $accent-color;

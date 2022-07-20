@@ -1,6 +1,7 @@
 //import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors } from 'redux/auth';
+import { useEffect } from 'react';
 import {
   dailyCaloriesPrivate,
   dailyCaloriesPublic,
@@ -9,13 +10,15 @@ import DailyCaloriesForm from '../components/DailyCaloriesForm/DailyForm';
 import Modal from '../components/Modal/Modal';
 import DailyCaloriesIntake from 'components/DailyCaloriesIntake/DailyCaloriesIntake';
 import { getUserData } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
+import { getUserDiet } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-operations';
 
 const CalculatorPage = ({ onToggleModal, showModal }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
+  useEffect(()=>{dispatch(getUserDiet())}, [dispatch])
+
   const userData = useSelector(getUserData);
- 
 
   const onSubmit = values => {
     isLoggedIn

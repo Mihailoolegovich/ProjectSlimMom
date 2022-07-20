@@ -4,9 +4,10 @@ const DiaryFormButton = ({
   title,
   action,
   class_name = s.diaryFormButton,
+  isDisabled
 }) => {
   return (
-    <button className={class_name} type={type} onClick={action}>
+    <button disabled={isDisabled} className={class_name} type={type} onClick={action}>
       {title}
     </button>
   );

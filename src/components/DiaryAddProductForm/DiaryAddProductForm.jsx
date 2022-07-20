@@ -5,10 +5,13 @@ import useDebounce from 'hooks/useDebounce';
 import DiaryDataList from './DiaryDataList';
 import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
-const DiaryAddProductForm = ({ date, closeModal = null }) => {
+const DiaryAddProductForm = ({isDisabled, date, closeModal = null }) => {
   const [product, setProduct] = useState('');
   const [weight, setWeight] = useState('');
   const [datalistVisible, setDataListVisible] = useState(false);
+ 
+console.log(isDisabled)
+
 
   const products = useSelector(ProductsSelectors.getProducts);
   const dispatch = useDispatch();
@@ -56,6 +59,9 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
     setDataListVisible(false);
   };
 
+  
+ 
+
   return (
     <form className={s.diaryForm} onSubmit={handleSubmit}>
       <input
@@ -76,6 +82,7 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
             setDataListVisible(false);
           }, 250);
         }}
+        disabled={isDisabled}
       />
 
       <input
@@ -91,9 +98,10 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
         autoComplete="off"
         autoSave="off"
         required
+        disabled={isDisabled}
       />
 
-      <button className={s.diaryButton} type="submit">
+      <button disabled={isDisabled} className={s.diaryButton} type="submit">
         Add
       </button>
       {datalistVisible && (

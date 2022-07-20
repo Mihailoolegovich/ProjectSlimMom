@@ -104,6 +104,7 @@ const Item3 = styled('div')(({ theme }) => ({
 export default function DiaryPage({ toggleModal, isOpen }) {
   const [date, setDate] = useState(null);
   const dispatch = useDispatch();
+  const [isDisabled, setIsDisabled] = useState(true)
 
   const mobile_size = useMediaQuery('(max-width:767px)');
   const tablet_size = useMediaQuery('(min-width:768px)');
@@ -117,6 +118,8 @@ export default function DiaryPage({ toggleModal, isOpen }) {
   useEffect(() => {
     date && dispatch(getCurrentDay(date));
   }, [date, dispatch]);
+
+   useEffect(() => { setIsDisabled(new Date(date).setHours(0,0,0,0) > new Date().setHours(0, 0, 0, 0)) }, [date])
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -130,9 +133,9 @@ export default function DiaryPage({ toggleModal, isOpen }) {
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />
-              {tablet_size && <DiaryAddProductForm date={date} />}
+              {tablet_size && <DiaryAddProductForm isDisabled={isDisabled} date={date} />}
               <DiaryProductsList date={date} />
-              <DiaryFormButton type={'button'} action={toggleModal} />
+              <DiaryFormButton isDisabled={isDisabled} type={'button'} action={toggleModal} />
 
               {mobile_size && (
                 <>
@@ -141,6 +144,7 @@ export default function DiaryPage({ toggleModal, isOpen }) {
                       <DiaryAddProductForm
                         date={date}
                         closeModal={toggleModal}
+                        isDisabled={isDisabled}
                       />
                     </Modal>
                   )}
