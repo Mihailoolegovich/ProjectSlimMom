@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import authSelectors from '../../redux/auth/auth-selectors';
 
-import RightSideBar from 'components/RightSideBar/RightSideBar';
-
 const DailyCaloriesForm = ({
   onSubmit,
   initialValues,
