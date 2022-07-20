@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import DiaryDateCalendar from '../components/DiaryDateCalendar';
-import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
-import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
-import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
-import Modal from 'components/Modal/Modal';
-import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
-import { getCurrentDay } from 'redux/products';
-import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
-import bgDesctop_Sidebar from '../images/bgDesctop_Sidebar.png';
-import Summary from '../components/RightSideBar/Summary';
-import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
 import { ToastContainer } from 'react-toastify';
 import { useMediaQuery } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import { createTheme, styled, ThemeProvider } from '@mui/material/styles';
+import DiaryAddProductForm from 'components/DiaryAddProductForm/DiaryAddProductForm';
+import DiaryDateCalendar from '../components/DiaryDateCalendar';
+import DiaryProductsList from 'components/DiaryProductsList/DiaryProductsList';
+import FoodNotRecommend from '../components/RightSideBar/FoodNotRecommend';
+import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
+import Summary from '../components/RightSideBar/Summary';
+import Modal from 'components/Modal/Modal';
+import { getCurrentDay } from 'redux/products';
+import bgDesctop_Sidebar from '../images/bgDesctop_Sidebar.png';
+import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
 
 const theme = createTheme({
   breakpoints: {
@@ -46,7 +46,7 @@ const Item1 = styled('div')(({ theme }) => ({
 const Item2 = styled('div')(({ theme }) => ({
   position: 'relative',
   display: 'flex',
-  justifyContent: 'space-around',
+  justifyContent: 'space-between',
   textAlign: 'center',
   alignItems: 'center',
   flexDirection: 'column',
@@ -62,7 +62,6 @@ const Item2 = styled('div')(({ theme }) => ({
     height: '100%',
     backgroundColor: 'transporent',
     padding: '80px 32px',
-    // margin: '0px 20px 0 20px',
   },
   [theme.breakpoints.up('desktop')]: {
     display: 'flex',
@@ -75,24 +74,31 @@ const Item2 = styled('div')(({ theme }) => ({
 }));
 const Item3 = styled('div')(({ theme }) => ({
   position: 'absolute',
-  display: 'flex',
+
   width: '100%',
+  height: '45.3vh',
+  left: 0,
   alignContent: 'stretch',
   backgroundColor: '#F0F1F3',
-  margin: '0 0px 0 -20px',
   backgroundRepeat: 'no-repeat',
+  // [theme.breakpoints.between('mobile')]: {
+
+  // },
   [theme.breakpoints.between('tablet', 'desktop')]: {
-    margin: '0px 0 0 -32px',
+    display: 'flex',
+    height: 'auto',
+
+    right: '0',
+
     border: '2px #212121',
     backgroundImage: `url("${bgTabletSidebar}")`,
-    // bottom: '0',
+    bottom: '0',
     backgroundPosition: '100% 100%',
-    // padding: '40px 0 20px 0px',
   },
   [theme.breakpoints.up('desktop')]: {
-    // position: 'absolute',
     display: 'block',
-    right: '-20px',
+    left: 'auto',
+    right: '0',
     top: '0',
     backgroundPosition: '100% 100%',
     width: '517px',
