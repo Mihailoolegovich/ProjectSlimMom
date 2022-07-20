@@ -22,7 +22,7 @@ const authSlice = createSlice({
       state.success = true;
       // state.isLoggedIn = true;
       // console.log(action);
-      console.log(state);
+      // console.log(state);
     },
     [authOperations.register.pending](state) {
       state.success = false;

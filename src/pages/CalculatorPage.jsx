@@ -18,10 +18,9 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
 
-   useEffect(() => {
+  useEffect(() => {
     dispatch(getUserDiet());
   }, [dispatch]);
-
 
   const userData = useSelector(getUserData);
 
@@ -32,13 +31,15 @@ const CalculatorPage = ({ onToggleModal, showModal }) => {
     onToggleModal();
   };
 
-  const userValues = {
-    height: `${userData.height}`,
-    age: `${userData.age}`,
-    currentWeight: `${userData.currentWeight}`,
-    desiredWeight: `${userData.desiredWeight}`,
-    bloodType: `${userData.bloodType}`,
-  };
+  const userValues = userData
+    ? {
+        height: `${userData.height}`,
+        age: `${userData.age}`,
+        currentWeight: `${userData.currentWeight}`,
+        desiredWeight: `${userData.desiredWeight}`,
+        bloodType: `${userData.bloodType}`,
+      }
+    : {};
 
   return (
     <>

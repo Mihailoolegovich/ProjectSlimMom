@@ -32,7 +32,7 @@ const Modal = ({ onClose, children }) => {
 
   const handleButtonClick = e => {
     if (e.target.tagName === 'BUTTON') {
-      console.log(e.target.tagName);
+      // console.log(e.target.tagName);
       onClose();
     }
   };
@@ -52,7 +52,6 @@ const Modal = ({ onClose, children }) => {
 };
 
 export default Modal;
-
 
 Modal.propTypes = {
   onClose: PropTypes.func,
