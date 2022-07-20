@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import s from './DiaryAddProductForm.module.scss';
 import useDebounce from 'hooks/useDebounce';
 import DiaryDataList from './DiaryDataList';
+import PropTypes from 'prop-types';
 import { ProductsSelectors, addProduct, fetchProducts } from 'redux/products';
 
 const DiaryAddProductForm = ({ date, closeModal = null }) => {
@@ -104,3 +105,9 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
 };
 
 export default DiaryAddProductForm;
+
+DiaryAddProductForm.propTypes = {
+  date: PropTypes.string,
+  initialValues: PropTypes.object,
+  closeModal: PropTypes.func,
+};

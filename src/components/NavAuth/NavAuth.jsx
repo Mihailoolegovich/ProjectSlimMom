@@ -13,7 +13,6 @@ import { v4 as uuidv4 } from 'uuid';
 import routes from '../../routes';
 import styles from './NavAuth.module.scss';
 
-
 export default function NavAuth({ closeModal, isModalOpen }) {
   const [menuActive, setMenuActive] = useState(false);
   const navigate = useNavigate();
@@ -31,7 +30,6 @@ export default function NavAuth({ closeModal, isModalOpen }) {
     dispatch(authOperations.logOut());
     dispatch(clearStorage());
     navigate('/');
-    
   }, [dispatch, navigate]);
 
   //   const handelCloseModal = e => {
@@ -91,7 +89,7 @@ export default function NavAuth({ closeModal, isModalOpen }) {
 
         <p className={styles.userName}>{name}</p>
         <button onClick={onLogOut} className={styles.logout}>
-          Sign out
+          Log out
         </button>
       </div>
     </div>

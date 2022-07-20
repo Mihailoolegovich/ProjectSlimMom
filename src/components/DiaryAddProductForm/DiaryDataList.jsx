@@ -1,6 +1,7 @@
 import s from './DiaryAddProductForm.module.scss';
 import { ProductsSelectors } from 'redux/products';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const DiaryDataList = ({ productList, handleClick }) => {
   const isLoading = useSelector(ProductsSelectors.isLoading);
@@ -27,3 +28,9 @@ const DiaryDataList = ({ productList, handleClick }) => {
 };
 
 export default DiaryDataList;
+
+
+DiaryDataList.propTypes = {
+  productList: PropTypes.array,
+  handleClick: PropTypes.func,
+};

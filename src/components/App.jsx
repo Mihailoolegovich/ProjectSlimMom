@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import React, { useEffect, useState, Suspense } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import PublicRoute from './PublicRoute';
 import AppLoader from './Loader/Loader';
@@ -11,7 +12,6 @@ import {
   DiaryPage,
   CalculatorPage,
 } from '../pages';
-
 
 export const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -25,8 +25,6 @@ export const App = () => {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
-
-
 
   const isLoggedIn = useSelector(authSelectors.getLoggedOn);
   const { pathname } = useLocation();
