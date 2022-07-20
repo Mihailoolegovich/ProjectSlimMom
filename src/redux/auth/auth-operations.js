@@ -19,6 +19,9 @@ const register = createAsyncThunk('auth/register', async credentials => {
     const { data } = await axios.post('/auth/signup', credentials);
     token.set(data.data.user.verificationToken);
     toast.success('Registration successfull. Confirm your email!');
+    if (token === null) {
+      return;
+    }
     return data;
   } catch (error) {
     if (error.response.status === 409) {
