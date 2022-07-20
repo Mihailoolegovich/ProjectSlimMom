@@ -8,12 +8,15 @@ const getLoading = state => state.auth.isLoading;
 
 const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
 
+const getSuccess = state => state.auth.success;
+
 const authSelectors = {
   getLoggedOn,
   getUserName,
   getUserToken,
   getLoading,
   getIsFetchingCurrent,
+  getSuccess,
 };
 
 export default authSelectors;
