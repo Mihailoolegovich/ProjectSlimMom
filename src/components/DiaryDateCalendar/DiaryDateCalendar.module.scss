@@ -6,10 +6,10 @@
   margin-bottom: 32px;
   margin-top: 80px;
   background-color: transparent;
-  text-align: center;
+  // text-align: center;
 
   @include for-size(tablet) {
-    text-align: left;
+    // text-align: left;
   }
   @include for-size(desktop) {
     margin-top: 150px;
