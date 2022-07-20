@@ -108,6 +108,5 @@ export default DiaryAddProductForm;
 
 DiaryAddProductForm.propTypes = {
   date: PropTypes.string,
-  initialValues: PropTypes.object,
   closeModal: PropTypes.func,
 };

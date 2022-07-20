@@ -69,6 +69,17 @@
   outline: transparent;
   transition: all 0.25s linear;
 }
+
+@media screen and (max-width: 767px) {
+  .closeModalBtn{
+    display:none;
+  }}
+
+@media screen and (min-width: 768px) {
+  .closeModalBtn{
+    display:block;
+  }}
+
 .closeModalBtn:hover,
 .closeModalBtn:focus {
   transform: scale(1.15);

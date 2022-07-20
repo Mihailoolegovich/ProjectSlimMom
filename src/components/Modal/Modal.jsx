@@ -32,7 +32,6 @@ const Modal = ({ onClose, children }) => {
 
   const handleButtonClick = e => {
     if (e.target.tagName === 'BUTTON') {
-      console.log(e.target.tagName);
       onClose();
     }
   };

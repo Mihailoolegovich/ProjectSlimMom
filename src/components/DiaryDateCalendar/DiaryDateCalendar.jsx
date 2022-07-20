@@ -10,7 +10,6 @@ const DiaryDateCalendar = ({ setDate }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
-    console.log(startDate);
     setDate(startDate);
   }, [setDate, startDate]);
   // const getDateUser = newDate => {
