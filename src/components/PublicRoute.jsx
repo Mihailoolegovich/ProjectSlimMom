@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import authSelectors from '../redux/auth/auth-selectors';
+import PropTypes from 'prop-types';
 
 export default function PublicRoute({
   children,
@@ -12,3 +13,8 @@ export default function PublicRoute({
 
   return shouldRedirect ? <Navigate to={redirectTo} /> : children;
 }
+
+PublicRoute.propTypes = {
+  restricted: PropTypes.bool,
+  redirectTo: PropTypes.string,
+};

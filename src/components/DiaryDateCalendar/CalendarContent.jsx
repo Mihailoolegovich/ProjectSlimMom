@@ -1,6 +1,7 @@
 import { CalendarContainer } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../../sass/base/BaseStyles.scss';
+
 import styles from './DiaryDateCalendar.module.scss';
 
 const CalendarContent = ({ style, children }) => {

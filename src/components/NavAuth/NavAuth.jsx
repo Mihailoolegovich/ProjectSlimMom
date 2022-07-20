@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { authSelectors, authOperations } from '../../redux/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { useCallback, useMemo, useState, useEffect } from 'react';
+import { clearStorage } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-slice';
 
 import BurgerMenu from '../BurgerMenu';
 import BurgerBtn from '../BurgerButton';
@@ -11,7 +12,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 import routes from '../../routes';
 import styles from './NavAuth.module.scss';
-import { replace } from 'formik';
 
 export default function NavAuth({ closeModal, isModalOpen }) {
   const [menuActive, setMenuActive] = useState(false);
@@ -28,8 +28,9 @@ export default function NavAuth({ closeModal, isModalOpen }) {
 
   const onLogOut = useCallback(() => {
     dispatch(authOperations.logOut());
+    dispatch(clearStorage());
     navigate('/');
-  }, [dispatch]);
+  }, [dispatch, navigate]);
 
   //   const handelCloseModal = e => {
   //     dispatch(actions.modalAddProductSuccess());
@@ -50,8 +51,6 @@ export default function NavAuth({ closeModal, isModalOpen }) {
             className={({ isActive }) =>
               isActive ? styles.activeEnter : styles.enter
             }
-            // className={styles.enter}
-            // activeclassname={styles.activeEnter}
           >
             {link.label}
           </NavLink>
@@ -88,7 +87,7 @@ export default function NavAuth({ closeModal, isModalOpen }) {
 
         <p className={styles.userName}>{name}</p>
         <button onClick={onLogOut} className={styles.logout}>
-          Sign out
+          Log out
         </button>
       </div>
     </div>

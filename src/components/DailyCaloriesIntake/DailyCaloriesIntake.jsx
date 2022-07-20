@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import s from './DailyCaloriesIntake.module.scss';
 import { useSelector } from 'react-redux';
+
 import {
   getCalories,
   getNotRecommendProd,

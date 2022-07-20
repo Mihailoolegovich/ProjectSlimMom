@@ -13,7 +13,7 @@ export const dailyCaloriesPrivate = createAsyncThunk(
       );
       return data.data.user;
     } catch (error) {
-      console.log(error.message);
+      //console.log(error.message);
     }
   }
 );
@@ -26,7 +26,7 @@ export const dailyCaloriesPublic = createAsyncThunk(
 
       return data.data.user;
     } catch (error) {
-      console.log(error.message);
+      //console.log(error.message);
     }
   }
 );

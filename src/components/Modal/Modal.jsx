@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const Modal = ({ onClose, children }) => {
   useEffect(() => {
@@ -51,3 +52,8 @@ const Modal = ({ onClose, children }) => {
 };
 
 export default Modal;
+
+
+Modal.propTypes = {
+  onClose: PropTypes.func,
+};

@@ -1,4 +1,5 @@
 import styles from './BurgerButton.module.scss';
+import PropTypes from 'prop-types';
 
 const BurgerBtn = ({ active, setActive }) => {
   return (
@@ -15,3 +16,8 @@ const BurgerBtn = ({ active, setActive }) => {
 };
 
 export default BurgerBtn;
+
+BurgerBtn.propTypes = {
+  active: PropTypes.bool,
+  setActive: PropTypes.func,
+};
