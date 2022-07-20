@@ -4,7 +4,6 @@ import DailyCaloriesFormValidator from './DailyFormValidator';
 import styles from './DailyForm.module.scss';
 import { useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/auth-selectors';
-import RightSideBar from 'components/RightSideBar/RightSideBar';
 
 const DailyCaloriesForm = ({
   onSubmit,
