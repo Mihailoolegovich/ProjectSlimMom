@@ -3,6 +3,7 @@ import { Formik, Field, Form } from 'formik';
 import DailyCaloriesFormValidator from './DailyFormValidator';
 import styles from './DailyForm.module.scss';
 import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import authSelectors from '../../redux/auth/auth-selectors';
 
 const DailyCaloriesForm = ({
@@ -158,3 +159,9 @@ const DailyCaloriesForm = ({
 };
 
 export default DailyCaloriesForm;
+
+DailyCaloriesForm.propTypes = {
+  onSubmit: PropTypes.func,
+  initialValues: PropTypes.object,
+  enableReinitialize: PropTypes.bool,
+};

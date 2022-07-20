@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import EllipsisText from 'react-ellipsis-text/lib/components/EllipsisText';
 import { deleteProduct } from 'redux/products/products-operations';
+import PropTypes from 'prop-types';
+
 import s from './DiaryProductsListItem.module.scss';
 
 const DiaryProductsListItem = ({ id, title, weight, calories, date }) => {
@@ -29,3 +31,11 @@ const DiaryProductsListItem = ({ id, title, weight, calories, date }) => {
 };
 
 export default DiaryProductsListItem;
+
+DiaryProductsListItem.propTypes = {
+  id: PropTypes.string,
+  title: PropTypes.string,
+  weight: PropTypes.number,
+  calories: PropTypes.number,
+  date: PropTypes.string,
+};
