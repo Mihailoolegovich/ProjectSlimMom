@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
@@ -52,7 +52,6 @@ export default function RegistrationPage() {
           if (success) {
             resetForm();
           }
-          // resetForm();
         }}
       >
         <Form>
@@ -80,7 +79,7 @@ export default function RegistrationPage() {
                     name="email"
                     type="text"
                     className="input"
-                    placeholder=" Email *"
+                    placeholder="Email *"
                   />
                   <ErrorMessage name="email" render={renderError} />
                 </div>
