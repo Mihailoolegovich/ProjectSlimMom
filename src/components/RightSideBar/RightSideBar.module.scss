@@ -40,8 +40,8 @@
 
   @include for-size(desktop) {
     display: flex;
-    padding-top: 192px;
-    margin: 0 60px auto;
+    // padding-top: 192px;
+    margin-bottom: 60px;
     width: inherit;
     height: 166px;
     // width: 288px;
@@ -55,10 +55,10 @@
   width: inherit;
   @include for-size(tablet) {
     // width: 288px;
-    margin-left: 80px;
+    // margin-left: 80px;
   }
   @include for-size(desktop) {
-    margin: 20px 20px 266px;
+    // margin: 20px 20px 266px;
   }
 }
 
