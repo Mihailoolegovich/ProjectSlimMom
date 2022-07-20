@@ -113,6 +113,7 @@
 
 .formContainer {
   @include for-size(tablet) {
+    position: absolute;
     width: 520px;
   }
 }
@@ -151,7 +152,6 @@
 }
 
 .fieldErrorNew {
-  position: absolute;
   z-index: 100;
 }
 .fieldErrorNewLast {
@@ -168,6 +168,7 @@
   @include font(400, 12px, 17px, 'Verdana', 0.04em);
   text-align: left;
   color: $accent-color;
+  position: absolute;
 
   @include for-size(tablet) {
     padding-top: 8px;
