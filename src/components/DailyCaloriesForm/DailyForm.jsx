@@ -15,7 +15,6 @@ const DailyCaloriesForm = ({
 }) => {
   const isAuth = useSelector(authSelectors.getLoggedOn);
 
-
   return (
     <div className={styles.calculator}>
       <div className={!isAuth ? styles.container : styles.container__active}>
@@ -27,7 +26,8 @@ const DailyCaloriesForm = ({
           initialValues={initialValues}
           validationSchema={DailyCaloriesFormValidator}
           onSubmit={onSubmit}
-          render={({ errors, touched, values }) => (
+        >
+          {({ errors, touched, values }) => (
             <Form className={styles.formContainer}>
               <div className={styles.formWrapper}>
                 <div className={styles.inputCont}>
@@ -150,7 +150,7 @@ const DailyCaloriesForm = ({
               </button>
             </Form>
           )}
-        />
+        </Formik>
       </div>
       {isAuth && (
         <div className={styles.sideBarContainer}>

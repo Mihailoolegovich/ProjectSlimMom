@@ -15,19 +15,17 @@ import {
 
 export const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const isLoggedIn = useSelector(authSelectors.getLoggedOn);
+  const { pathname } = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    isLoggedIn && dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch, isLoggedIn]);
 
   const toggleModal = (value = !modalOpen) => {
     setModalOpen(value);
   };
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());
-  }, [dispatch]);
-
-  const isLoggedIn = useSelector(authSelectors.getLoggedOn);
-  const { pathname } = useLocation();
 
   function adaptiveClassName(loc) {
     const findClassName = {

@@ -33,14 +33,9 @@ const DiaryProductsListItem = ({ id, title, weight, calories, date }) => {
 export default DiaryProductsListItem;
 
 DiaryProductsListItem.propTypes = {
-  // id: PropTypes.string,
-  // title: PropTypes.string,
-  // weight: PropTypes.number,
-  // calories: PropTypes.number,
-  // date: PropTypes.string,
-  id: PropTypes.number,
-  title: PropTypes.number,
-  weight: PropTypes.number,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  weight: PropTypes.string,
   calories: PropTypes.number,
-  date: PropTypes.number,
+  date: PropTypes.object,
 };

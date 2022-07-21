@@ -8,43 +8,30 @@ import {
   getNotRecommendProd,
 } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-selectors';
 
-
 const RightSideBar = ({ date }) => {
   const getNotRecommendProdData = useSelector(getNotRecommendProd);
   const notRecommendProd = getNotRecommendProdData?.map(
     product => product.en[0]
   );
 
-  // console.log('getNotRecommendProdData:', getNotRecommendProdData);
-
-
-
   const currentDateNow = date
     ? date.toLocaleDateString('en-GB')
     : new Date().toLocaleDateString('en-GB');
 
-  // 1. отримуємо суму спожитих калорій
   const productsData = useSelector(ProductsSelectors.consumedProducts);
-  // console.log('productsData:', productsData);
 
   const consumed = productsData
     ?.map(product => product.calories)
     .reduce((partialSum, a) => partialSum + a, 0);
-  // console.log('Consumed:', consumed);
 
-  // 2. отримуємо денну норму споживання калорій
   const dailyRate = useSelector(getCalories);
-  // console.log('Daily rate:', dailyRate);
 
-  // 3. розраховуємо залишок скільки ще можна спожити калорій
   const leftCalc = dailyRate - consumed;
   const left =
     leftCalc < 0
       ? 'Exceeded by ' + Math.abs(leftCalc.toFixed())
       : leftCalc.toFixed();
-  // console.log('Left:', left);
 
-  // 4. розраховуємо відсоткове значення спожитих калорій
   const caloriesPercentage = () => {
     if (consumed !== 0) {
       const result = (100 * consumed) / dailyRate;
@@ -52,7 +39,6 @@ const RightSideBar = ({ date }) => {
     }
     return 0;
   };
-  // console.log('Calories percentage:', caloriesPercentage());
 
   const elements = [
     {
@@ -77,7 +63,6 @@ const RightSideBar = ({ date }) => {
     },
   ];
 
-  // 5. Отримуємо нерекомендовані для споживання продукти
   function capitalizeFirstLetter(data) {
     return data[0].toUpperCase() + data.slice(1);
   }

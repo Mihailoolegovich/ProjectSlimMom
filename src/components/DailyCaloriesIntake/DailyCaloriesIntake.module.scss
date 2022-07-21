@@ -13,9 +13,6 @@
 
 .container {
   padding-bottom: 32px;
-  // @include for-size(tablet) {
-  //        padding: 64px 82px 81px;
-  //     }
 }
 
 .title {
@@ -25,7 +22,6 @@
   @include for-size(tablet) {
     @include font(700, 26px, 100%, 'Verdana', 0.04em);
     text-align: center;
-    // margin-bottom: 20px;
   }
 }
 
@@ -42,9 +38,6 @@
   color: $primary-text-color;
   margin-top: 20px;
   margin-bottom: 20px;
-  // @include for-size(tablet) {
-  //         margin-top: 12px;
-  //     }
 }
 .containerFood {
   border-top: 1px solid $light-gray;
@@ -65,19 +58,15 @@
     margin-bottom: 10px;
   }
 }
+.buttonContainer {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+}
 
 .button {
   @include orangeBtn;
   width: 210px;
-  // padding: 13px 25px;
-  margin: 40px auto 0;
-
-  // text-align: center;
-  // // margin-top: 40px;
-  // width: 176px;
-
-  // line-height: 1.21;
-  // text-align: center;
-  // letter-spacing: 0.04em;
-  // outline: none;
+  display: inline;
+  // margin: 40px auto 0;
 }

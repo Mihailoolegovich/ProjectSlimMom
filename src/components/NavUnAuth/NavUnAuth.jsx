@@ -14,7 +14,6 @@ export default function NavNotAuth({ closeModal, isModalOpen }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 👇️ run function when component unmounts 👇️
     return () => {
       <div className={styles.userWrapper}>
         <button

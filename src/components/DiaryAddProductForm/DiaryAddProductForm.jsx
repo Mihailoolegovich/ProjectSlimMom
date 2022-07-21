@@ -107,7 +107,7 @@ const DiaryAddProductForm = ({ date, closeModal = null }) => {
 export default DiaryAddProductForm;
 
 DiaryAddProductForm.propTypes = {
-  date: PropTypes.string,
+  // date: PropTypes.string,
   //initialValues: PropTypes.object,
   closeModal: PropTypes.func,
 };

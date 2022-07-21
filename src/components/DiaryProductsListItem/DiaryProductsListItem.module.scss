@@ -17,7 +17,7 @@
 .listItem_title {
   display: block;
   margin-right: 8px;
-  width: 55%;
+  width: 44%;
   padding: 0 0 8px 0;
   border-bottom: 1px solid $light-gray;
   text-align: left;
@@ -26,7 +26,6 @@
   @include font(400, 14px, 17px, 'Verdana', 0.04em);
 
   @include for-size(tablet) {
-    // width: 240px;
     margin-right: 22px;
     padding: 0 0 20px 0;
   }

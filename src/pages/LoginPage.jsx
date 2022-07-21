@@ -17,7 +17,7 @@ export default function LoginPage() {
       .min(8, 'Must be at least 8 symbols!')
       .max(20, 'Too Long!')
       .required('Password is required'),
-    // .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
+  
   });
 
   const formik = useFormik({
