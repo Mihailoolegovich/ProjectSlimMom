@@ -73,15 +73,15 @@ const Item2 = styled('div')(({ theme }) => ({
 const Item3 = styled('div')(({ theme }) => ({
   position: 'absolute',
   width: '100%',
-  height: '45.3vh',
+  // height: '45.3vh',
   left: 0,
   alignContent: 'stretch',
   backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
-
-  '@media (min-height:1012px)': {
-    bottom: '0',
-  },
+  top: '632px',
+  // bottom: '0',
+  // '@media (max-height:1020)': {
+  // },
 
   [theme.breakpoints.between('tablet', 'desktop')]: {
     top: '637px',
@@ -92,10 +92,10 @@ const Item3 = styled('div')(({ theme }) => ({
     backgroundImage: `url("${bgTabletSidebar}")`,
 
     backgroundPosition: '100% 100%',
-    '@media (min-height:970px)': {
-      top: 'auto',
-      bottom: '0',
-    },
+    // '@media (min-height:970px)': {
+    //   top: 'auto',
+    //   bottom: '0',
+    // },
   },
 
   [theme.breakpoints.up('desktop')]: {
