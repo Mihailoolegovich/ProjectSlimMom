@@ -89,7 +89,7 @@ export default function RegistrationPage() {
                   <Field
                     id="password"
                     name="password"
-                    type="text"
+                    type="password"
                     className="input"
                     placeholder="Password *"
                   />
