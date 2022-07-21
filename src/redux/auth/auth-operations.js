@@ -82,9 +82,12 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
+      if (data.message) {
+        return { name: null, email: null };
+      }
       return data.data.user;
     } catch (error) {
-      return; /*console.log(error.message)*/
+      return { name: null, email: null };
     }
   }
 );
