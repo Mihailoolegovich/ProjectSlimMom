@@ -26,7 +26,6 @@
   @include font(400, 14px, 17px, 'Verdana', 0.04em);
 
   @include for-size(tablet) {
-    // width: 240px;
     margin-right: 22px;
     padding: 0 0 20px 0;
   }

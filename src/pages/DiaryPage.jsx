@@ -30,17 +30,10 @@ const theme = createTheme({
 const Item1 = styled('div')(({ theme }) => ({
   display: 'flexbox',
   alignItems: 'flex-start',
-  // margin: '160px 0 0 0',
+
   height: 'auto',
   width: 'auto',
   backgroundColor: '#ffffff',
-
-  // [theme.breakpoints.between('tablet', 'desktop')]: {
-  //   margin: '180px 32px 0 32x',
-  // },
-  // [theme.breakpoints.up('desktop')]: {
-  //   margin: '290px 16px 0 16px',
-  // },
 }));
 
 const Item2 = styled('div')(({ theme }) => ({
@@ -85,11 +78,10 @@ const Item3 = styled('div')(({ theme }) => ({
   alignContent: 'stretch',
   backgroundColor: '#F0F1F3',
   backgroundRepeat: 'no-repeat',
-  // [theme.breakpoints.between('mobile')]: {
+
   '@media (min-height:1012px)': {
     bottom: '0',
   },
-  // },
 
   [theme.breakpoints.between('tablet', 'desktop')]: {
     top: '637px',
@@ -98,7 +90,7 @@ const Item3 = styled('div')(({ theme }) => ({
     right: '0',
     border: '2px #212121',
     backgroundImage: `url("${bgTabletSidebar}")`,
-    // bottom: '0',
+
     backgroundPosition: '100% 100%',
     '@media (min-height:970px)': {
       top: 'auto',
@@ -139,13 +131,7 @@ export default function DiaryPage({ toggleModal, isOpen }) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Grid
-          container
-          display={'flexbox'}
-          width={'100%'}
-          maxHeight={'100%'}
-          // overflowY={'scroll'}
-        >
+        <Grid container display={'flexbox'} width={'100%'} maxHeight={'100%'}>
           <Grid item xs={12} mobile={12} tablet={12} desktop={7}>
             <Item1>
               <DiaryDateCalendar setDate={setDate} />

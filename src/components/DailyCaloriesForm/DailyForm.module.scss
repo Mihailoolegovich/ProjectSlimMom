@@ -33,7 +33,6 @@
 .sideBarContainer {
   position: absolute;
   width: 100%;
-  // height: 35.4vh;
   left: 0;
   background-color: $secondary-bg-color;
   @include for-size(mobile) {
@@ -44,8 +43,6 @@
   }
   @include for-size(tablet) {
     height: fit-content;
-    // height: 32.6vh;
-    // bottom: 0;
     top: 637px;
     background-image: url('../../images/bgTablet_Sidebar.png');
     background-position: 100% 100%;

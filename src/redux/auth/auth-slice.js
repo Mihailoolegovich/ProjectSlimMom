@@ -8,7 +8,6 @@ const initialUserState = {
   error: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
-  // isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -20,7 +19,6 @@ const authSlice = createSlice({
       state.user.email = action.payload.data.user.email;
       state.token = action.payload.token;
       state.success = true;
-
     },
     [authOperations.register.pending](state) {
       state.success = false;
