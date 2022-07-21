@@ -12,8 +12,8 @@ import Summary from '../components/RightSideBar/Summary';
 import DiaryFormButton from 'components/DiaryAddProductForm/DiaryFormButton';
 import Modal from 'components/Modal/Modal';
 import { getCurrentDay } from 'redux/products';
-import bgDesctop_Sidebar from '../resources/images/bgDesctop_Sidebar.png';
-import bgTabletSidebar from '../resources/images/bgTablet_Sidebar.png';
+import bgDesctop_Sidebar from '../images/bgDesctop_Sidebar.png';
+import bgTabletSidebar from '../images/bgTablet_Sidebar.png';
 
 const theme = createTheme({
   breakpoints: {

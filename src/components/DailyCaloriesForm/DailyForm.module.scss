@@ -44,7 +44,7 @@
   @include for-size(tablet) {
     height: fit-content;
     top: 637px;
-    background-image: url('../../resources/images/bgTablet_Sidebar.png');
+    background-image: url('../../images/bgTablet_Sidebar.png');
     background-position: 100% 100%;
     background-repeat: no-repeat;
     @media (min-height: 980px) {
@@ -59,7 +59,7 @@
     top: 0;
     width: 517px;
     height: 100vh;
-    background-image: url('../../resources/images/bgDesctop_Sidebar.png');
+    background-image: url('../../images/bgDesctop_Sidebar.png');
   }
 }
 
