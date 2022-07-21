@@ -35,7 +35,7 @@ const DailyCaloriesIntake = ({ closeModal }) => {
         </ol>
       </div>
 
-      <Link type="button" to="/auth/signup">
+      <Link type="button" to="/auth/signup" className={s.buttonContainer}>
         <button
           onClick={() => {
             closeModal();

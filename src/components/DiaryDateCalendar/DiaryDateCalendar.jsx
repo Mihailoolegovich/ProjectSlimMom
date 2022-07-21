@@ -35,6 +35,8 @@ const DiaryDateCalendar = ({ setDate }) => {
           }
           setStartDate(newDate);
         }}
+        maxDate={new Date()}
+        showDisabledMonthNavigation
         locale={uk}
         dateFormat="dd.MM.yyyy"
         calendarContainer={CalendarContent}

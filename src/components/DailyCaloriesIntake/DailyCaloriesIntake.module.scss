@@ -58,10 +58,15 @@
     margin-bottom: 10px;
   }
 }
+.buttonContainer {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+}
 
 .button {
   @include orangeBtn;
   width: 210px;
-
-  margin: 40px auto 0;
+  display: inline;
+  // margin: 40px auto 0;
 }

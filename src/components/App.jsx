@@ -20,9 +20,9 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-   dispatch(authOperations.fetchCurrentUser());
-  }, [dispatch]);
-  
+    isLoggedIn && dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch, isLoggedIn]);
+
   const toggleModal = (value = !modalOpen) => {
     setModalOpen(value);
   };
