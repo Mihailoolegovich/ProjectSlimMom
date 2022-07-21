@@ -26,18 +26,12 @@ const caloriesSlice = createSlice({
   extraReducers: {
     [dailyCaloriesPrivate.fulfilled]: (state, { payload }) => {
       return (state = { ...payload });
-      // console.log(action);
-      //console.log(state);
     },
     [dailyCaloriesPublic.fulfilled]: (state, { payload }) => {
       return (state = { ...payload });
-      // console.log(action);
-      //console.log(state);
     },
     [getUserDiet.fulfilled]: (state, { payload }) => {
       return (state = { ...payload });
-      // console.log(action);
-      //console.log(state);
     },
   },
 });

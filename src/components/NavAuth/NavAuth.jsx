@@ -6,7 +6,6 @@ import { clearStorage } from 'redux/dailyCalorieIntakes/dailyCalorieIntake-slice
 
 import BurgerMenu from '../BurgerMenu';
 import BurgerBtn from '../BurgerButton';
-// import { modalAddProduct, actions } from '../../redux/products';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -20,7 +19,7 @@ export default function NavAuth({ closeModal, isModalOpen }) {
   const name = useSelector(authSelectors.getUserName);
 
   const navLinks = useMemo(() => routes.filter(route => route.isNav), []);
-  console.log(navLinks);
+
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = menuActive ? 'hidden' : 'auto';
@@ -32,10 +31,6 @@ export default function NavAuth({ closeModal, isModalOpen }) {
     dispatch(clearStorage());
     navigate('/auth/login', { replace: true });
   }, [dispatch, navigate]);
-
-  //   const handelCloseModal = e => {
-  //     dispatch(actions.modalAddProductSuccess());
-  //   };
 
   const handleCloseBurger = () => {
     setMenuActive(false);

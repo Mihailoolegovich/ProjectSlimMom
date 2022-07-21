@@ -10,14 +10,8 @@ const DiaryDateCalendar = ({ setDate }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
-    // console.log(startDate);
     setDate(startDate);
   }, [setDate, startDate]);
-  // const getDateUser = newDate => {
-  //   console.log(
-  //     'запрос за списком продуктов по выбранной дате ---  ' + newDate
-  //   );
-  // };
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
     <>
@@ -40,7 +34,6 @@ const DiaryDateCalendar = ({ setDate }) => {
             return;
           }
           setStartDate(newDate);
-          // getDateUser(newDate);
         }}
         locale={uk}
         dateFormat="dd.MM.yyyy"
