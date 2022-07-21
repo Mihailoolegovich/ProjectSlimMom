@@ -3,7 +3,7 @@ import Nav from '../Nav';
 import NavAuth from '../NavAuth/NavAuth';
 import NavNotAuth from '../NavUnAuth/NavUnAuth';
 
-import { ReactComponent as ArrowBack } from '../../icons/arrowBack.svg';
+import { ReactComponent as ArrowBack } from '../../resources/icons/arrowBack.svg';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Header.module.scss';

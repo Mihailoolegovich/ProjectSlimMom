@@ -58,7 +58,7 @@
   justify-content: center;
   align-items: center;
   background: transparent;
-  background-image: url('/src/icons/сlose.svg');
+  background-image: url('/src/resources/icons/сlose.svg');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   cursor: pointer;
@@ -71,14 +71,16 @@
 }
 
 @media screen and (max-width: 767px) {
-  .closeModalBtn{
-    display:none;
-  }}
+  .closeModalBtn {
+    display: none;
+  }
+}
 
 @media screen and (min-width: 768px) {
-  .closeModalBtn{
-    display:block;
-  }}
+  .closeModalBtn {
+    display: block;
+  }
+}
 
 .closeModalBtn:hover,
 .closeModalBtn:focus {
