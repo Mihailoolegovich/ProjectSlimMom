@@ -5,7 +5,7 @@ const initialUserState = {
   user: { name: null, email: null },
   token: null,
   success: false,
-  // error: null,
+  error: null,
   isLoggedIn: false,
   isFetchingCurrentUser: false,
   // isLoading: false,
@@ -25,8 +25,9 @@ const authSlice = createSlice({
     [authOperations.register.pending](state) {
       state.success = false;
     },
-    [authOperations.register.rejected](state) {
+    [authOperations.register.rejected](state, {payload}) {
       state.success = false;
+      state.error = payload
     },
     [authOperations.logIn.fulfilled](state, action) {
       state.user = action.payload.data.user;

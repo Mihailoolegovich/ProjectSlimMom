@@ -14,27 +14,32 @@ const token = {
   },
 };
 
-const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('/auth/signup', credentials);
-    token.set(data.data.user.verificationToken);
-    toast.success('Registration successfull. Confirm your email!');
-    if (token === null) {
-      return;
-    }
-    return data;
-  } catch (error) {
-    if (error.response.status === 409) {
-      return toast.error('The user with this email already registered');
-    } else if (error.response.status === 500) {
-      return toast.error(
-        'Oops, something went wrong. Try to refresh this page or try again later'
-      );
-    } else {
-      return toast.error(error.message);
+const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post('/auth/signup', credentials);
+      token.set(data.data.user.verificationToken);
+      toast.success('Registration successfull. Confirm your email!');
+      if (token === null) {
+        return;
+      }
+      return data;
+    } catch (error) {
+      if (error.response.status === 409) {
+        toast.error('The user with this email already registered');
+        return rejectWithValue(error.message);
+      } else if (error.response.status === 500) {
+        toast.error(
+          'Oops, something went wrong. Try to refresh this page or try again later'
+        );
+        return rejectWithValue(error.message);
+      }
+      toast.error(error.message);
+      return rejectWithValue(error.message);
     }
   }
-});
+);
 
 const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
