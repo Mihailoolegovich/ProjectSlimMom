@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactComponent as LogoImage } from '../../icons/logo-pic.svg';
-import { ReactComponent as LogoText } from '../../icons/logo-text.svg';
+import { ReactComponent as LogoImage } from '../../resources/icons/logo-pic.svg';
+import { ReactComponent as LogoText } from '../../resources/icons/logo-text.svg';
 import styles from './Logo.module.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
